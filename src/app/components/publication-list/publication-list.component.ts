@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from "rxjs";
 import { PublicationService } from "src/app/services/publication-service/publication.service";
-import { Publication } from "src/app/model/publication";
+import { PublicationDTO } from "src/app/model/publication-dto";
 
 @Component({
   selector: 'app-publication-list',
@@ -11,7 +11,7 @@ import { Publication } from "src/app/model/publication";
 })
 export class PublicationListComponent implements OnInit {
 
-  publications: Observable<Publication[]>;
+  publications: Observable<PublicationDTO[]>;
 
   constructor(private publicationService: PublicationService, private router: Router) {}
 
