@@ -10,11 +10,7 @@
           <th>Tamaño</th>
           <th>Edad</th>
           <th>Descripción</th>
-          <th>Nombre Usuario</th>
-          <th>eMail</th>
-          <th>Localización</th>
           <th>Tipo publicación</th>
-          <th>Estado publicación</th>
           <th>dirección</th>
           <th>Especificación</th>
           <th>Acciones</th>
@@ -22,19 +18,14 @@
       </thead>
       <tbody>
         <tr *ngFor="let publication of publications | async">
-          <td>{{publication.breed}}</td>
-          <td>{{publication.size}}</td>
-          <td>{{publication.age}}</td>
-          <td>{{publication.description}}</td>
-          <td>{{publication.userName}}</td>
-          <td>{{publication.email}}</td>
-          <td>{{publication.location}}</td>
-          <td>{{publication.publicationType}}</td>
-          <td>{{publication.publicationStatus}}</td>
-          <td>{{publication.adrees}}</td>
-          <td>{{publication.specification}}</td>
+          <td>{{publication.Breed}}</td>
+          <td>{{publication.Size}}</td>
+          <td>{{publication.Age}}</td>
+          <td>{{publication.Description}}</td>
+          <td>{{publication.PublicationType}}</td>
+          <td>{{publication.Adrees}}</td>
+          <td>{{publication.Specification}}</td>
           <td>
-            <button (click)="buyMenu(menu.id)" class="btn btn-info btn-sm">Buy</button>
           </td>
         </tr>
       </tbody>
