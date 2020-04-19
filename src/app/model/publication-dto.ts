@@ -4,6 +4,7 @@ export class PublicationDTO {
     size: string;
     age: string;
     description: string;
+    animalType: number;
 
     userName: string;
     email: string;
