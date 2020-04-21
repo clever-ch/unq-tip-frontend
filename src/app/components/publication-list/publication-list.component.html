@@ -1,11 +1,12 @@
-<div class="container">
+<div class="container p-3 my-3 bg-white text-black">
   <div class="panel-heading text-center">
-    <h2>Listado de publicaciones</h2>
+    <h1>Listado de publicaciones</h1>
   </div>
   <div class="panel-body table-responsive">
-    <table class="table table-bordered">
-      <thead class="thead-light">
+    <table class="table table-striped">
+      <thead class="thead-dark text-center">
         <tr>
+          <th></th>
           <th>Raza</th>
           <th>Tamaño</th>
           <th>Edad</th>
@@ -17,7 +18,8 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let publication of publications | async">
+        <tr *ngFor="let publication of publications | async" class="text-center">
+          <td><img class="img-fluid" src="https://cdn.pixabay.com/photo/2016/01/19/17/41/friends-1149841_960_720.jpg" width="300" height="200"></td>
           <td>{{publication.Breed}}</td>
           <td>{{publication.Size}}</td>
           <td>{{publication.Age}}</td>
