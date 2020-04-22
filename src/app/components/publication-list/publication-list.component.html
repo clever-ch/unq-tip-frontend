@@ -33,4 +33,18 @@
       </tbody>
     </table>
   </div>
+  <div class="container">
+    <div class="panel-heading text-center">
+      <h1>Listado de publicaciones</h1>
+    </div>
+    <div class="card-columns" *ngFor="let publication of publications | async">
+      <img class="img-fluid" src="https://cdn.pixabay.com/photo/2016/01/19/17/41/friends-1149841_960_720.jpg" style="width:200%">
+      <div class="card-body-center bg-light text-dark text-center border" style="width:350px" >
+        <h4 class="card-title">{{publication.Breed}}</h4>
+        <p class="card-text">{{publication.Size}} - {{publication.Age}} - {{publication.Description}} - {{publication.PublicationType}} - {{publication.Adrees}} - {{publication.Specification}}</p>
+      </div>
+      <br>
+      <a href="#" class="btn btn-success btn-block stretched-link">Contact</a>
+    </div>
+  </div>
 </div>
