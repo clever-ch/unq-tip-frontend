@@ -8,19 +8,15 @@ import { PublicationListComponent } from './components/publication-list/publicat
 import { PublicationCreateComponent } from './components/publication-create/publication-create.component';
 import { HttpClientModule } from '@angular/common/http';
 
+import { MaterialModule } from './generic-components/material.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DialogPublicationComponent } from './components/dialog-publication/dialog-publication.component';
+
 @NgModule({
-  declarations: [
-    AppComponent,
-    PublicationListComponent,
-    PublicationCreateComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    HttpClientModule
-  ],
+  declarations: [AppComponent, PublicationListComponent, PublicationCreateComponent, DialogPublicationComponent],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule, MaterialModule, BrowserAnimationsModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [DialogPublicationComponent]
 })
 export class AppModule { }
