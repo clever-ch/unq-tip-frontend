@@ -1,0 +1,60 @@
+<!-- <h1 mat-dialog-title>Hi {{data.Breed}}</h1>
+<div mat-dialog-content>
+  <p>What's your favorite animal?</p>
+  <mat-form-field>
+    <input matInput [(ngModel)]="data.animal">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">No Thanks</button>
+  <button mat-button [mat-dialog-close]="data.animal" cdkFocusInitial>Ok</button>
+</div> -->
+
+<div class="container">
+  <div class="panel-heading text-center">
+    <h2>Contactar con el usuario</h2>
+  </div>
+  <br>
+  <div class="container">
+    <address>
+      <strong>{{data.UserName}}</strong>
+      <br>
+      {{data.Location}}
+      <br>
+      {{data.Adrees}}
+      <br>
+      <abbr title="Phone">Tel:</abbr> (123) 456-7890
+    </address>
+
+    <address>
+      <strong>Nombre completo</strong>
+      <br>
+      Pepe Perez Paez
+    </address>
+
+    <address>
+      <strong>Correo Electrónico</strong>
+      <br>
+      <a href="mailto:#">{{data.Email}}</a>
+    </address>
+
+    <!-- <div class="row">
+      <div class="col-md-6">Usuario</div>
+      <div class="col-md-3">{{data.UserName}}</div>
+      <div class="w-100"></div>
+      <div class="col-md-6">Correo Electrónico</div>
+      <div class="col-md-3">data.Email</div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">Localización</div>
+      <div class="col-md-3">{{data.Location}}</div>
+      <div class="w-100"></div>
+      <div class="col-md-6">Dirección</div>
+      <div class="col-md-3">data.Adrees</div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">Especificación</div>
+      <div class="col-md-3">data.Specification</div>
+    </div> -->
+  </div>
+</div>
