@@ -10,7 +10,7 @@
           <h4 class="card-title">{{publication.Description}}</h4>
           <p class="card-text">{{publication.Size}} - {{publication.Age}} - {{publication.PublicationType}} -
             {{publication.Adrees}} - {{publication.Specification}}</p>
-          <a href="#" class="btn btn-success stretched-link">Contact</a>
+          <button type="button" class="btn btn-info" (click)="openDialog(publication)">Ver detalles</button>
         </div>
         <div class="card">
           <img src="https://cdn.pixabay.com/photo/2016/10/15/12/01/dog-1742295_960_720.jpg" alt="Card image cap">
