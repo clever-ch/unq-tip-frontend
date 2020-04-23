@@ -9,6 +9,10 @@ export class PublicationDTO {
     userName: string;
     email: string;
 
+    accountName: string;
+    accountSurName: string;
+    AccountTelephone: string;
+
     location: string;
     publicationType: number;
     publicationStatus: number;
