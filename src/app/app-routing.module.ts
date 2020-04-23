@@ -8,7 +8,7 @@ import { PublicationListComponent } from 'src/app/components/publication-list/pu
 
 const routes: Routes = [
   { path: 'publicationCreate', component: PublicationCreateComponent },
-  { path: 'publicationList', component: PublicationListComponent },
+  { path: 'publications', component: PublicationListComponent },
 ];
 
 @NgModule({

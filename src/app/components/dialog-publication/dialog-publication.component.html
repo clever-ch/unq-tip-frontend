@@ -1,0 +1,45 @@
+<!-- <h1 mat-dialog-title>Hi {{data.Breed}}</h1>
+<div mat-dialog-content>
+  <p>What's your favorite animal?</p>
+  <mat-form-field>
+    <input matInput [(ngModel)]="data.animal">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">No Thanks</button>
+  <button mat-button [mat-dialog-close]="data.animal" cdkFocusInitial>Ok</button>
+</div> -->
+
+<div class="container">
+  <div class="panel-heading text-center">
+    <h2>Contactar con el usuario</h2>
+  </div>
+  <br>
+  <div class="container">
+    <address>
+      <strong>{{data.UserName}}</strong>
+      <br>
+      {{data.Adrees}}
+      <br>
+      <abbr title="Phone">Tel:</abbr> {{data.AccountTelephone}}
+    </address>
+
+    <address>
+      <strong>Nombre completo</strong>
+      <br>
+      {{data.AccountName}} {{data.AccountSurName}}
+    </address>
+
+    <address>
+      <strong>Correo Electrónico</strong>
+      <br>
+      <a href="mailto:#">{{data.Email}}</a>
+    </address>
+
+    <address>
+      <strong>Ubicación</strong>
+      <br>
+      {{data.Location}}
+    </address>
+  </div>
+</div>

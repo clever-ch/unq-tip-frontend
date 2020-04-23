@@ -1,3 +1,30 @@
-<p>
-  publication-list works!
-</p>
+<div class="container p-3 my-3 bg-white text-black">
+  <div class="panel-heading text-center">
+    <h1>Listado de publicaciones</h1>
+  </div>
+  <div class="album text-center">
+    <div class="container">
+      <div class="row">
+        <div class="card" *ngFor="let publication of publications | async">
+          <img src="https://cdn.pixabay.com/photo/2016/01/19/17/41/friends-1149841_960_720.jpg" alt="Card image cap">
+          <h4 class="card-title">{{publication.Description}}</h4>
+          <p class="card-text">{{publication.Size}} - {{publication.Age}} - {{publication.PublicationType}} -
+            {{publication.Adrees}} - {{publication.Specification}}</p>
+          <button type="button" class="btn btn-info" (click)="openDialog(publication)">Ver detalles</button>
+        </div>
+        <div class="card">
+          <img src="https://cdn.pixabay.com/photo/2016/10/15/12/01/dog-1742295_960_720.jpg" alt="Card image cap">
+          <h4 class="card-title">Perro</h4>
+          <p class="card-text">Weimar</p>
+          <a href="#" class="btn btn-success stretched-link">Contact</a>
+        </div>
+        <div class="card">
+          <img src="https://cdn.pixabay.com/photo/2016/02/10/16/37/cat-1192026_960_720.jpg" alt="Card image cap">
+          <h4 class="card-title">Gato</h4>
+          <p class="card-text">Pequeño - 2 meses</p>
+          <a href="#" class="btn btn-success stretched-link">Contact</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
