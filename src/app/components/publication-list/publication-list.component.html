@@ -6,23 +6,75 @@
     <div class="container">
       <div class="row">
         <div class="card" *ngFor="let publication of publications | async">
-          <img src="https://cdn.pixabay.com/photo/2016/01/19/17/41/friends-1149841_960_720.jpg" alt="Card image cap">
-          <h4 class="card-title">{{publication.Description}}</h4>
-          <p class="card-text">{{publication.Size}} - {{publication.Age}} - {{publication.PublicationType}} -
-            {{publication.Adrees}} - {{publication.Specification}}</p>
+          <img src="https://www.elmundodelgato.com/fotos/78/1219_P1211772.JPG" alt="Card image cap">
+          <h4 class="card-title">{{publication.AnimalDTO.AnimalDescription}}</h4>
+          <p class="card-text">
+            {{publication.AnimalDTO.AnimalAge}} - 
+            {{publication.AnimalDTO.AnimalSize}} - 
+            {{publication.PublicationAddress}} - 
+            {{publication.PublicationDescription}}
+          </p>
           <button type="button" class="btn btn-info" (click)="openDialog(publication)">Ver detalles</button>
         </div>
         <div class="card">
-          <img src="https://cdn.pixabay.com/photo/2016/10/15/12/01/dog-1742295_960_720.jpg" alt="Card image cap">
-          <h4 class="card-title">Perro</h4>
-          <p class="card-text">Weimar</p>
-          <a href="#" class="btn btn-success stretched-link">Contact</a>
+          <img src="https://www.elheraldo.hn/csp/mediapool/sites/dt.common.streams.StreamServer.cls?STREAMOID=R8EcZRkj5P95IpaG6MmGv8$daE2N3K4ZzOUsqbU5sYseOIC_H_pcoyfJz74EIvsO6FB40xiOfUoExWL3M40tfzssyZqpeG_J0TFo7ZhRaDiHC9oxmioMlYVJD0A$3RbIiibgT65kY_CSDiCiUzvHvODrHApbd6ry6YGl5GGOZrs-&CONTENTTYPE=image/jpeg" alt="Card image cap">
+          <h4 class="card-title">Kiba</h4>
+          <p class="card-text">
+            HUSKY SIBERIANO
+            <br>
+            2 años, pelo blanco y negro/gris. Collar marrón, ojos oscuros.
+            <br>
+            Se lo vió por última vez por Plaza Italia.
+            <br>
+          </p>
+          <button type="button" class="btn btn-info">Ver detalles</button>
         </div>
         <div class="card">
-          <img src="https://cdn.pixabay.com/photo/2016/02/10/16/37/cat-1192026_960_720.jpg" alt="Card image cap">
-          <h4 class="card-title">Gato</h4>
-          <p class="card-text">Pequeño - 2 meses</p>
-          <a href="#" class="btn btn-success stretched-link">Contact</a>
+          <img src="https://okdiario.com/img/2020/03/09/razas-de-gatos-que-soportan-mejor-el-frio-655x368.jpg" alt="Card image cap">
+          <h4 class="card-title">
+            Azul
+          </h4>
+          <p class="card-text">
+            Pequeño - 1 año
+            <br>
+            Siamés, ojos azules, pelaje beige y marrón. No tiene collar.
+            <br>
+            <br>
+            <br>
+          </p>
+          <button type="button" class="btn btn-info">Ver detalles</button>
+        </div>
+        <div class="card">
+          <img src="https://www.tiendanimal.es/articulos/wp-content/uploads/2018/01/gato-negro-860x445.jpg" alt="Card image cap">
+          <h4 class="card-title">
+            Luna
+            <br>
+            Pelaje negro, 1 año, collar con la forma de un pez.
+          </h4>
+          <p class="card-text">
+            Pequeño - 2 meses
+          </p>
+          <button type="button" class="btn btn-info">Ver detalles</button>
+        </div>
+        <div class="card">
+          <img src="https://www.elheraldo.hn/csp/mediapool/sites/dt.common.streams.StreamServer.cls?STREAMOID=r$MFXcySBkGVdOln59x_gM$daE2N3K4ZzOUsqbU5sYu9EAvsBj43srRowTxxp3ZG6FB40xiOfUoExWL3M40tfzssyZqpeG_J0TFo7ZhRaDiHC9oxmioMlYVJD0A$3RbIiibgT65kY_CSDiCiUzvHvODrHApbd6ry6YGl5GGOZrs-&CONTENTTYPE=image/jpeg" alt="Card image cap">
+          <h4 class="card-title">Popy</h4>
+          <p class="card-text">
+            GOLDEN RETRIEVER
+            <br>
+            4 años, responde al nombre de "Popy". Se lo vió por última vez en la estación de Bernal.
+          </p>
+          <button type="button" class="btn btn-info">Ver detalles</button>
+        </div>
+        <div class="card">
+          <img src="https://www.elcolombiano.com/documents/10157/0/580x402/0c18/580d365/none/11101/LJMJ/image_content_33647778_20190618090316.jpg" alt="Card image cap">
+          <h4 class="card-title">Aku</h4>
+          <p class="card-text">
+            Mestizo
+            <br>
+            Pequeño - 2 meses. Se ofrece recompensa.
+          </p>
+          <button type="button" class="btn btn-info">Ver detalles</button>
         </div>
       </div>
     </div>
