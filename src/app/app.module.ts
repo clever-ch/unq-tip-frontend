@@ -11,9 +11,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { MaterialModule } from './generic-components/material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DialogPublicationComponent } from './components/dialog-publication/dialog-publication.component';
+import { PublicationsFoundComponent } from './components/publications-found/publications-found.component';
 
 @NgModule({
-  declarations: [AppComponent, PublicationListComponent, PublicationCreateComponent, DialogPublicationComponent],
+  declarations: [AppComponent, PublicationListComponent, PublicationCreateComponent, DialogPublicationComponent, PublicationsFoundComponent],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule, MaterialModule, BrowserAnimationsModule],
   providers: [],
   bootstrap: [AppComponent],
