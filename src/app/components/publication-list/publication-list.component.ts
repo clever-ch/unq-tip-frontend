@@ -15,6 +15,7 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 export class PublicationListComponent implements OnInit {
 
   publications: Observable<PublicationDTO[]>;
+  images = [];
 
   constructor(private publicationService: PublicationService, private router: Router, public dialog: MatDialog) {}
 
@@ -38,5 +39,6 @@ export class PublicationListComponent implements OnInit {
       this.animal = result;
     });
   }
+
 
 }
