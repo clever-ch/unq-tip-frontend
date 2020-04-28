@@ -8,12 +8,10 @@ import { UrlManagerPublicationService } from 'src/app/utilities/urlManagerPublic
 })
 export class PublicationService {
 
-  private baseUrl = 'http://localhost:8080/api/v1/publications';
-
   constructor(private http: HttpClient, private urlManagerPublication: UrlManagerPublicationService) { }
 
-  getPublicationList(): Observable<any> {
-    return this.http.get(`${this.baseUrl}`);
+  getAllPublicationsLost(): Observable<any> {
+    return this.http.get(`${this.urlManagerPublication.getURLAllPublicationsLost()}`);
   }
 
   getAllPublicationsFound(): Observable<any> {
