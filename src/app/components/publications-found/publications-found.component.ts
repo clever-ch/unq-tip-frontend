@@ -15,6 +15,7 @@ import { MatDialog } from '@angular/material';
 export class PublicationsFoundComponent implements OnInit {
 
   publications: Observable<PublicationDTO[]>;
+  images = [];
 
   constructor(private publicationService: PublicationService, private router: Router, public dialog: MatDialog) {}
 
@@ -26,17 +27,10 @@ export class PublicationsFoundComponent implements OnInit {
     this.publications = this.publicationService.getAllPublicationsFound();
   }
 
-  animal: string;
-
   openDialog(publicationDTO: PublicationDTO): void {
-    const dialogRef = this.dialog.open(DialogPublicationComponent, {
+    this.dialog.open(DialogPublicationComponent, {
       width: '700',
       data: publicationDTO
     });
-
-    dialogRef.afterClosed().subscribe(result => {
-      this.animal = result;
-    });
   }
-
 }
