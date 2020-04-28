@@ -12,9 +12,11 @@ import { MaterialModule } from './generic-components/material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DialogPublicationComponent } from './components/dialog-publication/dialog-publication.component';
 
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 @NgModule({
   declarations: [AppComponent, PublicationListComponent, PublicationCreateComponent, DialogPublicationComponent],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule, MaterialModule, BrowserAnimationsModule],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule, MaterialModule, BrowserAnimationsModule, NgbModule],
   providers: [],
   bootstrap: [AppComponent],
   entryComponents: [DialogPublicationComponent]
