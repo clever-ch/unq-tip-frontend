@@ -24,7 +24,7 @@ export class PublicationListComponent implements OnInit {
   }
 
   reloadData() {
-    this.publications = this.publicationService.getPublicationList();
+    this.publications = this.publicationService.getAllPublicationsLost();
   }
 
   openDialog(publicationDTO: PublicationDTO): void {
