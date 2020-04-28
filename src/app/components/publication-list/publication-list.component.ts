@@ -27,18 +27,10 @@ export class PublicationListComponent implements OnInit {
     this.publications = this.publicationService.getPublicationList();
   }
 
-  animal: string;
-
   openDialog(publicationDTO: PublicationDTO): void {
-    const dialogRef = this.dialog.open(DialogPublicationComponent, {
+    this.dialog.open(DialogPublicationComponent, {
       width: '700',
       data: publicationDTO
     });
-
-    dialogRef.afterClosed().subscribe(result => {
-      this.animal = result;
-    });
   }
-
-
 }
