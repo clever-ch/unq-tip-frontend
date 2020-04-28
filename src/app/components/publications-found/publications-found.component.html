@@ -6,7 +6,13 @@
     <div class="container">
       <div class="row">
         <div class="card" *ngFor="let publication of publications | async">
-          <img src="https://www.elmundodelgato.com/fotos/78/1219_P1211772.JPG" alt="Card image cap">
+          <ngb-carousel *ngIf='images'>
+            <ng-template ngbSlide *ngFor="let image of publication.Photos">
+              <div class="picsum-img-wrapper">
+                <img [src]="image" alt="Card image">
+              </div>
+            </ng-template>
+          </ngb-carousel>
           <h4 class="card-title">{{publication.AnimalDTO.AnimalDescription}}</h4>
           <p class="card-text">
             {{publication.AnimalDTO.AnimalAge}} -
