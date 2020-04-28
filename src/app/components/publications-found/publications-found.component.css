@@ -1,0 +1,66 @@
+.album {
+    min-height: 50rem; /* Can be removed; just added for demo purposes */
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    background-color: #f7f7f7;
+  }
+  
+  .card {
+    float: center;
+    width: 33.333%;
+    padding: .75rem;
+    margin-bottom: 2rem;
+    border: 3;
+  }
+  
+  .card > img {
+    margin-bottom: .50rem;
+    width: 200%;
+  }
+  
+  .card-text {
+    font-size: 100%;
+  }
+
+ngb-carousel img {
+  width: 300px;
+  height: 300px;
+}
+
+ngb-carousel {
+    margin: 50px auto;
+    width: 300px;
+    height: 300px;
+}
+
+.carousel-inner {
+    overflow: visible;
+}
+
+.carousel-item {
+    display: flex !important;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 1.2s ease-in-out, visibility 1.2s;
+    z-index: -1;
+}
+
+.carousel-item.active{
+    opacity: 1;
+    visibility: visible;
+    z-index: 10;
+}
+
+.carousel-control-prev {
+     z-index: 20;
+}
+
+
+.carousel-control-next {
+     z-index: 20;
+}
+
+.carousel-indicators{
+    z-index: 20;
+}
+  
