@@ -1,0 +1,22 @@
+<div class="container p-3 my-3 bg-white text-black">
+  <div class="panel-heading text-center">
+    <h1>Listado de publicaciones</h1>
+  </div>
+  <div class="album text-center">
+    <div class="container">
+      <div class="row">
+        <div class="card" *ngFor="let publication of publications | async">
+          <img src="https://www.elmundodelgato.com/fotos/78/1219_P1211772.JPG" alt="Card image cap">
+          <h4 class="card-title">{{publication.AnimalDTO.AnimalDescription}}</h4>
+          <p class="card-text">
+            {{publication.AnimalDTO.AnimalAge}} -
+            {{publication.AnimalDTO.AnimalSize}} -
+            {{publication.PublicationAddress}} -
+            {{publication.PublicationDescription}}
+          </p>
+          <button type="button" class="btn btn-info" (click)="openDialog(publication)">Ver detalles</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
