@@ -1,6 +1,6 @@
 <div class="container p-3 my-3 bg-white text-black">
   <div class="panel-heading text-center">
-    <h1>Mascotas Perdidas</h1>
+    <h1>Mascotas Encontradas</h1>
   </div>
   <div class="album text-center">
     <div class="container">
@@ -15,9 +15,9 @@
           </ngb-carousel>
           <h4 class="card-title">{{publication.AnimalDTO.AnimalDescription}}</h4>
           <p class="card-text">
-            {{publication.AnimalDTO.AnimalAge}} - 
-            {{publication.AnimalDTO.AnimalSize}} - 
-            {{publication.PublicationAddress}} - 
+            {{publication.AnimalDTO.AnimalAge}} -
+            {{publication.AnimalDTO.AnimalSize}} -
+            {{publication.PublicationAddress}} -
             {{publication.PublicationDescription}}
           </p>
           <button type="button" class="btn btn-info" (click)="openDialog(publication)">Ver detalles</button>
