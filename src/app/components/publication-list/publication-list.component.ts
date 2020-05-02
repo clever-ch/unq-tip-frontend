@@ -17,6 +17,7 @@ export class PublicationListComponent implements OnInit {
   publications: Observable<PublicationDTO[]>;
   images = [];
 
+
   constructor(private publicationService: PublicationService, private router: Router, public dialog: MatDialog) {}
 
   ngOnInit() {

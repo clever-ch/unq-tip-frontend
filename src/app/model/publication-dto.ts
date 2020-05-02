@@ -14,4 +14,5 @@ export class PublicationDTO {
 
     animalDTO: AnimalDTO;
     userDTO: UserDTO;
+
 }
