@@ -1,8 +1,9 @@
-<div class="container p-3 my-3 bg-white text-black">
+<div style="background-image:url(https://pixabay.com/get/53e9d4454953b108feda8460c62e347d1636dfe54e5074417d2c73d59545c7_1920.jpg); height: 100%; display: table;width: 100%;min-height: 100%;">
+<div class="container p-3 my-3 text-black" >
   <div class="panel-heading text-center">
-    <h1>Mascotas Perdidas</h1>
+    <h1 class="t-stroke-shadow">Mascotas Perdidas</h1> 
   </div>
-  <div class="album text-center">
+  <div class="album text-center bg-transparent">
     <div class="container">
       <div class="row">
         <div class="card" *ngFor="let publication of publications | async">
@@ -25,4 +26,5 @@
       </div>
     </div>
   </div>
+</div>
 </div>

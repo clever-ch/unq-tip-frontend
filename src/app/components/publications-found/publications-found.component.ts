@@ -4,7 +4,7 @@ import { Observable } from "rxjs";
 import { PublicationService } from "src/app/services/publication-service/publication.service";
 import { PublicationDTO } from "src/app/model/publication-dto";
 import { DialogPublicationComponent } from '../dialog-publication/dialog-publication.component';
-import { MatDialog } from '@angular/material';
+import { MatDialog , MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
 
 @Component({
