@@ -1,3 +1,11 @@
+.backg {
+  background: url("../publication-list/madera-fondo.jpg");
+  height: 100%; 
+  display: table;
+  width: 100%;
+  min-height: 100%;
+}
+
 .album {
     min-height: 50rem; /* Can be removed; just added for demo purposes */
     padding-top: 3rem;
