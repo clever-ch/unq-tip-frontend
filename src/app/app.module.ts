@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,10 +14,12 @@ import { DialogPublicationComponent } from './components/dialog-publication/dial
 import { PublicationsFoundComponent } from './components/publications-found/publications-found.component';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { SignInComponent } from './components/sign-in/sign-in.component';
+import { LogInComponent } from './components/log-in/log-in.component';
 
 @NgModule({
-  declarations: [AppComponent, PublicationListComponent, PublicationCreateComponent, DialogPublicationComponent, PublicationsFoundComponent],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule, MaterialModule, BrowserAnimationsModule, NgbModule],
+  declarations: [AppComponent, PublicationListComponent, PublicationCreateComponent, DialogPublicationComponent, PublicationsFoundComponent, SignInComponent, LogInComponent],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule, MaterialModule, BrowserAnimationsModule, NgbModule, ReactiveFormsModule],
   providers: [],
   bootstrap: [AppComponent],
   entryComponents: [DialogPublicationComponent]
