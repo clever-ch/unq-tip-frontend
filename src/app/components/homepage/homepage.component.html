@@ -7,8 +7,8 @@
       <div class="cover-container responsive" >
 
         <div class="inner cover">
-          <h1 class="cover-heading">Bienvenido a SOS Pets</h1>
-          <p class="lead">Este sitio publica busquedas sobre mascotas perdidas, publica mascotas encontradas y otros servicios para animales</p>      
+          <h1 class="cover-heading">{{ 'home.title' | translate }}</h1>
+          <p class="lead">{{ 'home.text' | translate }}</p>      
         </div>
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
           <ol class="carousel-indicators">
@@ -21,9 +21,9 @@
               <img class="first-slide img1C">
               <div class="container">
                 <div class="carousel-caption d-none d-md-block">
-                  <h1>Perdiste tu mascota?</h1>
-                  <p>Buscalo en el listado mascotas encontradas.</p>
-                  <p><a class="btn btn-lg btn-primary" href="allPublicationsFound" role="button">Ir al listado</a></p>
+                  <h1>{{ 'home.titleImg1' | translate }}</h1>
+                  <p>{{ 'home.textImg1' | translate }}</p>
+                  <p><a class="btn btn-lg btn-primary" href="allPublicationsFound" role="button">{{ 'home.buttonImg1' | translate }}</a></p>
                 </div>
               </div>
             </div>
@@ -31,9 +31,9 @@
               <img class="second-slide img2C">
               <div class="container">
                 <div class="carousel-caption d-none d-md-block">
-                  <h1>Encontraste una mascota?</h1>
-                  <p>Registrate y publica para encontrar a su dueño.</p>
-                  <p><a class="btn btn-lg btn-primary" href="#" role="button">Registrarse</a></p>
+                  <h1>{{ 'home.titleImg2' | translate }}</h1>
+                  <p>{{ 'home.textImg2' | translate }}.</p>
+                  <p><a class="btn btn-lg btn-primary" href="#" role="button">{{ 'home.buttonImg2' | translate }}</a></p>
                 </div>
               </div>
             </div>
@@ -41,9 +41,9 @@
               <img class="third-slide img3C">
               <div class="container">
                 <div class="carousel-caption d-none d-md-block">
-                  <h1>Querés publicar una busqueda?</h1>
-                  <p>Registrate, publica y alguna persona te dará informacion para encontrar tu mascota.</p>
-                  <p><a class="btn btn-lg btn-primary" href="#" role="button">Registrarse</a></p>
+                  <h1>{{ 'home.titleImg3' | translate }}</h1>
+                  <p>{{ 'home.textImg3' | translate }}</p>
+                  <p><a class="btn btn-lg btn-primary" href="#" role="button">{{ 'home.buttonImg2' | translate }}</a></p>
                 </div>
               </div>
             </div>            
@@ -62,30 +62,27 @@
       <hr class="featurette-divider">
 
       <div class="container marketing">
-        <h1 class="cover-heading">Servicios</h1>
+        <h1 class="cover-heading">{{ 'home.serviceTitle' | translate }}</h1>
         <div class="row">
           <div class="col-lg-4">
             <img class="rounded-circle img1M" width="200" height="200">
-            <h2>Cuidado</h2>
-            <p>En este servicio damos la posibilidad a las personas para que se ofrezcan a cuidar un animal, sin condicion alguna. Si alguien que cuide tu mascota ingresa al listado de personas postuladas. Si deseas postularte, registrarte y segui los pasos para hacerlo.</p>
-            <p><a class="btn btn-info" href="#" role="button">Contactar &raquo;</a></p>
-            <p><a class="btn btn-success" href="#" role="button">Registrarme &raquo;</a></p>
+            <h2>{{ 'home.servCare' | translate }}</h2>
+            <p>{{ 'home.servCareText' | translate }}</p>
           </div><!-- /.col-lg-4 -->
           <div class="col-lg-4">
             <img class="rounded-circle img2M"width="200" height="200">
-            <h2>Transito</h2>
-            <p>Con este servicio intentamos que si dispones de espacio fisico para dar hogar de tránsito a un animal, te postules para hacerlo o que puedas buscar alguna persona disponible para un animal.</p>
-            <p><a class="btn btn-info" href="#" role="button">Contactar &raquo;</a></p>
-            <p><a class="btn btn-success" href="#" role="button">Registrarme&raquo;</a></p>
+            <h2>{{ 'home.servTransit' | translate }}</h2>
+            <p>{{ 'home.servTransitText' | translate }}</p>
           </div><!-- /.col-lg-4 -->
           <div class="col-lg-4">
             <img class="rounded-circle img3M" width="200" height="200">
-            <h2>Transporte</h2>
-            <p>No tenes como trasladar a tu mascota? No te preocupes, en este servicio te damos posibilidad de contactar a alguna persona cerca de tu domicilio que te ayude a trasladar a tu mascota. Si deseas postularte para ofrecer este servicio, solo debe registrarte</p>
-            <p><a class="btn btn-info" href="#" role="button">Contactar &raquo;</a></p>
-            <p><a class="btn btn-success" href="#" role="button">Registrarme &raquo;</a></p>
+            <h2>{{ 'home.serTransport' | translate }}</h2>
+            <p>{{ 'home.serTransportText' | translate }}</p>
           </div><!-- /.col-lg-4 -->
         </div><!-- /.row -->
+        <hr class="featurette-divider">
+        <p><a class="btn btn-info btn-block" href="#" role="button">{{ 'home.serButtonCon' | translate }} &raquo;</a></p>
+        <p><a class="btn btn-success btn-block" href="#" role="button"> {{ 'home.serButtonSignUp' | translate }}&raquo;</a></p>
       </div>  
     <hr class="featurette-divider">
     </div>

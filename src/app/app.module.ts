@@ -16,9 +16,23 @@ import { PublicationsFoundComponent } from './components/publications-found/publ
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HomepageComponent } from './components/homepage/homepage.component';
 
+//Translation
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { HttpClient } from '@angular/common/http';
+
 @NgModule({
   declarations: [AppComponent, PublicationListComponent, PublicationCreateComponent, DialogPublicationComponent, PublicationsFoundComponent, HomepageComponent],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule, MaterialModule, BrowserAnimationsModule, NgbModule],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule, MaterialModule, BrowserAnimationsModule, NgbModule, 
+    TranslateModule.forRoot({
+    loader: {
+      provide: TranslateLoader,
+      useFactory: (http: HttpClient) => {
+        return new TranslateHttpLoader(http);
+      },
+      deps: [ HttpClient ]
+    }
+  })],
   providers: [],
   bootstrap: [AppComponent],
   entryComponents: [DialogPublicationComponent]
