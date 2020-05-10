@@ -1,25 +1,27 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { UrlManagerPublicationService } from 'src/app/utilities/urlManagerPublication.service';
-import { LoginDTO } from 'src/app/model/loginDTO';
+import { Router } from "@angular/router";
+import { UrlManagerAuthService } from 'src/app/utilities/urlManagerAuthService.service';
+import { UserDTO } from 'src/app/model/userDTO';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  private baseUrl = 'http://localhost:8080/api/v1/log-in';
-
-  constructor(private http: HttpClient) { }
-
-  //newLoginDTO: LoginDTO = new LoginDTO();
+  constructor(private http: HttpClient, private urlManagerAuthService: UrlManagerAuthService, public router: Router) { }
 
   login(loginDTO: Object): Observable<Object> {
-    // console.log("Imprimo el LoginDTO que llega al servicio:");
-    // console.log(loginDTO);
+    return this.http.post(`${this.urlManagerAuthService.getURLUserLogin()}`, loginDTO);
+  }
 
-    //console.log("Sigue respuesta del POST (servicio):");
-    return this.http.post(`${this.baseUrl}`, loginDTO);
+  redirectUserProfile(userDTO: UserDTO) {
+    this.router.navigate(['profile', userDTO]);
+  }
+
+  get isLoggedIn(): boolean {
+    const user = JSON.parse(localStorage.getItem('userDTO'));
+    return user !== null;
   }
 }
