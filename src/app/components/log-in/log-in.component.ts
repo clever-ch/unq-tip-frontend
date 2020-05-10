@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth-service/auth.service';
 import { LoginDTO } from 'src/app/model/loginDTO';
+import { UserDTO } from 'src/app/model/userDTO';
 
 @Component({
   selector: 'app-log-in',
@@ -13,13 +13,9 @@ export class LogInComponent implements OnInit {
 
   loginForm: FormGroup;
   loginDTO: LoginDTO;
+  userData: any;
 
-  constructor(
-    private formBuilder: FormBuilder,
-    private route: ActivatedRoute,
-    private router: Router,
-    private authService: AuthService,
-  ) { }
+  constructor(private formBuilder: FormBuilder, private authService: AuthService) { }
 
   ngOnInit() {
     this.loginDTO = new LoginDTO();
@@ -30,13 +26,32 @@ export class LogInComponent implements OnInit {
     });
   }
 
-  get formulario() { return this.loginForm.controls; }
+  get formulario() { return this.loginForm.value; }
 
-  onSubmit() {
-    this.loginDTO.username = this.formulario.username.value;
-    this.loginDTO.password = this.formulario.password.value;
+  onSubmit() { }
 
-    //console.log("Imprimo respuesta desde el componente:");
-    this.authService.login(this.loginDTO).subscribe(response => {console.log(response)});
+  onLogin() {
+    this.loadLoginDTOByFormGroup();
+    this.authService.login(this.loginDTO).subscribe(this.saveStorage());
+  }
+
+  private loadLoginDTOByFormGroup() {
+    this.loginDTO.Username = this.formulario.username;
+    this.loginDTO.Password = this.formulario.password;
+  }
+
+  private saveStorage(): (value: Object) => void {
+    return user => {
+      if (user) {
+        this.userData = user;
+        localStorage.setItem('userDTO', JSON.stringify(this.userData));
+        this.authService.redirectUserProfile(this.userData);
+      }
+      else {
+        localStorage.setItem('userDTO', null);
+        this.userData = null;
+        //Si no existe el usuario debería lanzar excepcion, catchearla y mostrar error
+      }
+    };
   }
 }
