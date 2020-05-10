@@ -1,5 +1,5 @@
 export class LoginDTO {
 
-    public username: string;
-    public password: string;
+    public Username: string;
+    public Password: string;
 }
