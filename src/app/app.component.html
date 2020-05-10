@@ -14,15 +14,19 @@
       <li class="nav-item">
         <a routerLink="allPublicationsFound" class="nav-link" routerLinkActive="active">Mascotas encontradas</a>
       </li>
-      <li class="nav-item">
-        <a routerLink="publications" class="nav-link" routerLinkActive="active">Mis publicaciones</a>
-      </li>
+      <div *ngIf="authService.isLoggedIn">
+        <li class="nav-item">
+          <a routerLink="publications" class="nav-link" routerLinkActive="active">Mis publicaciones</a>
+        </li>
+      </div>
       <li class="nav-item">
         <a routerLink="publications" class="nav-link" routerLinkActive="active">Servicios</a>
       </li>
-      <li class="nav-item">
-        <a routerLink="publications" class="nav-link" routerLinkActive="active">Mis servicios</a>
-      </li>
+      <div *ngIf="authService.isLoggedIn">
+        <li class="nav-item">
+          <a routerLink="publications" class="nav-link" routerLinkActive="active">Mis servicios</a>
+        </li>
+      </div>
       <li class="nav-item">
         <a routerLink="log-in" class="nav-link" routerLinkActive="active">Ingresar</a>
       </li>
