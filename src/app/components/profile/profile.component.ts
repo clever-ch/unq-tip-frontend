@@ -21,6 +21,7 @@ export class ProfileComponent implements OnInit {
 
   logout() {
     localStorage.removeItem("userDTO");
+    this.router.navigate(['publications']);
   }
 
 }
