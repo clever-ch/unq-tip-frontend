@@ -16,9 +16,10 @@ import { PublicationsFoundComponent } from './components/publications-found/publ
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SignInComponent } from './components/sign-in/sign-in.component';
 import { LogInComponent } from './components/log-in/log-in.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 @NgModule({
-  declarations: [AppComponent, PublicationListComponent, PublicationCreateComponent, DialogPublicationComponent, PublicationsFoundComponent, SignInComponent, LogInComponent],
+  declarations: [AppComponent, PublicationListComponent, PublicationCreateComponent, DialogPublicationComponent, PublicationsFoundComponent, SignInComponent, LogInComponent, ProfileComponent],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule, MaterialModule, BrowserAnimationsModule, NgbModule, ReactiveFormsModule],
   providers: [],
   bootstrap: [AppComponent],
