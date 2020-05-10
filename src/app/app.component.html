@@ -27,9 +27,16 @@
           <a routerLink="publications" class="nav-link" routerLinkActive="active">Mis servicios</a>
         </li>
       </div>
-      <li class="nav-item">
-        <a routerLink="log-in" class="nav-link" routerLinkActive="active">Ingresar</a>
-      </li>
+      <div *ngIf="!authService.isLoggedIn">
+        <li class="nav-item">
+          <a routerLink="log-in" class="nav-link" routerLinkActive="active">Ingresar</a>
+        </li>
+      </div>
+      <div *ngIf="authService.isLoggedIn">
+        <li class="nav-item">
+          <a routerLink="profile" class="nav-link" routerLinkActive="active">Mi Perfil</a>
+        </li>
+      </div>
     </ul>
   </div>
   <form class="form-inline" action="/action_page.php">
