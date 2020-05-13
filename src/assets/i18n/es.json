@@ -42,5 +42,12 @@
         "serButtonCon" : "Contratar Servicio",
         "serButtonSignUp" : "Registrarme"
 
+    },
+
+    "petsList": {
+        "viewDetails" : "Ver detalles",
+        "paginationNext" : "Siguiente",
+        "paginationPrevious" : "Anterior",
+        "searchPets" : "Buscar mascota"       
     }
 }

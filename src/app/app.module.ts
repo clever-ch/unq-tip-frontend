@@ -23,10 +23,14 @@ import { HttpClient } from '@angular/common/http';
 import { SignInComponent } from './components/sign-in/sign-in.component';
 import { LogInComponent } from './components/log-in/log-in.component';
 import { ProfileComponent } from './components/profile/profile.component';
+// Importing the pagination module for the application.
+import { NgxPaginationModule } from 'ngx-pagination';
+// search module
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @NgModule({
   declarations: [AppComponent, PublicationListComponent, PublicationCreateComponent, DialogPublicationComponent, PublicationsFoundComponent, HomepageComponent, SignInComponent, LogInComponent, ProfileComponent],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule, MaterialModule, BrowserAnimationsModule, NgbModule, ReactiveFormsModule, 
+  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule, MaterialModule, BrowserAnimationsModule, NgbModule, ReactiveFormsModule, NgxPaginationModule, Ng2SearchPipeModule,
     TranslateModule.forRoot({
     loader: {
       provide: TranslateLoader,

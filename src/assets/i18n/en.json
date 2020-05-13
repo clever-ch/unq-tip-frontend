@@ -41,5 +41,13 @@
         "serTransportText" : "Do not you have how to move your pet? Do not worry, in this service we give you the possibility of contacting someone near your home to help you move your pet. If you want to apply to offer this service, you only have to register.",
         "serButtonCon" : "Contract Service",
         "serButtonSignUp" : "Sign up"
+    },
+
+    "petsList": {
+        "viewDetails" : "View Details",
+        "paginationNext" : "Next",
+        "paginationPrevious" : "Previous",
+        "searchPets" : "Search pet"
+
     }
 }
