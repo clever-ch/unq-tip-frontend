@@ -3,7 +3,7 @@
     <div class="row">
       <div class=" col clearfix">
           <span class="float-left"> 
-            <h1>S.O.S Pets<img class="img-fluid" src="https://i.ibb.co/L1fFdVz/Logo-5.png" width="80" height="80"> </h1>
+            <h1>S.O.S Pets<img class="img-fluid" src="https://i.ibb.co/L1fFdVz/Logo-5.png" width="80" height="80"></h1>
             <h6>{{ 'header.slogan' | translate }}</h6> 
           </span>
           <br>
@@ -38,19 +38,9 @@
       <li class="nav-item">
         <a routerLink="allPublicationsFound" class="nav-link" routerLinkActive="active">{{ 'navbar.foundPets' | translate }}</a>
       </li>
-      <div *ngIf="authService.isLoggedIn">
-        <li class="nav-item">
-          <a routerLink="publications" class="nav-link" routerLinkActive="active">{{ 'navbar.myPublications' | translate }}</a>
-        </li>
-      </div>
       <li class="nav-item">
         <a routerLink="publications" class="nav-link" routerLinkActive="active">{{ 'navbar.services' | translate }}</a>
       </li>
-      <div *ngIf="authService.isLoggedIn">
-        <li class="nav-item">
-          <a routerLink="publications" class="nav-link" routerLinkActive="active">{{ 'navbar.myServices' | translate }}</a>
-        </li>
-      </div>
       <div *ngIf="!authService.isLoggedIn">
         <li class="nav-item">
           <a routerLink="log-in" class="nav-link" routerLinkActive="active">{{ 'navbar.entry' | translate }}</a>
