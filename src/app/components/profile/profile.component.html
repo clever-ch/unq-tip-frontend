@@ -1,9 +1,21 @@
-<p>
-  Estoy en el perfil de: {{userDTO.UserName}}
-</p>
-<p class="text-secondary">{{userDTO.Email}} </p>
-<p class="text-secondary">{{userDTO.UserGuid}} </p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <h3>Bienvenido {{userDTO.UserName}}</h3>
+    </div>
+  </div>
+  <br>
 
-<div class="form-group">
-  <button class="btn btn-primary" (click)="logout()" class="btn btn-info">Logout</button>
+  <div class="row">
+    <div class="col-md-6">
+      <button type="button" class="btn btn-primary" (click)="redirectMyPublications()">Mis Publicaciones</button>
+      <button type="button" class="btn btn-success" (click)="redirectMyServices()">Mis Servicios</button>
+    </div>
+  </div>
+
+  <br>
+  <br>
+  <div class="form-group">
+    <button class="btn btn-primary" (click)="logout()" class="btn btn-info">Salir</button>
+  </div>
 </div>
