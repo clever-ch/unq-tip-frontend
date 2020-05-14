@@ -18,4 +18,12 @@ export class UrlManagerAuthService {
     getURLUserLogin(): string {
         return 'http://localhost:8080/api/v1/log-in';
     }
+
+    getURLValidateUser(): string {
+        return 'http://localhost:8080/api/v1/validate-user';
+    }
+
+    getURLFindUser(): string {
+        return 'http://localhost:8080/api/v1/users';
+    }
 }
