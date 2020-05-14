@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth-service/auth.service';
 import { LoginDTO } from 'src/app/model/loginDTO';
-import { UserDTO } from 'src/app/model/userDTO';
 
 @Component({
   selector: 'app-log-in',
@@ -44,11 +43,11 @@ export class LogInComponent implements OnInit {
     return user => {
       if (user) {
         this.userData = user;
-        localStorage.setItem('userDTO', JSON.stringify(this.userData));
-        this.authService.redirectUserProfile(this.userData);
+        localStorage.setItem('loginDTO', JSON.stringify(this.userData));
+        this.authService.redirectUserProfile();
       }
       else {
-        localStorage.setItem('userDTO', null);
+        localStorage.setItem('loginDTO', null);
         this.userData = null;
         //Si no existe el usuario debería lanzar excepcion, catchearla y mostrar error
       }
