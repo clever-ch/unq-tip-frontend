@@ -23,7 +23,7 @@ body {
           box-shadow: inset 0 0 5rem rgba(0,0,0,.5);
 }
 .site-wrapper-inner {
-  background: url("../homepage/fondo-home.png");
+  background: url("../../images/img-homepage/fondo-home.png");
   background-size:cover;
   display: table-cell;
   vertical-align: top;
@@ -112,30 +112,31 @@ body {
 }
 
 .img1C{
-  background: url("imgCarousel/img1.jpg");
+  background: url("../../images/img-homepage/imgCarrousel1.jpg");
   background-size:cover;
 }
 
 .img2C{
-  background: url("imgCarousel/img2.jpg");
+  background: url("../../images/img-homepage/imgCarrousel2.jpg");
   background-size:cover;
 }
 .img3C{
-  background: url("imgCarousel/img3.jpg");
+  background: url("../../images/img-homepage/imgCarrousel3.jpg");
   background-size:cover;
 }
 
 .img1M{
-  background: url("imgMarketing/img1M.jpg");
+  background: url("../../images/img-homepage/imgMarketing1M.jpg");
   background-size: cover;
 }
 
 .img2M{
-  background: url("imgMarketing/img2M.jpg");
+  background: url("../../images/img-homepage/imgMarketing2M.jpg");
   background-size:cover;
 }
+
 .img3M{
-  background: url("imgMarketing/img3M.jpg");
+  background: url("../../images/img-homepage/imgMarketing3M.jpg");
   background-size:cover;
 }
 

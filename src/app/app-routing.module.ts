@@ -7,6 +7,7 @@ import { PublicationsFoundComponent } from 'src/app/components/publications-foun
 import { HomepageComponent } from './components/homepage/homepage.component';
 import { LogInComponent } from 'src/app/components/log-in/log-in.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { ErrorPageComponent } from '././generic-components/error-page/error-page.component';
 
 
 const routes: Routes = [
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: 'allPublicationsFound', component: PublicationsFoundComponent },
   { path: 'log-in', component: LogInComponent },
   { path: 'profile', component: ProfileComponent },
+  { path: 'errorPage', component: ErrorPageComponent },
 ];
 
 @NgModule({

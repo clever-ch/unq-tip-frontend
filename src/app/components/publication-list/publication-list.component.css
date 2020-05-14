@@ -1,5 +1,5 @@
 .backg {
-  background: url("../publication-list/madera-fondo.jpg");
+  background: url("../../images/img-publications/publications-fondo.jpg");
   height: 100%; 
   display: table;
   width: 100%;
@@ -84,7 +84,7 @@ ngb-carousel {
 
   }
 
-  .search-hero {
+.search-hero {
   max-width: 500px;
   padding-bottom: 50px;
   margin:auto;

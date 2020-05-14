@@ -23,6 +23,7 @@ import { HttpClient } from '@angular/common/http';
 import { SignInComponent } from './components/sign-in/sign-in.component';
 import { LogInComponent } from './components/log-in/log-in.component';
 import { ProfileComponent } from './components/profile/profile.component';
+
 // Importing the pagination module for the application.
 import { NgxPaginationModule } from 'ngx-pagination';
 // search module

@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Router } from "@angular/router";
 import { UrlManagerAuthService } from 'src/app/utilities/urlManagerAuthService.service';
-import { UserDTO } from 'src/app/model/userDTO';
+import { LoginDTO } from 'src/app/model/loginDTO';
 
 @Injectable({
   providedIn: 'root'
@@ -16,12 +16,20 @@ export class AuthService {
     return this.http.post(`${this.urlManagerAuthService.getURLUserLogin()}`, loginDTO);
   }
 
-  redirectUserProfile(userDTO: UserDTO) {
-    this.router.navigate(['profile', userDTO]);
+  redirectUserProfile() {
+    this.router.navigate(['profile']);
+  }
+
+  loggedInUserExists(loginDTO: LoginDTO): Observable<Object> {
+    return this.http.post(`${this.urlManagerAuthService.getURLValidateUser()}`, loginDTO);
+  }
+
+  getUserByGuid(guid: string): Observable<any>{
+    return this.http.get(`${this.urlManagerAuthService.getURLFindUser()}/${guid}`);
   }
 
   get isLoggedIn(): boolean {
-    const user = JSON.parse(localStorage.getItem('userDTO'));
+    const user = JSON.parse(localStorage.getItem('loginDTO'));
     return user !== null;
   }
 }
