@@ -1,0 +1,46 @@
+{
+    "header": {
+        "slogan": "¡Te ayudamos a encontrar a tu mascota perdida!"
+    },
+
+    "navbar": {
+        "home" : "Inicio",
+        "lostPets" : "Mascotas perdidas",
+        "foundPets" : "Mascotas encontradas",
+        "myPublications" : "Mis Publicaciones",
+        "services" : "Servicios",
+        "myServices" : "Mis servicios",
+        "entry" : "Ingresar",
+        "miProfile" : "Mi Perfil",
+        "language" : "Lenguaje",
+        "spanish" : "Español",
+        "english" : "Ingles"
+    },
+
+    "home": {
+        "title": "Bienvenido a SOS Pets",
+        "text" : "Este sitio publica busquedas sobre mascotas perdidas, publica mascotas encontradas y otros servicios para animales",
+        
+        "titleImg1": "¿Perdiste tu mascota?",
+        "textImg1": "Buscalo en el listado mascotas encontradas.",
+        "buttonImg1" : "Ir al listado",
+        
+        "titleImg2": "¿Encontraste una mascota?",
+        "textImg2": "Registrate y publica para encontrar a su dueño.",
+        "buttonImg2" : "Registrarse",
+
+        "titleImg3": "¿Querés publicar una busqueda?",
+        "textImg3": "Registrate, publica y alguna persona te dará informacion para encontrar tu mascota.",
+
+        "serviceTitle" : "Servicios",
+        "servCare" : "Cuidado",
+        "servCareText" : "En este servicio damos la posibilidad a las personas para que se ofrezcan a cuidar un animal, sin condicion alguna. Si precisas alguien que cuide tu mascota ingresa al listado de personas postuladas. Si deseas postularte, registrarte y segui los pasos para hacerlo.",
+        "servTransit" : "Transito",
+        "servTransitText" : "Con este servicio intentamos que te postules si dispones de espacio fisico para hogar de tránsito a un animal o que puedas buscar alguna persona disponible para cualquier animal.",
+        "serTransport" : "Transporte",
+        "serTransportText" : "No tenes como trasladar a tu mascota? No te preocupes, en este servicio te damos posibilidad de contactar a alguna persona cerca de tu domicilio que te ayude a trasladar a tu mascota. Si deseas postularte para ofrecer este servicio, solo debe registrarte.",
+        "serButtonCon" : "Contratar Servicio",
+        "serButtonSignUp" : "Registrarme"
+
+    }
+}

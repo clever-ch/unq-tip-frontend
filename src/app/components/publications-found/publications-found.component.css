@@ -1,3 +1,11 @@
+.backg {
+  background: url("../../images/img-publications/publications-fondo.jpg");
+  height: 100%; 
+  display: table;
+  width: 100%;
+  min-height: 100%;
+}
+
 .album {
     min-height: 50rem; /* Can be removed; just added for demo purposes */
     padding-top: 3rem;
@@ -63,4 +71,14 @@ ngb-carousel {
 .carousel-indicators{
     z-index: 20;
 }
+
+/* title */
   
+.t-stroke-shadow {
+  
+  color: #333;
+
+  text-shadow: -3px 3px #ffffff, -3px -3px #ffffff, 3px -3px #ffffff, 3px 3px #ffffff, 6px 6px #666;
+
+}
+

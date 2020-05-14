@@ -1,9 +1,10 @@
+import { PersonDTO } from './PersonDTO';
+
 export class UserDTO {
     id: number;
     userName: string;
     email: string;
-    accountName: string;
-    accountSurName: string;
-    accountTelephone: string;
-    accountAddress: string;
+    password: string;
+    userGuid: string;
+    personDTO: PersonDTO;
 }

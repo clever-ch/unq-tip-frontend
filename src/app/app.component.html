@@ -1,5 +1,28 @@
+<div class="page-header imgHeader">
+  <div class="container">
+    <div class="row">
+      <div class=" col clearfix">
+          <span class="float-left"> 
+            <h1>S.O.S Pets<img class="img-fluid" src="https://i.ibb.co/L1fFdVz/Logo-5.png" width="80" height="80"></h1>
+            <h6>{{ 'header.slogan' | translate }}</h6> 
+          </span>
+          <br>
+          <span class="float-right"><img class="img-fluid" src="https://i.ibb.co/drK0kyX/Huella.png" width="120" height="120"></span>
+      </div>
+  </div>
+          <div class="row" >
+            <ul class="no-bottom-margin">
+              <a href="https://www.facebook.com/SOSPets"><img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" width="30" height="30" alt="Facebook"></a>   
+            </ul>					
+          </div>
+  </div>
+      <br>
+      <br>
+      <br>
+      <br>
+</div>
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-  <a class="navbar-brand" routerLink="homepage" routerLinkActive="active"> Inicio </a>
+  <a class="navbar-brand" routerLink="homepage" routerLinkActive="active"> {{ 'navbar.home' | translate }} </a>
 
   <!-- Links -->
   <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
@@ -10,26 +33,35 @@
     <ul class="navbar-nav">
       <li class="nav-item">
 
-        <a routerLink="publications" class="nav-link" routerLinkActive="active">Mascotas perdidas</a>
+        <a routerLink="publications" class="nav-link" routerLinkActive="active">{{ 'navbar.lostPets' | translate }}</a>
       </li>
       <li class="nav-item">
-        <a routerLink="allPublicationsFound" class="nav-link" routerLinkActive="active">Mascotas encontradas</a>
+        <a routerLink="allPublicationsFound" class="nav-link" routerLinkActive="active">{{ 'navbar.foundPets' | translate }}</a>
       </li>
       <li class="nav-item">
-        <a routerLink="publications" class="nav-link" routerLinkActive="active">Mis publicaciones</a>
+        <a routerLink="publications" class="nav-link" routerLinkActive="active">{{ 'navbar.services' | translate }}</a>
       </li>
-      <li class="nav-item">
-        <a routerLink="publications" class="nav-link" routerLinkActive="active">Servicios</a>
-      </li>
-      <li class="nav-item">
-        <a routerLink="publications" class="nav-link" routerLinkActive="active">Mis servicios</a>
-      </li>
+      <div *ngIf="!authService.isLoggedIn">
+        <li class="nav-item">
+          <a routerLink="log-in" class="nav-link" routerLinkActive="active">{{ 'navbar.entry' | translate }}</a>
+        </li>
+      </div>
+      <div *ngIf="authService.isLoggedIn">
+        <li class="nav-item">
+          <a routerLink="profile" class="nav-link" routerLinkActive="active">{{ 'navbar.miProfile' | translate }}</a>
+        </li>
+      </div>
     </ul>
   </div>
-  <form class="form-inline" action="/action_page.php">
-    <input class="form-control mr-sm-2" type="text" placeholder="Search">
-    <button class="btn btn-success" type="submit">Search</button>
-  </form>
+  <div class="dropdown dropleft">
+    <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown">
+      {{ 'navbar.language' | translate }}
+    </button>
+    <div class="dropdown-menu ">
+      <button class="dropdown-item btn-secondary" [ngClass]="{'active': activeLang == 'es'}" (click)="useLanguage('es')">{{ 'navbar.spanish' | translate }}</button>
+      <button class="dropdown-item btn-secondary" [ngClass]="{'active': activeLang == 'en'}" (click)="useLanguage('en')" >{{ 'navbar.english' | translate }}</button>
+    </div>
+  </div>
 </nav>
 
 <router-outlet></router-outlet>

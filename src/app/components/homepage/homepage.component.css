@@ -23,6 +23,8 @@ body {
           box-shadow: inset 0 0 5rem rgba(0,0,0,.5);
 }
 .site-wrapper-inner {
+  background: url("../../images/img-homepage/fondo-home.png");
+  background-size:cover;
   display: table-cell;
   vertical-align: top;
 }
@@ -107,6 +109,34 @@ body {
   min-width: 100%;
   height: 32rem;
   filter: opacity(.7);
+}
+
+.img1C{
+  background: url("../../images/img-homepage/imgCarrousel1.jpg");
+  background-size:cover;
+}
+
+.img2C{
+  background: url("../../images/img-homepage/imgCarrousel2.jpg");
+  background-size:cover;
+}
+.img3C{
+  background: url("../../images/img-homepage/imgCarrousel3.jpg");
+  background-size:cover;
+}
+
+.img1M{
+  background: url("../../images/img-homepage/imgMarketing1M.jpg");
+  background-size: cover;
+}
+
+.img2M{
+  background: url("../../images/img-homepage/imgMarketing2M.jpg");
+  background-size:cover;
+}
+.img3M{
+  background: url("../../images/img-homepage/imgMarketing3M.jpg");
+  background-size:cover;
 }
 
 @media (min-width: 40em) {

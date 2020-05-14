@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,11 +14,28 @@ import { DialogPublicationComponent } from './components/dialog-publication/dial
 import { PublicationsFoundComponent } from './components/publications-found/publications-found.component';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { HomepageComponent } from './homepage/homepage.component';
+import { HomepageComponent } from './components/homepage/homepage.component';
+
+//Translation
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { HttpClient } from '@angular/common/http';
+import { SignInComponent } from './components/sign-in/sign-in.component';
+import { LogInComponent } from './components/log-in/log-in.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 @NgModule({
-  declarations: [AppComponent, PublicationListComponent, PublicationCreateComponent, DialogPublicationComponent, PublicationsFoundComponent, HomepageComponent],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule, MaterialModule, BrowserAnimationsModule, NgbModule],
+  declarations: [AppComponent, PublicationListComponent, PublicationCreateComponent, DialogPublicationComponent, PublicationsFoundComponent, HomepageComponent, SignInComponent, LogInComponent, ProfileComponent],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule, MaterialModule, BrowserAnimationsModule, NgbModule, ReactiveFormsModule, 
+    TranslateModule.forRoot({
+    loader: {
+      provide: TranslateLoader,
+      useFactory: (http: HttpClient) => {
+        return new TranslateHttpLoader(http);
+      },
+      deps: [ HttpClient ]
+    }
+  })],
   providers: [],
   bootstrap: [AppComponent],
   entryComponents: [DialogPublicationComponent]
