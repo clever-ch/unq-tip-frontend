@@ -19,7 +19,6 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit() {
     //this.userDTO = this.route.snapshot.params['guid'];
-
     this.loginDTO = JSON.parse(localStorage.getItem("loginDTO"));
     this.GetUserLoggedInByGuid(this.loginDTO.UserGuid);
     this.ValidateUserLoggedIn(this.loginDTO);
