@@ -38,19 +38,9 @@
       <li class="nav-item">
         <a routerLink="allPublicationsFound" class="nav-link" routerLinkActive="active">{{ 'navbar.foundPets' | translate }}</a>
       </li>
-      <div *ngIf="authService.isLoggedIn">
-        <li class="nav-item">
-          <a routerLink="publications" class="nav-link" routerLinkActive="active">{{ 'navbar.myPublications' | translate }}</a>
-        </li>
-      </div>
       <li class="nav-item">
         <a routerLink="publications" class="nav-link" routerLinkActive="active">{{ 'navbar.services' | translate }}</a>
       </li>
-      <div *ngIf="authService.isLoggedIn">
-        <li class="nav-item">
-          <a routerLink="publications" class="nav-link" routerLinkActive="active">{{ 'navbar.myServices' | translate }}</a>
-        </li>
-      </div>
       <div *ngIf="!authService.isLoggedIn">
         <li class="nav-item">
           <a routerLink="log-in" class="nav-link" routerLinkActive="active">{{ 'navbar.entry' | translate }}</a>
