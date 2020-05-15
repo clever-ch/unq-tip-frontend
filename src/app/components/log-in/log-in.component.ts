@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth-service/auth.service';
 import { LoginDTO } from 'src/app/model/loginDTO';
-import { UserDTO } from 'src/app/model/userDTO';
 
 @Component({
   selector: 'app-log-in',
