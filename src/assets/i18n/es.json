@@ -41,6 +41,12 @@
         "serTransportText" : "No tenes como trasladar a tu mascota? No te preocupes, en este servicio te damos posibilidad de contactar a alguna persona cerca de tu domicilio que te ayude a trasladar a tu mascota. Si deseas postularte para ofrecer este servicio, solo debe registrarte.",
         "serButtonCon" : "Contratar Servicio",
         "serButtonSignUp" : "Registrarme"
+    },
 
+    "petsList": {
+        "viewDetails" : "Ver detalles",
+        "paginationNext" : "Siguiente",
+        "paginationPrevious" : "Anterior",
+        "searchPets" : "Buscar mascota"       
     }
 }

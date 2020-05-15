@@ -5,6 +5,7 @@ import { AuthService } from 'src/app/services/auth-service/auth.service';
 import { UserDTO } from 'src/app/model/userDTO';
 import { Observable } from "rxjs";
 
+
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -19,7 +20,6 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit() {
     //this.userDTO = this.route.snapshot.params['guid'];
-
     this.loginDTO = JSON.parse(localStorage.getItem("loginDTO"));
     this.GetUserLoggedInByGuid(this.loginDTO.UserGuid);
     this.ValidateUserLoggedIn(this.loginDTO);

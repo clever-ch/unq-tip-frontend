@@ -26,4 +26,5 @@ export class UrlManagerAuthService {
     getURLFindUser(): string {
         return 'http://localhost:8080/api/v1/users';
     }
+
 }

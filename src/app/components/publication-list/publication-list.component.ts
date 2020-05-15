@@ -16,7 +16,7 @@ export class PublicationListComponent implements OnInit {
 
   publications: Observable<PublicationDTO[]>;
   images = [];
-
+  searchText;
 
   constructor(private publicationService: PublicationService, private router: Router, public dialog: MatDialog) {}
 

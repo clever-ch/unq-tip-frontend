@@ -83,3 +83,20 @@ ngb-carousel {
       text-shadow: -3px 3px #ffffff, -3px -3px #ffffff, 3px -3px #ffffff, 3px 3px #ffffff, 6px 6px #666;
 
   }
+
+.search-hero {
+  max-width: 500px;
+  padding-bottom: 50px;
+  margin:auto;
+}
+
+.form-control {
+  box-shadow: 0 10px 40px 0 #B0C1D9;
+}
+
+.pagination {
+  display: inline-table;
+  text-align: center;
+  font-size: x-large;
+  background: azure;
+}

@@ -5,8 +5,13 @@
     </div>
     <div class="album text-center bg-transparent">
       <div class="container">
+        <div class="search-hero">
+          <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off"
+            placeholder="{{ 'petsList.searchPets' | translate }}">
+        </div>
         <div class="row">
-          <div class="card" *ngFor="let publication of publications | async">
+          <div class="card"
+            *ngFor="let publication of publications | async | filter:searchText | paginate: { itemsPerPage: 2, currentPage: p }">
             <ngb-carousel *ngIf='images'>
               <ng-template ngbSlide *ngFor="let image of publication.Photos">
                 <div class="picsum-img-wrapper">
@@ -21,10 +26,15 @@
               {{publication.PublicationAddress}} -
               {{publication.PublicationDescription}}
             </p>
-            <button type="button" class="btn btn-info" (click)="openDialog(publication)">Ver detalles</button>
+            <button type="button" class="btn btn-info"
+              (click)="openDialog(publication)">{{ 'petsList.viewDetails' | translate }}</button>
           </div>
         </div>
       </div>
+      <ul class="pagination">
+        <pagination-controls (pageChange)="p = $event" autoHide="true" previousLabel="{{ 'petsList.paginationPrevious' | translate }}" nextLabel="{{ 'petsList.paginationNext' | translate }}" responsive="true"></pagination-controls>
+      </ul>
     </div>
   </div>
+
 </div>
