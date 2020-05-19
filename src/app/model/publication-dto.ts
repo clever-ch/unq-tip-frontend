@@ -5,14 +5,14 @@ import { PublicationStatus } from '../constants/publication-status.enum';
 
 export class PublicationDTO {
     id: number;
-    publicationAddress: string;
-    publicationLocation: string;
-    publicationType: PublicationType;
-    publicationStatus: PublicationStatus;
-    publicationDescription: string;
-    photos: Array<string>;
+    PublicationAddress: string;
+    PublicationLocation: string;
+    PublicationType: PublicationType;
+    PublicationStatus: PublicationStatus;
+    PublicationDescription: string;
+    Photos: Array<string>;
 
-    animalDTO: AnimalDTO;
-    userDTO: UserDTO;
+    AnimalDTO: AnimalDTO;
+    UserDTO: UserDTO;
 
 }
