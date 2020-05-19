@@ -17,4 +17,8 @@ export class PublicationService {
   getAllPublicationsFound(): Observable<any> {
     return this.http.get(`${this.urlManagerPublication.getURLAllPublicationsFound()}`);
   }
+
+  createPublication(publicationDTO: Object): Observable<Object> {
+    return this.http.post(`${this.urlManagerPublication.getURLCreatePublication()}`, publicationDTO);
+  }
 }
