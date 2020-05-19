@@ -21,7 +21,7 @@ export class ProfileComponent implements OnInit {
     //this.userDTO = this.route.snapshot.params['guid'];
     this.loginDTO = JSON.parse(localStorage.getItem("loginDTO"));
     this.GetUserLoggedInByGuid(this.loginDTO.UserGuid);
-    this.ValidateUserLoggedIn(this.loginDTO);
+    //this.ValidateUserLoggedIn(this.loginDTO);
   }
 
   private GetUserLoggedInByGuid(userGuid: string) {
@@ -51,6 +51,10 @@ export class ProfileComponent implements OnInit {
 
   redirectMyServices() {
     this.router.navigate(['publications']);
+  }
+
+  redirectCreatePublication() {
+    this.router.navigate(['createPublication']);
   }
 
 }
