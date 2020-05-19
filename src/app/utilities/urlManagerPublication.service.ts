@@ -12,4 +12,8 @@ export class UrlManagerPublicationService {
     getURLAllPublicationsLost(): string {
         return 'http://localhost:8080/api/v1/allPublicationsLost';
     }
+
+    getURLCreatePublication(): string {
+        return 'http://localhost:8080/api/v1/createPublication';
+    }
 }
