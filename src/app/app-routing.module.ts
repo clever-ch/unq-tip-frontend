@@ -13,7 +13,7 @@ import { ErrorPageComponent } from '././generic-components/error-page/error-page
 const routes: Routes = [
   { path: '', redirectTo: 'homepage', pathMatch: 'full' },
   { path: 'homepage', component: HomepageComponent},
-  { path: 'publicationCreate', component: PublicationCreateComponent },
+  { path: 'createPublication', component: PublicationCreateComponent },
   { path: 'publications', component: PublicationListComponent },
   { path: 'allPublicationsFound', component: PublicationsFoundComponent },
   { path: 'log-in', component: LogInComponent },
