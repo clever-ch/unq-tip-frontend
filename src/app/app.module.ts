@@ -29,6 +29,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 // search module
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
+
 @NgModule({
   declarations: [AppComponent, PublicationListComponent, PublicationCreateComponent, DialogPublicationComponent, PublicationsFoundComponent, HomepageComponent, SignInComponent, LogInComponent, ProfileComponent],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule, MaterialModule, BrowserAnimationsModule, NgbModule, ReactiveFormsModule, NgxPaginationModule, Ng2SearchPipeModule, 
@@ -40,7 +41,8 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
       },
       deps: [ HttpClient ]
     }
-  })],
+  })
+],
   providers: [],
   bootstrap: [AppComponent],
   entryComponents: [DialogPublicationComponent]
