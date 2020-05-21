@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AppComponent } from 'src/app/app.component';
+import { Router } from '@angular/router';
+import { UserDTO } from 'src/app/model/userDTO';
+import { PersonDTO } from 'src/app/model/PersonDTO';
+import { SigninService } from 'src/app/services/login-service/signin.service';
 
 @Component({
   selector: 'app-sign-in',
@@ -11,11 +15,12 @@ export class SignInComponent implements OnInit {
   
   signin: FormGroup;
   submitted = false;
+  userDTO: UserDTO = new UserDTO();
+  personDTO: PersonDTO = new PersonDTO();
 
-  constructor(private formBuilder: FormBuilder, private appComponent: AppComponent) { }
+  constructor(private formBuilder: FormBuilder, private router: Router, private signinService: SigninService) { }
 
   ngOnInit() {
-    this.appComponent
     this.signin = this.formBuilder.group({
       nomb: ['', Validators.required],
       ape: ['', Validators.required],
@@ -32,11 +37,17 @@ export class SignInComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
+    this.save()
+  }
 
-    if (this.signin.invalid) {
-        return;
-    }
+  save() {
+    this.userDTO.PersonDTO = this.personDTO;
 
-}
+    this.signinService.createUser(this.userDTO).subscribe(data => console.log(data), error => console.log(error));
+  }
+  
+  goToLogin() {
+      this.router.navigate(['/log-in']);
+  }
   
 }
