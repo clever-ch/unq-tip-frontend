@@ -59,7 +59,7 @@
       <div class="row">
         <div class="col-md-6">
           <label for="name">Agregar Fotos</label>
-          <p>Agregar componente para subir fotos</p>
+          <input type="file" accept=".png, .jpg" (change)="onUpload($event)">
         </div>
       </div>
     </div>
