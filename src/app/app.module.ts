@@ -29,20 +29,26 @@ import { NgxPaginationModule } from 'ngx-pagination';
 // search module
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
+//Imports Firebase
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [AppComponent, PublicationListComponent, PublicationCreateComponent, DialogPublicationComponent, PublicationsFoundComponent, HomepageComponent, SignInComponent, LogInComponent, ProfileComponent],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule, MaterialModule, BrowserAnimationsModule, NgbModule, ReactiveFormsModule, NgxPaginationModule, Ng2SearchPipeModule, 
+  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule, MaterialModule, BrowserAnimationsModule, NgbModule, ReactiveFormsModule, NgxPaginationModule, Ng2SearchPipeModule,
     TranslateModule.forRoot({
-    loader: {
-      provide: TranslateLoader,
-      useFactory: (http: HttpClient) => {
-        return new TranslateHttpLoader(http);
-      },
-      deps: [ HttpClient ]
-    }
-  })
-],
+      loader: {
+        provide: TranslateLoader,
+        useFactory: (http: HttpClient) => {
+          return new TranslateHttpLoader(http);
+        },
+        deps: [HttpClient]
+      }
+    }),
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireStorageModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
   entryComponents: [DialogPublicationComponent]
