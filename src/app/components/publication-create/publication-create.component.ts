@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { PublicationService } from 'src/app/services/publication-service/publication.service';
 import { AnimalType } from 'src/app/constants/animal-type.enum';
@@ -8,6 +8,9 @@ import { AnimalDTO } from '../../model/animalDTO';
 import { AuthService } from 'src/app/services/auth-service/auth.service';
 import { UserDTO } from 'src/app/model/userDTO';
 import { LoginDTO } from 'src/app/model/loginDTO';
+import { AngularFireStorage } from '@angular/fire/storage';
+import { finalize } from 'rxjs/operators';
+import { Observable } from 'rxjs/internal/Observable';
 
 
 @Component({
@@ -21,15 +24,20 @@ export class PublicationCreateComponent implements OnInit {
   loginDTO: LoginDTO;
   publicationDTO: PublicationDTO = new PublicationDTO();
   animalDTO: AnimalDTO = new AnimalDTO();
-  
+
   animalTypeSelected: AnimalType;
   animalTypes = [AnimalType.BIRD, AnimalType.CAT, AnimalType.DOG];
-  
+
   publicationTypeSelected: PublicationType;
   publicationTypes = [PublicationType.FOUND, PublicationType.LOST];
 
-  constructor(private publicationService: PublicationService, private router: Router, private authService: AuthService) { }
+  constructor(private publicationService: PublicationService, private router: Router,
+    private authService: AuthService, private storage: AngularFireStorage) { }
 
+
+  @ViewChild('imageUser') inputImageUser: ElementRef
+  uploadPercent: Observable<number>;
+  urlImage: Observable<string>;
 
   ngOnInit() {
     this.loginDTO = JSON.parse(localStorage.getItem("loginDTO"));
@@ -44,7 +52,8 @@ export class PublicationCreateComponent implements OnInit {
   }
 
   onSubmit() {
-    this.createPublication();
+    console.log(this.inputImageUser.nativeElement.value);
+    //this.createPublication();
   }
 
   createPublication() {
@@ -68,5 +77,15 @@ export class PublicationCreateComponent implements OnInit {
 
   goToProfile() {
     this.router.navigate(['/profile']);
+  }
+
+  onUpload(e) {
+    const id = Math.random().toString(36).substring(2);
+    const file = e.target.files[0];
+    const filePath = `uploads/MiArchivo_${id}`;
+    const ref = this.storage.ref(filePath);
+    const task = this.storage.upload(filePath, file);
+    //this.uploadPercent = task.percentageChanges();
+    task.snapshotChanges().pipe(finalize(() => this.urlImage = ref.getDownloadURL())).subscribe();
   }
 }
