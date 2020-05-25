@@ -6,7 +6,8 @@
         <div class="col-md-6">
           <label for="name">Tipo de publicación</label>
           <select [(ngModel)]="publicationTypeSelected" name="status" placeholder="PRUEBA" class="form-control">
-            <option *ngFor="let publicationType of publicationTypes" [ngValue]="publicationType"> {{publicationType}} </option>
+            <option *ngFor="let publicationType of publicationTypes" [ngValue]="publicationType"> {{publicationType}}
+            </option>
           </select>
         </div>
       </div>
@@ -63,6 +64,7 @@
         </div>
       </div>
     </div>
+    <input #imageUser type="hidden" [value]="urlImage | async">
 
     <div class="form-group">
       <div class="row">
