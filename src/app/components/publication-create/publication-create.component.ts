@@ -1,4 +1,5 @@
 import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { PublicationService } from 'src/app/services/publication-service/publication.service';
 import { AnimalType } from 'src/app/constants/animal-type.enum';
@@ -39,6 +40,17 @@ export class PublicationCreateComponent implements OnInit {
   uploadPercent: Observable<number>;
   urlImage: Observable<string>;
 
+
+  images = [];
+  myForm = new FormGroup({
+    name: new FormControl('', [Validators.required, Validators.minLength(3)]),
+    file: new FormControl('', [Validators.required]),
+    fileSource: new FormControl('', [Validators.required])
+  });
+
+  imagesToSave = [];
+  arrayInputImageUser = [];
+
   ngOnInit() {
     this.loginDTO = JSON.parse(localStorage.getItem("loginDTO"));
     this.GetUserLoggedInByGuid(this.loginDTO.UserGuid);
@@ -46,13 +58,14 @@ export class PublicationCreateComponent implements OnInit {
 
   private GetUserLoggedInByGuid(userGuid: string) {
     this.authService.getUserByGuid(userGuid).subscribe(data => {
-      console.log(data)
       this.userDTO = data;
     }, error => console.log(error));
   }
 
   onSubmit() {
-    console.log(this.inputImageUser.nativeElement.value);
+    //Acá iría lo que se debe ejecutar al tocar "Crear publicación"
+    
+    //this.saveURLsImgFireBase();
     //this.createPublication();
   }
 
@@ -61,31 +74,75 @@ export class PublicationCreateComponent implements OnInit {
 
     this.publicationDTO.PublicationType = this.publicationTypeSelected;
     this.publicationDTO.PublicationLocation = "Prueba location";
-    this.publicationDTO.Photos = [];
-
+    //this.publicationDTO.Photos = [this.inputImageUser.nativeElement.value];
     this.publicationDTO.AnimalDTO = this.animalDTO;
-    console.log("Imprimo UserDTO antes de asignarlo:");
-    console.log(this.publicationDTO);
     this.publicationDTO.UserDTO = this.userDTO;
 
-
-    console.log("Imprimo publicationDTO creado:");
-    console.log(this.publicationDTO);
-
-    this.publicationService.createPublication(this.publicationDTO).subscribe(data => console.log(data), error => console.log(error));
+    this.publicationService.createPublication(this.publicationDTO).subscribe(error => console.log(error));
   }
 
   goToProfile() {
     this.router.navigate(['/profile']);
   }
 
-  onUpload(e) {
-    const id = Math.random().toString(36).substring(2);
-    const file = e.target.files[0];
-    const filePath = `uploads/MiArchivo_${id}`;
-    const ref = this.storage.ref(filePath);
-    const task = this.storage.upload(filePath, file);
-    //this.uploadPercent = task.percentageChanges();
-    task.snapshotChanges().pipe(finalize(() => this.urlImage = ref.getDownloadURL())).subscribe();
+  onUpload(event) {
+    //console.log('Archivos', event.target);
+
+    // const id = Math.random().toString(36).substring(2);
+    // const file = event.target.files[0];
+    // const filePath = `uploads/MiArchivo_${id}`;
+    // const ref = this.storage.ref(filePath);
+    // const task = this.storage.upload(filePath, file);
+    // //this.uploadPercent = task.percentageChanges();
+    // task.snapshotChanges().pipe(finalize(() => this.urlImage = ref.getDownloadURL())).subscribe();
+
+    //Limpio la lista para la nueva carga
+    this.imagesToSave = [];
+
+    if (event.target.files && event.target.files[0]) {
+      var filesAmount = event.target.files.length;
+
+      for (let i = 0; i < filesAmount; i++) {
+        var reader = new FileReader();
+        reader.onload = (etherEvent: any) => {
+          //console.log(event.target.result);
+          this.images.push(etherEvent.target.result);
+          this.myForm.patchValue({
+            fileSource: this.images
+          });
+        }
+        reader.readAsDataURL(event.target.files[i]);
+        this.imagesToSave.push(event.target.files[i]);
+      }
+    }
+  }
+
+  removeSelectedFile(index) {
+    // Delete the item from fileNames list
+    this.images.splice(index, 1);
+
+    //Actualizo las imágenes que se eliminaron
+    this.imagesToSave.splice(index, 1);
+  }
+
+  saveURLsImgFireBase() {
+
+    for (let index = 0; index < this.imagesToSave.length; index++) {
+
+      const id = Math.random().toString(36).substring(2);
+      const file = this.imagesToSave[index];
+      const filePath = `img-publication-lost/MiArchivo_${id}`;
+      const ref = this.storage.ref(filePath);
+      const task = this.storage.upload(filePath, file);
+      task.snapshotChanges().pipe(finalize(
+        () => {
+          this.urlImage = ref.getDownloadURL();
+          this.arrayInputImageUser.push(this.inputImageUser.nativeElement.value);
+        }
+        )).subscribe();
+        
+        //this.arrayInputImageUser.push(this.inputImageUser.nativeElement.value);
+      }
+      console.log('Img Firebase', this.arrayInputImageUser);
   }
 }
