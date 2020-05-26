@@ -26,7 +26,7 @@ export class ProfileComponent implements OnInit {
 
   private GetUserLoggedInByGuid(userGuid: string) {
     this.authService.getUserByGuid(userGuid).subscribe(data => {
-      console.log(data)
+      //console.log(data)
       this.userDTO = data;
     }, error => console.log(error));
   }
