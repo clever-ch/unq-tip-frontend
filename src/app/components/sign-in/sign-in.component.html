@@ -58,7 +58,6 @@
               [ngClass]="{ 'is-invalid': submitted && f.username.errors }" [(ngModel)]="userDTO.UserName" />
             <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
               <div *ngIf="f.username.errors.required">{{ 'signin.usernameError' | translate }}</div>
-              <div *ngIf="f.username.errors.minLength">{{ 'signin.usernameErrorMin' | translate }}</div>
             </div>
           </div>
           <div class="form-group">
@@ -67,7 +66,6 @@
               [ngClass]="{ 'is-invalid': submitted && f.email.errors }" [(ngModel)]="userDTO.Email"/>
             <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
               <div *ngIf="f.email.errors.required">{{ 'signin.emailErrorObl' | translate }}</div>
-              <div *ngIf="f.email.errors.email">{{ 'signin.emailErrorVal' | translate }}</div>
             </div>
           </div>
           <div class="form-group">
@@ -75,15 +73,26 @@
             <input type="text" formControlName="pass" class="form-control"
               [ngClass]="{ 'is-invalid': submitted && f.pass.errors }" [(ngModel)]="userDTO.Password"/>
             <div *ngIf="submitted && f.pass.errors" class="invalid-feedback">
-              <div *ngIf="f.pass.errors.required">{{ 'signin.passError' | translate }}</div>
-              <div *ngIf="f.pass.errors.minLength">{{ 'signin.passErrorMin' | translate }}</div>
+              <div *ngIf="f.pass.errors.required">{{ 'signin.passError' | translate }}</div>  
             </div>
           </div> 
 
           <div class="form-group">
             <button [disabled]="loading" class="btn btn-primary">{{ 'signin.accept' | translate }}</button>
+            <button (click)="goToLogin()" class="btn btn-danger">{{ 'signin.cancel' | translate }}</button>
           </div>
           
+          <div *ngIf="failCreate">
+            <div class="alert alert-danger text-center">
+              <strong>Disculpe!</strong> Fallo la creación del usuario:  <strong>{{errorText}}</strong>
+            </div>
+          </div>
+          <div *ngIf="createSuccess">
+            <div class="alert alert-success text-center">
+              <strong>Muchas gracias!</strong> Ya puede ingresar como usuario.
+              <button (click)="goToLogin()" class="btn btn-success">Login</button>
+            </div>
+          </div>
         </form>
 
       </div>

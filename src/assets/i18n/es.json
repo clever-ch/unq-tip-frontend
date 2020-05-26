@@ -74,12 +74,10 @@
         "locationError" : "Por favor, ingrese una localidad",
         "email" : "Email",
         "emailErrorObl" : "El email es obligatorio",
-        "emailErrorVal" : "Por favor, ingrese un mail válido",
-        "usernameError" : "Por favor, ingrese un username ( 6 Caracteres mínimo )",
-        "usernameErrorMin" : "6 Caracteres mínimo",
+        "usernameError" : "Por favor, ingrese un username ( 6 Caracteres mínimo )", 
         "passError" : "Por favor, ingrese un password ( 6 Caracteres mínimo )",
-        "passErrorMin" : "6 Caracteres mínimo",
-        "accept" : "Aceptar"
+        "accept" : "Aceptar",
+        "cancel" : "Cancelar"
     }
 
 }

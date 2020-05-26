@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ErrorHandler } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AppComponent } from 'src/app/app.component';
 import { Router } from '@angular/router';
 import { UserDTO } from 'src/app/model/userDTO';
 import { PersonDTO } from 'src/app/model/PersonDTO';
 import { SigninService } from 'src/app/services/login-service/signin.service';
+import { ErrorHandlerSignin } from 'src/app/generic-components/errorHandlerSignin';
 
 @Component({
   selector: 'app-sign-in',
@@ -17,8 +17,12 @@ export class SignInComponent implements OnInit {
   submitted = false;
   userDTO: UserDTO = new UserDTO();
   personDTO: PersonDTO = new PersonDTO();
+  createSuccess = false;
+  failCreate = false
+  errorText;
 
-  constructor(private formBuilder: FormBuilder, private router: Router, private signinService: SigninService) { }
+  constructor(private formBuilder: FormBuilder, private router: Router, private signinService: SigninService,
+    private handlerEr: ErrorHandlerSignin) { }
 
   ngOnInit() {
     this.signin = this.formBuilder.group({
@@ -27,9 +31,9 @@ export class SignInComponent implements OnInit {
       phone: ['', Validators.required],
       dir: ['', Validators.required],
       loc: ['', Validators.required],
-      username: ['', [Validators.required, Validators.minLength(6)]],
-      email: ['', [Validators.required, Validators.email]],
-      pass: ['', [Validators.required, Validators.minLength(6)]]
+      username: ['',Validators.required],
+      email: ['', Validators.required],
+      pass: ['', Validators.required]
   });
   }
 
@@ -42,10 +46,10 @@ export class SignInComponent implements OnInit {
 
   save() {
     this.userDTO.PersonDTO = this.personDTO;
-
-    this.signinService.createUser(this.userDTO).subscribe(data => console.log(data), error => console.log(error));
+    this.signinService.createUser(this.userDTO).subscribe(data => (this.createSuccess = true, this.failCreate = false)
+      , error => (this.failCreate = true, this.errorText = this.handlerEr.handleError(error)));
   }
-  
+
   goToLogin() {
       this.router.navigate(['/log-in']);
   }
