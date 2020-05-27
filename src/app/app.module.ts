@@ -29,6 +29,10 @@ import { NgxPaginationModule } from 'ngx-pagination';
 // search module
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { ErrorHandlerSignin } from './generic-components/errorHandlerSignin';
+//Imports Firebase
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [AppComponent, PublicationListComponent, PublicationCreateComponent, DialogPublicationComponent, PublicationsFoundComponent, HomepageComponent, SignInComponent, LogInComponent, ProfileComponent],
@@ -41,7 +45,10 @@ import { ErrorHandlerSignin } from './generic-components/errorHandlerSignin';
       },
       deps: [ HttpClient ]
     }
-  })],
+  }),
+  AngularFireModule.initializeApp(environment.firebaseConfig),
+  AngularFireStorageModule,
+],
   providers: [ErrorHandlerSignin],
   bootstrap: [AppComponent],
   entryComponents: [DialogPublicationComponent]

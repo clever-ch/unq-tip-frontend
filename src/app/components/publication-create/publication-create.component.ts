@@ -1,4 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { PublicationService } from 'src/app/services/publication-service/publication.service';
+import { AnimalType } from 'src/app/constants/animal-type.enum';
+import { PublicationType } from 'src/app/constants/publication-type.enum';
+import { PublicationDTO } from '../../model/publication-dto';
+import { AnimalDTO } from '../../model/animalDTO';
+import { AuthService } from 'src/app/services/auth-service/auth.service';
+import { UserDTO } from 'src/app/model/userDTO';
+import { LoginDTO } from 'src/app/model/loginDTO';
+import { AngularFireStorage } from '@angular/fire/storage';
+import { finalize } from 'rxjs/operators';
+import { Observable } from 'rxjs/internal/Observable';
+
 
 @Component({
   selector: 'app-publication-create',
@@ -7,9 +21,128 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PublicationCreateComponent implements OnInit {
 
-  constructor() { }
+  userDTO: UserDTO;
+  loginDTO: LoginDTO;
+  publicationDTO: PublicationDTO = new PublicationDTO();
+  animalDTO: AnimalDTO = new AnimalDTO();
+
+  animalTypeSelected: AnimalType;
+  animalTypes = [AnimalType.BIRD, AnimalType.CAT, AnimalType.DOG];
+
+  publicationTypeSelected: PublicationType;
+  publicationTypes = [PublicationType.FOUND, PublicationType.LOST];
+
+  constructor(private publicationService: PublicationService, private router: Router,
+    private authService: AuthService, private storage: AngularFireStorage) { }
+
+
+  @ViewChild('imageUser') inputImageUser: ElementRef
+  uploadPercent: Observable<number>;
+  urlImage: Observable<string>;
+
+
+  images = [];
+  myForm = new FormGroup({
+    name: new FormControl('', [Validators.required, Validators.minLength(3)]),
+    file: new FormControl('', [Validators.required]),
+    fileSource: new FormControl('', [Validators.required])
+  });
+
+  imagesToSave = [];
+  arrayInputImageUser = [];
 
   ngOnInit() {
+    this.loginDTO = JSON.parse(localStorage.getItem("loginDTO"));
+    this.GetUserLoggedInByGuid(this.loginDTO.UserGuid);
   }
 
+  private GetUserLoggedInByGuid(userGuid: string) {
+    this.authService.getUserByGuid(userGuid).subscribe(data => {
+      this.userDTO = data;
+    }, error => console.log(error));
+  }
+
+  onSubmit() {
+    //Acá iría lo que se debe ejecutar al tocar "Crear publicación"
+    
+    //this.saveURLsImgFireBase();
+    //this.createPublication();
+  }
+
+  createPublication() {
+    this.animalDTO.AnimalType = this.animalTypeSelected;
+
+    this.publicationDTO.PublicationType = this.publicationTypeSelected;
+    this.publicationDTO.PublicationLocation = "Prueba location";
+    //this.publicationDTO.Photos = [this.inputImageUser.nativeElement.value];
+    this.publicationDTO.AnimalDTO = this.animalDTO;
+    this.publicationDTO.UserDTO = this.userDTO;
+
+    this.publicationService.createPublication(this.publicationDTO).subscribe(error => console.log(error));
+  }
+
+  goToProfile() {
+    this.router.navigate(['/profile']);
+  }
+
+  onUpload(event) {
+    //console.log('Archivos', event.target);
+
+    // const id = Math.random().toString(36).substring(2);
+    // const file = event.target.files[0];
+    // const filePath = `uploads/MiArchivo_${id}`;
+    // const ref = this.storage.ref(filePath);
+    // const task = this.storage.upload(filePath, file);
+    // //this.uploadPercent = task.percentageChanges();
+    // task.snapshotChanges().pipe(finalize(() => this.urlImage = ref.getDownloadURL())).subscribe();
+
+    //Limpio la lista para la nueva carga
+    this.imagesToSave = [];
+
+    if (event.target.files && event.target.files[0]) {
+      var filesAmount = event.target.files.length;
+
+      for (let i = 0; i < filesAmount; i++) {
+        var reader = new FileReader();
+        reader.onload = (etherEvent: any) => {
+          //console.log(event.target.result);
+          this.images.push(etherEvent.target.result);
+          this.myForm.patchValue({
+            fileSource: this.images
+          });
+        }
+        reader.readAsDataURL(event.target.files[i]);
+        this.imagesToSave.push(event.target.files[i]);
+      }
+    }
+  }
+
+  removeSelectedFile(index) {
+    // Delete the item from fileNames list
+    this.images.splice(index, 1);
+
+    //Actualizo las imágenes que se eliminaron
+    this.imagesToSave.splice(index, 1);
+  }
+
+  saveURLsImgFireBase() {
+
+    for (let index = 0; index < this.imagesToSave.length; index++) {
+
+      const id = Math.random().toString(36).substring(2);
+      const file = this.imagesToSave[index];
+      const filePath = `img-publication-lost/MiArchivo_${id}`;
+      const ref = this.storage.ref(filePath);
+      const task = this.storage.upload(filePath, file);
+      task.snapshotChanges().pipe(finalize(
+        () => {
+          this.urlImage = ref.getDownloadURL();
+          this.arrayInputImageUser.push(this.inputImageUser.nativeElement.value);
+        }
+        )).subscribe();
+        
+        //this.arrayInputImageUser.push(this.inputImageUser.nativeElement.value);
+      }
+      console.log('Img Firebase', this.arrayInputImageUser);
+  }
 }

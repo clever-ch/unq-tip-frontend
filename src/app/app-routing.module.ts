@@ -14,7 +14,7 @@ import { SignInComponent } from './components/sign-in/sign-in.component';
 const routes: Routes = [
   { path: '', redirectTo: 'homepage', pathMatch: 'full' },
   { path: 'homepage', component: HomepageComponent},
-  { path: 'publicationCreate', component: PublicationCreateComponent },
+  { path: 'createPublication', component: PublicationCreateComponent },
   { path: 'publications', component: PublicationListComponent },
   { path: 'allPublicationsFound', component: PublicationsFoundComponent },
   { path: 'sign-in', component: SignInComponent },

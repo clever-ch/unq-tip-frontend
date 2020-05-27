@@ -2,36 +2,30 @@
     "header": {
         "slogan": "We help you find your lost pet!"
     },
-
     "navbar": {
-        "home" : "Home",
-        "lostPets" : "Lost Pets",
-        "foundPets" : "Found Pets",
-        "myPublications" : "My publications",
-        "services" : "Services",
-        "myServices" : "My services",
-        "entry" : "Login",
-        "miProfile" : "My profile",
-        "language" : "Language",
-        "spanish" : "Spanish",
-        "english" : "English"
+        "home": "Home",
+        "lostPets": "Lost Pets",
+        "foundPets": "Found Pets",
+        "myPublications": "My publications",
+        "services": "Services",
+        "myServices": "My services",
+        "entry": "Login",
+        "miProfile": "My profile",
+        "language": "Language",
+        "spanish": "Spanish",
+        "english": "English"
     },
-
     "home": {
         "title": "Welcome to SOS Pets",
-        "text" : "This site publishes searches for lost pets, publishes found pets and other services for animals",
-        
+        "text": "This site publishes searches for lost pets, publishes found pets and other services for animals",
         "titleImg1": "Lost your pet?",
         "textImg1": "Look it up in the list of found pets.",
-        "buttonImg1" : "Go to list",
-        
+        "buttonImg1": "Go to list",
         "titleImg2": "Did you find a pet?",
         "textImg2": "Register and publish to find its owner.",
-        "buttonImg2" : "Sign up",
-
+        "buttonImg2": "Sign up",
         "titleImg3": "Do you want to publish a search?",
         "textImg3": "Register, publish and someone will give you information to find your pet.",
-
         "serviceTitle" : "Services",
         "servCare" : "Care",
         "servCareText" : "In this service we give people the possibility to offer to take care of an animal, without any conditions. If you need someone to take care of your pet, enter the list of nominated people. If you want to apply, register and followed the steps to do so.",

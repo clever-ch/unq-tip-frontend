@@ -1,3 +1,104 @@
-<p>
-  publication-create works!
-</p>
+<div class="container">
+  <h3>Crear publicación</h3>
+  <form (ngSubmit)="onSubmit()" class="table-responsive">
+    <div class="form-group">
+      <div class="row">
+        <div class="col-md-6">
+          <label for="name">Tipo de publicación</label>
+          <select [(ngModel)]="publicationTypeSelected" name="status" placeholder="PRUEBA" class="form-control">
+            <option *ngFor="let publicationType of publicationTypes" [ngValue]="publicationType"> {{publicationType}}
+            </option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="row">
+        <div class="col-md-6">
+          <label for="name">Raza</label>
+          <input type="text" class="form-control" id="idBreed" required [(ngModel)]="animalDTO.Breed"
+            name="inpAnimalBreed">
+        </div>
+
+        <div class="col-md-6">
+          <label for="name">Tipo de Animal</label>
+          <select [(ngModel)]="animalTypeSelected" name="status" placeholder="PRUEBA" class="form-control">
+            <option *ngFor="let animalType of animalTypes" [ngValue]="animalType"> {{animalType}} </option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="row">
+        <div class="col-md-6">
+          <label for="name">Edad</label>
+          <input type="text" class="form-control" id="idAge" required [(ngModel)]="animalDTO.AnimalAge"
+            name="inpAnimalAge">
+        </div>
+
+        <div class="col-md-6">
+          <label for="name">Descripción Animal</label>
+          <input type="text" class="form-control" id="idAnimalDescription" required
+            [(ngModel)]="animalDTO.AnimalDescription" name="inpAnimalDescription">
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="row">
+        <div class="col-md-6">
+          <label for="name">Dirección publicación</label>
+          <input type="text" class="form-control" required [(ngModel)]="publicationDTO.PublicationAddress"
+            name="inpPublicationAddress">
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="row">
+        <div class="col-md-6">
+          <label for="name">Agregar Fotos</label>
+          <input [formControl]="myForm" type="file" class="form-control" multiple="true" type="file" accept=".png, .jpg"
+            (change)="onUpload($event)">
+        </div>
+      </div>
+    </div>
+
+    <!-- Esto no se muestra, lo tengo para guardar la URL de la imagen -->
+    <input #imageUser type="hidden" [value]="urlImage | async">
+    <!-- Esto no se muestra, lo tengo para guardar la URL de la imagen -->
+
+    <div class="form-group">
+      <div class="row">
+        <div class="col-md-6">
+          <div *ngFor="let url of images;let index = index">
+            <img [src]="url" height="150" width="200px" style="margin: 3px;">
+            <button mat-icon-button (click)="removeSelectedFile(index)">delete</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br />
+
+    <div class="form-group">
+      <div class="row">
+        <div class="col-md-6">
+          <label for="name">Localización publicación</label>
+          <p>Agregar componente para ubicación</p>
+        </div>
+      </div>
+    </div>
+    <br>
+
+    <div class="row">
+      <div class="col-md-6">
+        <button type="submit" class="btn btn-success">Crear publicación</button>
+      </div>
+      <div class="col-md-6">
+        <button (click)="goToProfile()" class="btn btn-secondary">Cancelar</button><br>
+      </div>
+    </div>
+  </form>
+</div>
