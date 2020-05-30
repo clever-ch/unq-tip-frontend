@@ -1,22 +1,132 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-6">
-      <h3>Bienvenido {{userDTO.UserName}}</h3>
-    </div>
-  </div>
-  <br>
+<div class="style backg">
+  <div class="container p-3 my-3 text-black table-responsive">
 
-  <div class="row">
-    <div class="col-md-6">
-      <button type="button" class="btn btn-primary" (click)="redirectMyPublications()">Mis Publicaciones</button>
-      <button type="button" class="btn btn-success" (click)="redirectMyServices()">Mis Servicios</button>
-      <button type="button" class="btn btn-success" (click)="redirectCreatePublication()">Crear publicación</button>
-    </div>
-  </div>
+    <div class="row ">
 
-  <br>
-  <br>
-  <div class="form-group">
-    <button class="btn btn-primary" (click)="logout()" class="btn btn-info">Salir</button>
+      <div class="col-md-12 mx-auto mt-5 card bg-light">
+        <br>
+        <form method="post">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="profile-img">
+                <img src= "https://cdn.pixabay.com/photo/2016/08/20/05/38/avatar-1606916_960_720.png" alt="" />
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="profile-head">
+                <h2>
+                  {{userDTO.UserName}}
+                </h2>
+                <h6>
+                  SOS Pets User
+                </h6>
+                <button type="button" class="btn btn-primary" (click)="redirectMyPublications()">Mis
+                  Publicaciones</button>
+                <br>
+                <button type="button" class="btn btn-success" (click)="redirectMyServices()">Mis Servicios</button>
+                <br>
+                <br>
+                <br>
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                  <li class="nav-item">
+                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#pers" role="tab"
+                      aria-controls="home" aria-selected="true">Info Personal</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#user" role="tab"
+                      aria-controls="profile" aria-selected="false">Info User</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-md-2">
+              <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Edit Profile" />
+              <input type="submit" class="profile-edit-btn btn-dark text-white" name="btnAddMore" (click)="logout()"
+                value="Logout" />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4">
+              <div class="profile-work">
+                <button type="button" class="btn btn-success" (click)="redirectCreatePublication()">Crear
+                  publicación</button>
+              </div>
+            </div>
+            <div class="col-md-8">
+              <div class="tab-content profile-tab" id="myTabContent">
+                <div class="tab-pane fade show active" id="pers" role="tabpanel" aria-labelledby="home-tab">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <label>Name</label>
+                    </div>
+                    <div class="col-md-6">
+                      <p>{{userDTO.PersonDTO.Name}}</p>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <label>Surname</label>
+                    </div>
+                    <div class="col-md-6">
+                      <p>{{userDTO.PersonDTO.SurName}}</p>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <label>Telephone</label>
+                    </div>
+                    <div class="col-md-6">
+                      <p>{{userDTO.PersonDTO.Telephone}}</p>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <label>Address</label>
+                    </div>
+                    <div class="col-md-6">
+                      <p>{{userDTO.PersonDTO.Address}}</p>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <label>Location</label>
+                    </div>
+                    <div class="col-md-6">
+                      <p>{{userDTO.PersonDTO.Location}}</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="tab-pane fade" id="user" role="tabpanel" aria-labelledby="profile-tab">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <label>UserName</label>
+                    </div>
+                    <div class="col-md-6">
+                      <p>{{userDTO.UserName}}</p>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <label>Email</label>
+                    </div>
+                    <div class="col-md-6">
+                      <p>{{userDTO.Email}}</p>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <label>Password</label>
+                    </div>
+                    <div class="col-md-6">
+                      <p>***********</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
   </div>
 </div>

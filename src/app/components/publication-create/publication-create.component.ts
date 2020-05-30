@@ -25,7 +25,7 @@ export class PublicationCreateComponent implements OnInit {
   loginDTO: LoginDTO;
   publicationDTO: PublicationDTO = new PublicationDTO();
   animalDTO: AnimalDTO = new AnimalDTO();
-
+  submitted = false;
   animalTypeSelected: AnimalType;
   animalTypes = [AnimalType.BIRD, AnimalType.CAT, AnimalType.DOG];
 
@@ -43,7 +43,7 @@ export class PublicationCreateComponent implements OnInit {
 
   images = [];
   myForm = new FormGroup({
-    name: new FormControl('', [Validators.required, Validators.minLength(3)]),
+   name: new FormControl('', [Validators.required, Validators.minLength(3)]),
     file: new FormControl('', [Validators.required]),
     fileSource: new FormControl('', [Validators.required])
   });
@@ -63,6 +63,7 @@ export class PublicationCreateComponent implements OnInit {
   }
 
   onSubmit() {
+    this.submitted = true;
     //Acá iría lo que se debe ejecutar al tocar "Crear publicación"
     
     //this.saveURLsImgFireBase();

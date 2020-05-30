@@ -6,7 +6,7 @@
       <div class="col-md-12 mx-auto mt-5 card bg-light">
         <h3>Crear publicación</h3>
         <br>
-        <form (ngSubmit)="onSubmit()">
+        <form (ngSubmit)="onSubmit()" [formGroup]="myForm">
           <div class="form-group">
             <div class="row">
               <div class="col-md-6">
@@ -23,9 +23,12 @@
           <div class="form-group">
             <div class="row">
               <div class="col-md-6">
-                <label for="name">Raza</label>
-                <input type="text" class="form-control" id="idBreed" required [(ngModel)]="animalDTO.Breed"
-                  name="inpAnimalBreed">
+                <label >Raza</label>
+                <input type="text" formControlName="raza" class="form-control" id="idBreed" required [(ngModel)]="animalDTO.Breed"
+                   [ngClass]="{ 'is-invalid': submitted && f.raza.errors }">
+                  <div *ngIf="submitted && f.raza.errors" class="invalid-feedback">
+                    <div *ngIf="f.raza.errors.required">raza</div>
+                  </div>
               </div>
 
               <div class="col-md-6">
