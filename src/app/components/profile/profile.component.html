@@ -22,9 +22,12 @@
                 </h6>
                 <button type="button" class="btn btn-primary" (click)="redirectMyPublications()">Mis
                   Publicaciones</button>
-                <br>
                 <button type="button" class="btn btn-success" (click)="redirectMyServices()">Mis Servicios</button>
                 <br>
+                <br>  
+                <button type="button" class="btn btn-outline-primary" (click)="redirectCreatePublication()"><i class="fa fa-plus"></i> Crear
+                  publicación
+                </button>
                 <br>
                 <br>
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -40,16 +43,13 @@
               </div>
             </div>
             <div class="col-md-2">
-              <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Edit Profile" />
-              <input type="submit" class="profile-edit-btn btn-dark text-white" name="btnAddMore" (click)="logout()"
-                value="Logout" />
+              <button type="submit" class="profile-edit-btn btn-dark text-white" name="btnAddMore" (click)="logout()"><i class="fa fa-sign-out"></i> Logout </button>
             </div>
           </div>
           <div class="row">
             <div class="col-md-4">
               <div class="profile-work">
-                <button type="button" class="btn btn-success" (click)="redirectCreatePublication()">Crear
-                  publicación</button>
+                  <button  type="submit" class="profile-edit-btn" name="btnAddMore"> <i class="fa fa-edit"></i> Edit Profile </button>
               </div>
             </div>
             <div class="col-md-8">
