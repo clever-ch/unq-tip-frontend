@@ -43,13 +43,19 @@ export class PublicationCreateComponent implements OnInit {
 
   images = [];
   myForm = new FormGroup({
-   name: new FormControl('', [Validators.required, Validators.minLength(3)]),
-    file: new FormControl('', [Validators.required]),
-    fileSource: new FormControl('', [Validators.required])
+    tipo: new FormControl('', [Validators.required]),
+    tipoPub: new FormControl('', [Validators.required]),
+    raza: new FormControl('', [Validators.required]),
+    edad: new FormControl('', [Validators.required]),
+    desc: new FormControl('', [Validators.required]),
+    ubi: new FormControl('', [Validators.required]),
+    photos: new FormControl('', [Validators.required])
   });
 
   imagesToSave = [];
   arrayInputImageUser = [];
+
+  get f() { return this.myForm.controls; }
 
   ngOnInit() {
     this.loginDTO = JSON.parse(localStorage.getItem("loginDTO"));
@@ -63,6 +69,7 @@ export class PublicationCreateComponent implements OnInit {
   }
 
   onSubmit() {
+    this.submitted = true;
     this.saveURLsImgFireBase();
     this.createPublication();
   }
