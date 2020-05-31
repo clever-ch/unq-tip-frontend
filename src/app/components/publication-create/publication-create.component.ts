@@ -10,7 +10,7 @@ import { AuthService } from 'src/app/services/auth-service/auth.service';
 import { UserDTO } from 'src/app/model/userDTO';
 import { LoginDTO } from 'src/app/model/loginDTO';
 import { AngularFireStorage } from '@angular/fire/storage';
-import { finalize } from 'rxjs/operators';
+import { finalize, tap } from 'rxjs/operators';
 import { Observable } from 'rxjs/internal/Observable';
 
 
@@ -63,23 +63,31 @@ export class PublicationCreateComponent implements OnInit {
   }
 
   onSubmit() {
-    this.submitted = true;
-    //Acá iría lo que se debe ejecutar al tocar "Crear publicación"
-    
-    //this.saveURLsImgFireBase();
-    //this.createPublication();
+    this.saveURLsImgFireBase();
+    this.createPublication();
   }
 
   createPublication() {
     this.animalDTO.AnimalType = this.animalTypeSelected;
 
+    this.setPhotosPublication()
     this.publicationDTO.PublicationType = this.publicationTypeSelected;
     this.publicationDTO.PublicationLocation = "Prueba location";
-    //this.publicationDTO.Photos = [this.inputImageUser.nativeElement.value];
+    //this.publicationDTO.Photos = this.arrayInputImageUser;
     this.publicationDTO.AnimalDTO = this.animalDTO;
     this.publicationDTO.UserDTO = this.userDTO;
 
+    console.log('Imprimo el DTO a crear:', this.publicationDTO);
     this.publicationService.createPublication(this.publicationDTO).subscribe(error => console.log(error));
+  }
+
+  setPhotosPublication() {
+
+    console.log('Entro al for del metodo: ', this.arrayInputImageUser.length);
+    for (let index = 0; index < this.arrayInputImageUser.length; index++) {
+      this.publicationDTO.Photos.push(this.arrayInputImageUser[index]);
+      console.log('Pushee a DTO la img: ', this.arrayInputImageUser[index]);
+    }
   }
 
   goToProfile() {
@@ -135,14 +143,14 @@ export class PublicationCreateComponent implements OnInit {
       const filePath = `img-publication-lost/MiArchivo_${id}`;
       const ref = this.storage.ref(filePath);
       const task = this.storage.upload(filePath, file);
-      task.snapshotChanges().pipe(finalize(
-        () => {
-          this.urlImage = ref.getDownloadURL();
-          this.arrayInputImageUser.push(this.inputImageUser.nativeElement.value);
+      
+      //task.snapshotChanges().pipe(tap(console.log),finalize(
+      task.snapshotChanges().pipe(tap(console.log),finalize(
+        async() => {
+          this.urlImage = await ref.getDownloadURL().toPromise();
+          this.arrayInputImageUser.push(this.urlImage);
         }
         )).subscribe();
-        
-        //this.arrayInputImageUser.push(this.inputImageUser.nativeElement.value);
       }
       console.log('Img Firebase', this.arrayInputImageUser);
   }
