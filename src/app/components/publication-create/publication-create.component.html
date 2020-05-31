@@ -36,22 +36,16 @@
           <label for="name">Edad</label>
           <input type="text" class="form-control" id="idAge" required [(ngModel)]="animalDTO.AnimalAge"
             name="inpAnimalAge">
+
+          <label for="name">Dirección publicación</label>
+          <input type="text" class="form-control" required [(ngModel)]="publicationDTO.PublicationAddress"
+            name="inpPublicationAddress">
         </div>
 
         <div class="col-md-6">
           <label for="name">Descripción Animal</label>
-          <input type="text" class="form-control" id="idAnimalDescription" required
-            [(ngModel)]="animalDTO.AnimalDescription" name="inpAnimalDescription">
-        </div>
-      </div>
-    </div>
-
-    <div class="form-group">
-      <div class="row">
-        <div class="col-md-6">
-          <label for="name">Dirección publicación</label>
-          <input type="text" class="form-control" required [(ngModel)]="publicationDTO.PublicationAddress"
-            name="inpPublicationAddress">
+          <textarea class="form-control" [(ngModel)]="animalDTO.AnimalDescription" id="idAnimalDescription" rows="3"
+            name="inpAnimalDescription"></textarea>
         </div>
       </div>
     </div>
