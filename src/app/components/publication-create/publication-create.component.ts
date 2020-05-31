@@ -55,7 +55,7 @@ export class PublicationCreateComponent implements OnInit {
   imagesToSave = [];
   arrayInputImageUser = [];
 
-  get f() { return this.myForm.controls; }
+  get controls() { return this.myForm.controls; }
 
   ngOnInit() {
     this.loginDTO = JSON.parse(localStorage.getItem("loginDTO"));

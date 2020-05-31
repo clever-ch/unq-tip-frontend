@@ -12,13 +12,13 @@
               <div class="col-md-6">
                 <label>Tipo de publicación</label>
                 <select [(ngModel)]="publicationTypeSelected" name="status" placeholder="PRUEBA" class="form-control"
-                  formControlName="tipoPub" [ngClass]="{ 'is-invalid': submitted && f.tipoPub.errors }">
+                  formControlName="tipoPub" [ngClass]="{ 'is-invalid': submitted && controls.tipoPub.errors }">
                   <option *ngFor="let publicationType of publicationTypes" [ngValue]="publicationType">
                     {{publicationType}}
                   </option>
                 </select>
-                <div *ngIf="submitted && f.tipoPub.errors" class="invalid-feedback">
-                  <div *ngIf="f.tipoPub.errors.required">Por favor, seleccione un tipo de publicación</div>
+                <div *ngIf="submitted && controls.tipoPub.errors" class="invalid-feedback">
+                  <div *ngIf="controls.tipoPub.errors.required">Por favor, seleccione un tipo de publicación</div>
                 </div>
               </div>
             </div>
@@ -29,20 +29,20 @@
               <div class="col-md-6">
                 <label>Raza</label>
                 <input type="text" formControlName="raza" class="form-control" id="idBreed" required
-                  [(ngModel)]="animalDTO.Breed" [ngClass]="{ 'is-invalid': submitted && f.raza.errors }">
-                <div *ngIf="submitted && f.raza.errors" class="invalid-feedback">
-                  <div *ngIf="f.raza.errors.required">Por favor, ingrese la raza de su mascota</div>
+                  [(ngModel)]="animalDTO.Breed" [ngClass]="{ 'is-invalid': submitted && controls.raza.errors }">
+                <div *ngIf="submitted && controls.raza.errors" class="invalid-feedback">
+                  <div *ngIf="controls.raza.errors.required">Por favor, ingrese la raza de su mascota</div>
                 </div>
               </div>
 
               <div class="col-md-6">
                 <label>Tipo de Animal</label>
                 <select [(ngModel)]="animalTypeSelected" name="status" placeholder="PRUEBA" class="form-control"
-                  formControlName="tipo" [ngClass]="{ 'is-invalid': submitted && f.tipo.errors }">
+                  formControlName="tipo" [ngClass]="{ 'is-invalid': submitted && controls.tipo.errors }">
                   <option *ngFor="let animalType of animalTypes" [ngValue]="animalType"> {{animalType}} </option>
                 </select>
-                <div *ngIf="submitted && f.tipo.errors" class="invalid-feedback">
-                  <div *ngIf="f.tipo.errors.required">Por favor, seleccione un tipo de animal</div>
+                <div *ngIf="submitted && controls.tipo.errors" class="invalid-feedback">
+                  <div *ngIf="controls.tipo.errors.required">Por favor, seleccione un tipo de animal</div>
                 </div>
               </div>
             </div>
@@ -53,9 +53,9 @@
               <div class="col-md-6">
                 <label for="name">Edad</label>
                 <input type="text" class="form-control" id="idAge" required [(ngModel)]="animalDTO.AnimalAge"
-                  formControlName="edad" name="inpAnimalAge" [ngClass]="{ 'is-invalid': submitted && f.edad.errors }">
-                <div *ngIf="submitted && f.edad.errors" class="invalid-feedback">
-                  <div *ngIf="f.edad.errors.required">Por favor, especifique la edad</div>
+                  formControlName="edad" name="inpAnimalAge" [ngClass]="{ 'is-invalid': submitted && controls.edad.errors }">
+                <div *ngIf="submitted && controls.edad.errors" class="invalid-feedback">
+                  <div *ngIf="controls.edad.errors.required">Por favor, especifique la edad</div>
                 </div>
               </div>
 
@@ -63,9 +63,9 @@
                 <label for="name">Descripción Animal</label>
                 <input type="text" class="form-control" id="idAnimalDescription" required
                   [(ngModel)]="animalDTO.AnimalDescription" name="inpAnimalDescription" formControlName="desc"
-                  [ngClass]="{ 'is-invalid': submitted && f.desc.errors }">
-                <div *ngIf="submitted && f.desc.errors" class="invalid-feedback">
-                  <div *ngIf="f.desc.errors.required">Por favor, ingrese una breve descripción</div>
+                  [ngClass]="{ 'is-invalid': submitted && controls.desc.errors }">
+                <div *ngIf="submitted && controls.desc.errors" class="invalid-feedback">
+                  <div *ngIf="controls.desc.errors.required">Por favor, ingrese una breve descripción</div>
                 </div>
               </div>
             </div>
@@ -77,9 +77,9 @@
                 <label for="name">Dirección publicación</label>
                 <input type="text" class="form-control" required [(ngModel)]="publicationDTO.PublicationAddress"
                   name="inpPublicationAddress" formControlName="ubi"
-                  [ngClass]="{ 'is-invalid': submitted && f.ubi.errors }">
-                <div *ngIf="submitted && f.ubi.errors" class="invalid-feedback">
-                  <div *ngIf="f.ubi.errors.required">Por favor, seleccione una ubicación</div>
+                  [ngClass]="{ 'is-invalid': submitted && controls.ubi.errors }">
+                <div *ngIf="submitted && controls.ubi.errors" class="invalid-feedback">
+                  <div *ngIf="controls.ubi.errors.required">Por favor, seleccione una ubicación</div>
                 </div>
               </div>
             </div>
@@ -92,9 +92,9 @@
                 <label class="custom-file-label" for="name">Choose file</label>
                 <input [formControl]="myForm" type="file" class="custom-file-input" multiple="true" accept=".png, .jpg"
                   (change)="onUpload($event)" formControlName="photos"
-                  [ngClass]="{ 'is-invalid': submitted && f.photos.errors }">
-                <div *ngIf="submitted && f.photos.errors" class="invalid-feedback">
-                  <div *ngIf="f.photos.errors.required">Por favor, suba al menos una imagen del animal</div>
+                  [ngClass]="{ 'is-invalid': submitted && controls.photos.errors }">
+                <div *ngIf="submitted && controls.photos.errors" class="invalid-feedback">
+                  <div *ngIf="controls.photos.errors.required">Por favor, suba al menos una imagen del animal</div>
                 </div>
               </div>
             </div>
