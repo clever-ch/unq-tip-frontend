@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 @Injectable({
     providedIn: 'root'
-  })
+})
 export class UrlManagerAuthService {
 
     getURLPublicationsUserLoggedIn(): string {
@@ -26,5 +26,4 @@ export class UrlManagerAuthService {
     getURLFindUser(): string {
         return 'http://localhost:8080/api/v1/users';
     }
-
 }

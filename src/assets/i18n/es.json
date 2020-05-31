@@ -2,33 +2,28 @@
     "header": {
         "slogan": "¡Te ayudamos a encontrar a tu mascota perdida!"
     },
-
     "navbar": {
-        "home" : "Inicio",
-        "lostPets" : "Mascotas perdidas",
-        "foundPets" : "Mascotas encontradas",
-        "myPublications" : "Mis Publicaciones",
-        "services" : "Servicios",
-        "myServices" : "Mis servicios",
-        "entry" : "Ingresar",
-        "miProfile" : "Mi Perfil",
-        "language" : "Lenguaje",
-        "spanish" : "Español",
-        "english" : "Ingles"
+        "home": "Inicio",
+        "lostPets": "Mascotas perdidas",
+        "foundPets": "Mascotas encontradas",
+        "myPublications": "Mis Publicaciones",
+        "services": "Servicios",
+        "myServices": "Mis servicios",
+        "entry": "Ingresar",
+        "miProfile": "Mi Perfil",
+        "language": "Lenguaje",
+        "spanish": "Español",
+        "english": "Ingles"
     },
-
     "home": {
         "title": "Bienvenido a SOS Pets",
-        "text" : "Este sitio publica busquedas sobre mascotas perdidas, publica mascotas encontradas y otros servicios para animales",
-        
+        "text": "Este sitio publica busquedas sobre mascotas perdidas, publica mascotas encontradas y otros servicios para animales",
         "titleImg1": "¿Perdiste tu mascota?",
         "textImg1": "Buscalo en el listado mascotas encontradas.",
-        "buttonImg1" : "Ir al listado",
-        
+        "buttonImg1": "Ir al listado",
         "titleImg2": "¿Encontraste una mascota?",
         "textImg2": "Registrate y publica para encontrar a su dueño.",
-        "buttonImg2" : "Registrarse",
-
+        "buttonImg2": "Registrarse",
         "titleImg3": "¿Querés publicar una busqueda?",
         "textImg3": "Registrate, publica y alguna persona te dará informacion para encontrar tu mascota.",
 
@@ -48,5 +43,36 @@
         "paginationNext" : "Siguiente",
         "paginationPrevious" : "Anterior",
         "searchPets" : "Buscar mascota"       
+    },
+
+    "login": {
+        "title" : "Por Favor, registrese",
+        "username": "Usuario",
+        "password": "Contraseña",
+        "login" : "Iniciar sesión",
+        "newCount" : "Crear una cuenta nueva"
+    },
+
+    "signin": {
+        "title" : "Nuevo usuario",
+        "subtitle1" : "Datos Personales",
+        "subtitle2" : "Datos usuario",
+        "name" : "Nombre",
+        "nameError" : "Por favor, ingrese su mombre",
+        "surname" : "Apellido",
+        "surnameError" : "Por favor, ingrese su apellido",
+        "telephone" : "Telefono",
+        "telephoneError" : "Por favor, ingrese su numero de telefono",
+        "address" : "Dirección",
+        "addressError" : "Por favor, ingrese una dirección",
+        "location" : "Localidad",
+        "locationError" : "Por favor, ingrese una localidad",
+        "email" : "Email",
+        "emailErrorObl" : "El email es obligatorio",
+        "usernameError" : "Por favor, ingrese un username ( 6 Caracteres mínimo )", 
+        "passError" : "Por favor, ingrese un password ( 6 Caracteres mínimo )",
+        "accept" : "Aceptar",
+        "cancel" : "Cancelar"
     }
+
 }

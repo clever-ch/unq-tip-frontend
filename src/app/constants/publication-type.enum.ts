@@ -1,4 +1,4 @@
 export enum PublicationType {
-    FOUND,
-    LOST
+    FOUND = "FOUND",
+    LOST = "LOST"
 }

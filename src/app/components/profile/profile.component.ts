@@ -5,7 +5,6 @@ import { AuthService } from 'src/app/services/auth-service/auth.service';
 import { UserDTO } from 'src/app/model/userDTO';
 import { Observable } from "rxjs";
 
-
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -22,12 +21,12 @@ export class ProfileComponent implements OnInit {
     //this.userDTO = this.route.snapshot.params['guid'];
     this.loginDTO = JSON.parse(localStorage.getItem("loginDTO"));
     this.GetUserLoggedInByGuid(this.loginDTO.UserGuid);
-    this.ValidateUserLoggedIn(this.loginDTO);
+    //this.ValidateUserLoggedIn(this.loginDTO);
   }
 
   private GetUserLoggedInByGuid(userGuid: string) {
     this.authService.getUserByGuid(userGuid).subscribe(data => {
-      console.log(data)
+      //console.log(data)
       this.userDTO = data;
     }, error => console.log(error));
   }
@@ -52,6 +51,10 @@ export class ProfileComponent implements OnInit {
 
   redirectMyServices() {
     this.router.navigate(['publications']);
+  }
+
+  redirectCreatePublication() {
+    this.router.navigate(['createPublication']);
   }
 
 }
