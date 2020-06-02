@@ -28,7 +28,6 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 // search module
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
-import { ErrorHandlerController } from './generic-components/ErrorHandlerController';
 
 //Imports Firebase
 import { AngularFireModule } from '@angular/fire';
@@ -37,7 +36,7 @@ import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [AppComponent, PublicationListComponent, PublicationCreateComponent, DialogPublicationComponent, PublicationsFoundComponent, HomepageComponent, SignInComponent, LogInComponent, ProfileComponent],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule, MaterialModule, BrowserAnimationsModule, NgbModule, ReactiveFormsModule, NgxPaginationModule, Ng2SearchPipeModule, ErrorHandlerController,
+  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule, MaterialModule, BrowserAnimationsModule, NgbModule, ReactiveFormsModule, NgxPaginationModule, Ng2SearchPipeModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -50,7 +49,7 @@ import { environment } from '../environments/environment';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireStorageModule,
   ],
-  providers: [ErrorHandlerController],
+  providers: [],
   bootstrap: [AppComponent],
   entryComponents: [DialogPublicationComponent]
 })

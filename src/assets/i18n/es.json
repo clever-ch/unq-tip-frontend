@@ -37,40 +37,9 @@
         "serButtonSignUp": "Registrarme"
     },
     "petsList": {
-        "viewDetails" : "Ver detalles",
-        "paginationNext" : "Siguiente",
-        "paginationPrevious" : "Anterior",
-        "searchPets" : "Buscar mascota"       
-    },
-
-    "login": {
-        "title" : "Por Favor, registrese",
-        "username": "Usuario",
-        "password": "Contraseña",
-        "login" : "Iniciar sesión",
-        "newCount" : "Crear una cuenta nueva"
-    },
-
-    "signin": {
-        "title" : "Nuevo usuario",
-        "subtitle1" : "Datos Personales",
-        "subtitle2" : "Datos usuario",
-        "name" : "Nombre",
-        "nameError" : "Por favor, ingrese su mombre",
-        "surname" : "Apellido",
-        "surnameError" : "Por favor, ingrese su apellido",
-        "telephone" : "Telefono",
-        "telephoneError" : "Por favor, ingrese su numero de telefono",
-        "address" : "Dirección",
-        "addressError" : "Por favor, ingrese una dirección",
-        "location" : "Localidad",
-        "locationError" : "Por favor, ingrese una localidad",
-        "email" : "Email",
-        "emailErrorObl" : "El email es obligatorio",
-        "usernameError" : "Por favor, ingrese un username ( 6 Caracteres mínimo )", 
-        "passError" : "Por favor, ingrese un password ( 6 Caracteres mínimo )",
-        "accept" : "Aceptar",
-        "cancel" : "Cancelar"
+        "viewDetails": "Ver detalles",
+        "paginationNext": "Siguiente",
+        "paginationPrevious": "Anterior",
+        "searchPets": "Buscar mascota"
     }
-
 }

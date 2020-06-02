@@ -1,153 +1,102 @@
-<div class="style backg">
-  <div class="container p-3 my-3 text-black table-responsive">
-    <div class="row ">
-      <div class="col-md-12 mx-auto mt-5 card bg-light">
-        <h3>Crear publicación</h3>
-        <br>
-        <form (ngSubmit)="onSubmit()" [formGroup]="myForm">
-          <div class="form-group">
-            <div class="row">
-              <div class="col-md-6">
-                <label>Tipo de publicación</label>
-                <select [(ngModel)]="publicationTypeSelected" name="status" placeholder="PRUEBA" class="form-control"
-                  formControlName="tipoPub" [ngClass]="{ 'is-invalid': submitted && controls.tipoPub.errors }">
-                  <option *ngFor="let publicationType of publicationTypes" [ngValue]="publicationType">
-                    {{publicationType}}
-                  </option>
-                </select>
-                <div *ngIf="submitted && controls.tipoPub.errors" class="invalid-feedback">
-                  <div *ngIf="controls.tipoPub.errors.required">Por favor, seleccione un tipo de publicación</div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="form-group">
-            <div class="row">
-              <div class="col-md-6">
-                <label>Raza</label>
-                <input type="text" formControlName="raza" class="form-control" id="idBreed" required
-                  [(ngModel)]="animalDTO.Breed" [ngClass]="{ 'is-invalid': submitted && controls.raza.errors }">
-                <div *ngIf="submitted && controls.raza.errors" class="invalid-feedback">
-                  <div *ngIf="controls.raza.errors.required">Por favor, ingrese la raza de su mascota</div>
-                </div>
-              </div>
-
-              <div class="col-md-6">
-                <label>Tipo de Animal</label>
-                <select [(ngModel)]="animalTypeSelected" name="status" placeholder="PRUEBA" class="form-control"
-                  formControlName="tipo" [ngClass]="{ 'is-invalid': submitted && controls.tipo.errors }">
-                  <option *ngFor="let animalType of animalTypes" [ngValue]="animalType"> {{animalType}} </option>
-                </select>
-                <div *ngIf="submitted && controls.tipo.errors" class="invalid-feedback">
-                  <div *ngIf="controls.tipo.errors.required">Por favor, seleccione un tipo de animal</div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="form-group">
-            <div class="row">
-              <div class="col-md-6">
-                <label>Edad</label>
-                <input type="text" class="form-control" id="idAge" required [(ngModel)]="animalDTO.AnimalAge"
-                  formControlName="edad" name="inpAnimalAge"
-                  [ngClass]="{ 'is-invalid': submitted && controls.edad.errors }">
-                <div *ngIf="submitted && controls.edad.errors" class="invalid-feedback">
-                  <div *ngIf="controls.edad.errors.required">Por favor, especifique la edad</div>
-                </div>
-              </div>
-
-              <div class="col-md-6">
-                <label>Descripción Animal</label>
-                <input type="text" class="form-control" id="idAnimalDescription" required
-                  [(ngModel)]="publicationDTO.PublicationDescription" name="inpAnimalDescription" formControlName="desc"
-                  [ngClass]="{ 'is-invalid': submitted && controls.desc.errors }">
-                <div *ngIf="submitted && controls.desc.errors" class="invalid-feedback">
-                  <div *ngIf="controls.desc.errors.required">Por favor, ingrese una breve descripción</div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="form-group">
-            <div class="row">
-              <div class="col-md-6">
-                <label>Dirección publicación</label>
-                <input type="text" class="form-control" required [(ngModel)]="publicationDTO.PublicationAddress"
-                  name="inpPublicationAddress" formControlName="ubi"
-                  [ngClass]="{ 'is-invalid': submitted && controls.ubi.errors }">
-                <div *ngIf="submitted && controls.ubi.errors" class="invalid-feedback">
-                  <div *ngIf="controls.ubi.errors.required">Por favor, seleccione una ubicación</div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label>Agregar Fotos</label>
-            <div class="custom-file">
-              <div class="col-md-6">
-                <label class="custom-file-label" for="name">Choose file</label>
-                <input [formControl]="myFormUploadedImages" type="file" class="custom-file-input" multiple="true"
-                  accept=".png, .jpg" (change)="onUpload($event)">
-              </div>
-              <div *ngIf="imagesAreUploaded">
-                <br>
-                <div class="form-group">
-                  <div class="col-md-6">
-                    <button (click)="saveURLsImgFireBase()" class="btn btn-success">Subir imágenes</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="form-group">
-            <div class="col-md-6">
-              <div *ngFor="let url of uploadedImages; let index = index">
-                <img [src]="url" height="150" width="200px" style="margin: 3px;">
-                <button class="btn btn-secondary" (click)="removeSelectedFile(index)"><i class='fas fa-trash-alt'></i>
-                  Delete</button>
-              </div>
-            </div>
-          </div>
-
-          <!-- TODO: Incorporar ubicación por Maps -->
-          <!-- <div class="form-group">
-                    <div class="row">
-                      <div class="col-md-6">
-                        <label for="name">Localización publicación</label>
-                        <p>Agregar componente para ubicación</p>
-                      </div>
-                    </div>
-                  </div>
-                <br> -->
-
-          <div class="row">
-            <div class="col-md-6">
-              <button (click)="createPublication()" [disabled]="!imagesAreSaveFire" class="btn btn-primary">Crear
-                publicación</button>
-            </div>
-            <div class="col-md-6">
-              <button (click)="goToProfile()" class="btn btn-secondary">Cancelar</button><br>
-            </div>
-          </div>
-          <br>
-          <div *ngIf="failCreate">
-            <div class="alert alert-danger text-center">
-              <strong>Disculpe!</strong> Fallo la creación de la publicación: <strong>{{errorText}}</strong>
-            </div>
-          </div>
-          <div *ngIf="createSuccess">
-            <div class="alert alert-success text-center">
-              <strong>Muchas gracias!</strong> Su publicación quedo registrada.
-              <button (click)="goToProfile()" class="btn btn-success">Perfil</button>
-            </div>
-          </div>
-          <br>
-        </form>
+<div class="container">
+  <h3>Crear publicación</h3>
+  <form (ngSubmit)="onSubmit()" class="table-responsive">
+    <div class="form-group">
+      <div class="row">
+        <div class="col-md-6">
+          <label for="name">Tipo de publicación</label>
+          <select [(ngModel)]="publicationTypeSelected" name="status" class="form-control">
+            <option *ngFor="let publicationType of publicationTypes" [ngValue]="publicationType"> {{publicationType}}
+            </option>
+          </select>
+        </div>
       </div>
     </div>
-  </div>
+
+    <div class="form-group">
+      <div class="row">
+        <div class="col-md-6">
+          <label for="name">Raza</label>
+          <input type="text" class="form-control" id="idBreed" required [(ngModel)]="animalDTO.Breed"
+            name="inpAnimalBreed">
+        </div>
+
+        <div class="col-md-6">
+          <label for="name">Tipo de Animal</label>
+          <select [(ngModel)]="animalTypeSelected" name="status" class="form-control">
+            <option *ngFor="let animalType of animalTypes" [ngValue]="animalType"> {{animalType}} </option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="row">
+        <div class="col-md-6">
+          <label for="name">Edad</label>
+          <input type="text" class="form-control" id="idAge" required [(ngModel)]="animalDTO.AnimalAge"
+            name="inpAnimalAge">
+
+          <label for="name">Dirección publicación</label>
+          <input type="text" class="form-control" required [(ngModel)]="publicationDTO.PublicationAddress"
+            name="inpPublicationAddress">
+        </div>
+
+        <div class="col-md-6">
+          <label for="name">Descripción Animal</label>
+          <textarea class="form-control" [(ngModel)]="animalDTO.AnimalDescription" id="idAnimalDescription" rows="3"
+            name="inpAnimalDescription"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="name">Agregar Fotos</label>
+      <div class="row">
+        <div class="col-md-6">
+          <input [formControl]="myFormUploadedImages" type="file" class="form-control" multiple="true" type="file"
+            accept=".png, .jpg" (change)="onUpload($event)">
+        </div>
+        <div class="col-md-6">
+          <button (click)="saveURLsImgFireBase()" [disabled]="imagesAreUploaded" class="btn btn-success">Subir
+            imágenes</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="row">
+        <div class="col-md-6">
+          <div *ngFor="let url of uploadedImages; let index = index">
+            <img [src]="url" height="150" width="200px" style="margin: 3px;">
+            <button mat-icon-button (click)="removeSelectedFile(index)">delete</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br />
+
+    <!-- TODO: Incorporar ubicación por Maps -->
+    <!-- <div class="form-group">
+      <div class="row">
+        <div class="col-md-6">
+          <label for="name">Localización publicación</label>
+          <p>Agregar componente para ubicación</p>
+        </div>
+      </div>
+    </div>
+    <br> -->
+    <br>
+    <br>
+
+    <div class="row">
+      <div class="col-md-6">
+        <button (click)="createPublication()" [disabled]="!imagesAreUploaded" class="btn btn-primary">Crear
+          publicación</button>
+      </div>
+      <div class="col-md-6">
+        <button (click)="goToProfile()" class="btn btn-secondary">Cancelar</button><br>
+      </div>
+    </div>
+  </form>
 </div>

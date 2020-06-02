@@ -1,8 +1,8 @@
 export class PersonDTO {
-    Id: number;
-    Name: string;
-	SurName: string;
-	Telephone: string;
-	Address: string;
-	Location: string;
+    id: number;
+    name: string;
+	surName: string;
+	telephone: string;
+	address: string;
+	location: string;
 }

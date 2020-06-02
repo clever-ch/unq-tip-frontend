@@ -8,7 +8,6 @@ import { HomepageComponent } from './components/homepage/homepage.component';
 import { LogInComponent } from 'src/app/components/log-in/log-in.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { ErrorPageComponent } from '././generic-components/error-page/error-page.component';
-import { SignInComponent } from './components/sign-in/sign-in.component';
 
 
 const routes: Routes = [
@@ -17,7 +16,6 @@ const routes: Routes = [
   { path: 'createPublication', component: PublicationCreateComponent },
   { path: 'publications', component: PublicationListComponent },
   { path: 'allPublicationsFound', component: PublicationsFoundComponent },
-  { path: 'sign-in', component: SignInComponent },
   { path: 'log-in', component: LogInComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'errorPage', component: ErrorPageComponent },

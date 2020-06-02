@@ -26,50 +26,20 @@
         "buttonImg2": "Sign up",
         "titleImg3": "Do you want to publish a search?",
         "textImg3": "Register, publish and someone will give you information to find your pet.",
-        "serviceTitle" : "Services",
-        "servCare" : "Care",
-        "servCareText" : "In this service we give people the possibility to offer to take care of an animal, without any conditions. If you need someone to take care of your pet, enter the list of nominated people. If you want to apply, register and followed the steps to do so.",
-        "servTransit" : "Transit",
-        "servTransitText" : "With this service we try to get you to apply if you have physical space for a transit home for an animal or that you can find someone available for any animal.",
-        "serTransport" : "Transport",
-        "serTransportText" : "Do not you have how to move your pet? Do not worry, in this service we give you the possibility of contacting someone near your home to help you move your pet. If you want to apply to offer this service, you only have to register.",
-        "serButtonCon" : "Contract Service",
-        "serButtonSignUp" : "Sign up"
+        "serviceTitle": "Services",
+        "servCare": "Care",
+        "servCareText": "In this service we give people the possibility to offer to take care of an animal, without any conditions. If you need someone to take care of your pet, enter the list of nominated people. If you want to apply, register and followed the steps to do so.",
+        "servTransit": "Transit",
+        "servTransitText": "With this service we try to get you to apply if you have physical space for a transit home for an animal or that you can find someone available for any animal.",
+        "serTransport": "Transport",
+        "serTransportText": "Do not you have how to move your pet? Do not worry, in this service we give you the possibility of contacting someone near your home to help you move your pet. If you want to apply to offer this service, you only have to register.",
+        "serButtonCon": "Contract Service",
+        "serButtonSignUp": "Sign up"
     },
     "petsList": {
-        "viewDetails" : "View Details",
-        "paginationNext" : "Next",
-        "paginationPrevious" : "Previous",
-        "searchPets" : "Search pet"
-    },
-
-    "login": {
-        "title" : "Please sing in",
-        "username": "Username",
-        "password": "Password",
-        "login" : "Login",
-        "newCount" : "Create a new account"
-    },
-
-    "signin": {
-        "title" : "New User",
-        "subtitle1" : "Personal information",
-        "subtitle2" : "User Data",
-        "name" : "Name",
-        "nameError" : "Please enter your name",
-        "surname" : "Surname",
-        "surnameError" : "Please enter your last name",
-        "telephone" : "Telephone",
-        "telephoneError" : "Please enter your phone number",
-        "address" : "Address",
-        "addressError" : "Please enter an address",
-        "location" : "Location",
-        "locationError" : "Please enter a location",
-        "email" : "Email",
-        "emailErrorObl" : "Email is required",
-        "usernameError" : "Please enter a username (6 Characters minimum)",
-        "passError" : "Please enter a password (6 Characters minimum)",
-        "accept" : "Accept",
-        "cancel" : "Cancel"
+        "viewDetails": "View Details",
+        "paginationNext": "Next",
+        "paginationPrevious": "Previous",
+        "searchPets": "Search pet"
     }
 }
