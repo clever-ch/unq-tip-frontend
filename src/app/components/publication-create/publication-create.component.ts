@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { PublicationService } from 'src/app/services/publication-service/publication.service';
@@ -12,7 +12,7 @@ import { LoginDTO } from 'src/app/model/loginDTO';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { finalize, tap } from 'rxjs/operators';
 import { Observable } from 'rxjs/internal/Observable';
-
+import { UrlManagerFirebase } from 'src/app/utilities/UrlManagerFirebase.service';
 
 @Component({
   selector: 'app-publication-create',
@@ -26,17 +26,18 @@ export class PublicationCreateComponent implements OnInit {
   publicationDTO: PublicationDTO = new PublicationDTO();
   animalDTO: AnimalDTO = new AnimalDTO();
   submitted = false;
+  imagesAreUploaded: boolean = false;
+  imagesAreSaveFire: boolean = false;
+
   animalTypeSelected: AnimalType;
   animalTypes = [AnimalType.BIRD, AnimalType.CAT, AnimalType.DOG];
 
   publicationTypeSelected: PublicationType;
   publicationTypes = [PublicationType.FOUND, PublicationType.LOST];
 
-  constructor(private publicationService: PublicationService, private router: Router,
-    private authService: AuthService, private storage: AngularFireStorage) { }
+  constructor(private publicationService: PublicationService, private router: Router, private authService: AuthService, 
+              private storage: AngularFireStorage, private urlManagerFirebase: UrlManagerFirebase) { }
 
-
-  @ViewChild('imageUser') inputImageUser: ElementRef
   uploadPercent: Observable<number>;
   urlImage: Observable<string>;
 
@@ -48,8 +49,14 @@ export class PublicationCreateComponent implements OnInit {
     raza: new FormControl('', [Validators.required]),
     edad: new FormControl('', [Validators.required]),
     desc: new FormControl('', [Validators.required]),
-    ubi: new FormControl('', [Validators.required]),
-    photos: new FormControl('', [Validators.required])
+    ubi: new FormControl('', [Validators.required])
+  });
+  
+  uploadedImages = [];
+  myFormUploadedImages = new FormGroup({
+    name: new FormControl('', [Validators.required, Validators.minLength(3)]),
+    file: new FormControl('', [Validators.required]),
+    fileSource: new FormControl('', [Validators.required])
   });
 
   imagesToSave = [];
@@ -69,32 +76,22 @@ export class PublicationCreateComponent implements OnInit {
   }
 
   onSubmit() {
-    this.submitted = true;
-    this.saveURLsImgFireBase();
-    this.createPublication();
   }
 
   createPublication() {
+    this.submitted = true;
     this.animalDTO.AnimalType = this.animalTypeSelected;
 
-    this.setPhotosPublication()
     this.publicationDTO.PublicationType = this.publicationTypeSelected;
     this.publicationDTO.PublicationLocation = "Prueba location";
-    //this.publicationDTO.Photos = this.arrayInputImageUser;
+    this.publicationDTO.Photos = this.arrayInputImageUser;
     this.publicationDTO.AnimalDTO = this.animalDTO;
     this.publicationDTO.UserDTO = this.userDTO;
 
     console.log('Imprimo el DTO a crear:', this.publicationDTO);
     this.publicationService.createPublication(this.publicationDTO).subscribe(error => console.log(error));
-  }
-
-  setPhotosPublication() {
-
-    console.log('Entro al for del metodo: ', this.arrayInputImageUser.length);
-    for (let index = 0; index < this.arrayInputImageUser.length; index++) {
-      this.publicationDTO.Photos.push(this.arrayInputImageUser[index]);
-      console.log('Pushee a DTO la img: ', this.arrayInputImageUser[index]);
-    }
+    
+    //this.goToProfile()
   }
 
   goToProfile() {
@@ -102,18 +99,10 @@ export class PublicationCreateComponent implements OnInit {
   }
 
   onUpload(event) {
-    //console.log('Archivos', event.target);
-
-    // const id = Math.random().toString(36).substring(2);
-    // const file = event.target.files[0];
-    // const filePath = `uploads/MiArchivo_${id}`;
-    // const ref = this.storage.ref(filePath);
-    // const task = this.storage.upload(filePath, file);
-    // //this.uploadPercent = task.percentageChanges();
-    // task.snapshotChanges().pipe(finalize(() => this.urlImage = ref.getDownloadURL())).subscribe();
 
     //Limpio la lista para la nueva carga
     this.imagesToSave = [];
+    this.imagesAreUploaded = true;
 
     if (event.target.files && event.target.files[0]) {
       var filesAmount = event.target.files.length;
@@ -122,9 +111,9 @@ export class PublicationCreateComponent implements OnInit {
         var reader = new FileReader();
         reader.onload = (etherEvent: any) => {
           //console.log(event.target.result);
-          this.images.push(etherEvent.target.result);
-          this.myForm.patchValue({
-            fileSource: this.images
+          this.uploadedImages.push(etherEvent.target.result);
+          this.myFormUploadedImages.patchValue({
+            fileSource: this.uploadedImages
           });
         }
         reader.readAsDataURL(event.target.files[i]);
@@ -135,23 +124,23 @@ export class PublicationCreateComponent implements OnInit {
 
   removeSelectedFile(index) {
     // Delete the item from fileNames list
-    this.images.splice(index, 1);
+    this.uploadedImages.splice(index, 1);
 
     //Actualizo las imágenes que se eliminaron
     this.imagesToSave.splice(index, 1);
+    
   }
 
   saveURLsImgFireBase() {
 
     for (let index = 0; index < this.imagesToSave.length; index++) {
-
       const id = Math.random().toString(36).substring(2);
       const file = this.imagesToSave[index];
-      const filePath = `img-publication-lost/MiArchivo_${id}`;
+      const folder = this.urlManagerFirebase.getPathToSaveImageByPublicationType(this.publicationTypeSelected);
+      const filePath = `${folder}MiArchivo_${id}`;
       const ref = this.storage.ref(filePath);
       const task = this.storage.upload(filePath, file);
       
-      //task.snapshotChanges().pipe(tap(console.log),finalize(
       task.snapshotChanges().pipe(tap(console.log),finalize(
         async() => {
           this.urlImage = await ref.getDownloadURL().toPromise();
@@ -159,6 +148,10 @@ export class PublicationCreateComponent implements OnInit {
         }
         )).subscribe();
       }
+
+  
+  this.imagesAreSaveFire = true;
+
       console.log('Img Firebase', this.arrayInputImageUser);
   }
 }

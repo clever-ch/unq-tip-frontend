@@ -51,16 +51,17 @@
           <div class="form-group">
             <div class="row">
               <div class="col-md-6">
-                <label for="name">Edad</label>
+                <label>Edad</label>
                 <input type="text" class="form-control" id="idAge" required [(ngModel)]="animalDTO.AnimalAge"
-                  formControlName="edad" name="inpAnimalAge" [ngClass]="{ 'is-invalid': submitted && controls.edad.errors }">
+                  formControlName="edad" name="inpAnimalAge"
+                  [ngClass]="{ 'is-invalid': submitted && controls.edad.errors }">
                 <div *ngIf="submitted && controls.edad.errors" class="invalid-feedback">
                   <div *ngIf="controls.edad.errors.required">Por favor, especifique la edad</div>
                 </div>
               </div>
 
               <div class="col-md-6">
-                <label for="name">Descripción Animal</label>
+                <label>Descripción Animal</label>
                 <input type="text" class="form-control" id="idAnimalDescription" required
                   [(ngModel)]="animalDTO.AnimalDescription" name="inpAnimalDescription" formControlName="desc"
                   [ngClass]="{ 'is-invalid': submitted && controls.desc.errors }">
@@ -74,7 +75,7 @@
           <div class="form-group">
             <div class="row">
               <div class="col-md-6">
-                <label for="name">Dirección publicación</label>
+                <label>Dirección publicación</label>
                 <input type="text" class="form-control" required [(ngModel)]="publicationDTO.PublicationAddress"
                   name="inpPublicationAddress" formControlName="ubi"
                   [ngClass]="{ 'is-invalid': submitted && controls.ubi.errors }">
@@ -90,51 +91,45 @@
             <div class="custom-file">
               <div class="col-md-6">
                 <label class="custom-file-label" for="name">Choose file</label>
-                <input [formControl]="myForm" type="file" class="custom-file-input" multiple="true" accept=".png, .jpg"
-                  (change)="onUpload($event)" formControlName="photos"
-                  [ngClass]="{ 'is-invalid': submitted && controls.photos.errors }">
-                <div *ngIf="submitted && controls.photos.errors" class="invalid-feedback">
-                  <div *ngIf="controls.photos.errors.required">Por favor, suba al menos una imagen del animal</div>
+                <input [formControl]="myFormUploadedImages" type="file" class="custom-file-input" multiple="true"
+                  accept=".png, .jpg" (change)="onUpload($event)">
+              </div>
+              <div *ngIf="imagesAreUploaded">
+                <br>
+                <div class="form-group">
+                  <div class="col-md-6">
+                    <button (click)="saveURLsImgFireBase()" class="btn btn-success">Subir imágenes</button>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
 
+          <div class="form-group">
+            <div class="col-md-6">
+              <div *ngFor="let url of uploadedImages; let index = index">
+                <img [src]="url" height="150" width="200px" style="margin: 3px;">
+                <button class="btn btn-secondary" (click)="removeSelectedFile(index)"><i class='fas fa-trash-alt'></i>
+                  Delete</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- TODO: Incorporar ubicación por Maps -->
           <!-- <div class="form-group">
-      <div class="row">
-        <div class="col-md-6">
-          <label for="name">Localización publicación</label>
-          <p>Agregar componente para ubicación</p>
-        </div>
-      </div>
-    </div>
-    <br> -->
-
-          <div class="form-group">
-            <div class="row">
-              <div class="col-md-6">
-                <div *ngFor="let url of images;let index = index">
-                  <img [src]="url" height="150" width="200px" style="margin: 3px;">
-                  <button mat-icon-button (click)="removeSelectedFile(index)">delete</button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <br />
-
-          <div class="form-group">
-            <div class="row">
-              <div class="col-md-6">
-                <label>Localización publicación</label>
-                <p>Agregar componente para ubicación</p>
-              </div>
-            </div>
-          </div>
-          <br>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <label for="name">Localización publicación</label>
+                        <p>Agregar componente para ubicación</p>
+                      </div>
+                    </div>
+                  </div>
+                <br> -->
 
           <div class="row">
             <div class="col-md-6">
-              <button type="submit" class="btn btn-success">Crear publicación</button>
+              <button (click)="createPublication()" [disabled]="!imagesAreSaveFire" class="btn btn-primary">Crear
+                publicación</button>
             </div>
             <div class="col-md-6">
               <button (click)="goToProfile()" class="btn btn-secondary">Cancelar</button><br>
