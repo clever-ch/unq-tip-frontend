@@ -26,8 +26,8 @@ export class PublicationCreateComponent implements OnInit {
   loginDTO: LoginDTO;
   publicationDTO: PublicationDTO = new PublicationDTO();
   animalDTO: AnimalDTO = new AnimalDTO();
-  imagesAreUploaded: boolean = false;
   submitted = false;
+  imagesAreUploaded: boolean = false;
   imagesAreSaveFire: boolean = false;
   createSuccess = false;
   failCreate = false;
@@ -39,25 +39,35 @@ export class PublicationCreateComponent implements OnInit {
   publicationTypeSelected: PublicationType;
   publicationTypes = [PublicationType.FOUND, PublicationType.LOST];
 
-  constructor(private publicationService: PublicationService, private router: Router, private authService: AuthService,
-    private storage: AngularFireStorage, private urlManagerFirebase: UrlManagerFirebase,
-    private handlerEr: ErrorHandlerController) { }
-
+  constructor(private publicationService: PublicationService, private router: Router, private authService: AuthService, 
+              private storage: AngularFireStorage, private urlManagerFirebase: UrlManagerFirebase, private handlerEr: ErrorHandlerController) { }
 
   uploadPercent: Observable<number>;
   urlImage: Observable<string>;
 
+
+  images = [];
+  myForm = new FormGroup({
+    tipo: new FormControl('', [Validators.required]),
+    tipoPub: new FormControl('', [Validators.required]),
+    raza: new FormControl('', [Validators.required]),
+    edad: new FormControl('', [Validators.required]),
+    desc: new FormControl('', [Validators.required]),
+    ubi: new FormControl('', [Validators.required])
+  });
+  
   uploadedImages = [];
   myFormUploadedImages = new FormGroup({
     name: new FormControl('', [Validators.required, Validators.minLength(3)]),
     file: new FormControl('', [Validators.required]),
     fileSource: new FormControl('', [Validators.required])
+
   });
 
   imagesToSave = [];
   arrayInputImageUser = [];
 
-  // get controls() { return this.myForm.controls; }
+  get controls() { return this.myForm.controls; }
 
   ngOnInit() {
     this.loginDTO = JSON.parse(localStorage.getItem("loginDTO"));
@@ -84,13 +94,10 @@ export class PublicationCreateComponent implements OnInit {
     this.publicationDTO.UserDTO = this.userDTO;
 
     console.log('Imprimo el DTO a crear:', this.publicationDTO);
-
-    this.publicationService.createPublication(this.publicationDTO).subscribe(error => console.log(error));
-
     this.publicationService.createPublication(this.publicationDTO).subscribe(data => (this.createSuccess = true, this.failCreate = false)
-      , error => (this.failCreate = true, this.errorText = this.handlerEr.handleError(error)));
-
-    this.goToProfile()
+    , error => (this.failCreate = true, this.errorText = this.handlerEr.handleError(error)));
+    
+    //this.goToProfile()
   }
 
   goToProfile() {
@@ -127,6 +134,7 @@ export class PublicationCreateComponent implements OnInit {
 
     //Actualizo las imágenes que se eliminaron
     this.imagesToSave.splice(index, 1);
+    
   }
 
   saveURLsImgFireBase() {
@@ -138,16 +146,18 @@ export class PublicationCreateComponent implements OnInit {
       const filePath = `${folder}MiArchivo_${id}`;
       const ref = this.storage.ref(filePath);
       const task = this.storage.upload(filePath, file);
-
-      task.snapshotChanges().pipe(tap(console.log), finalize(
-        async () => {
+      
+      task.snapshotChanges().pipe(tap(console.log),finalize(
+        async() => {
           this.urlImage = await ref.getDownloadURL().toPromise();
           this.arrayInputImageUser.push(this.urlImage);
         }
-      )).subscribe();
-    }
+        )).subscribe();
+      }
 
-    this.imagesAreUploaded = true;
-    console.log('Img Firebase', this.arrayInputImageUser);
+  
+  this.imagesAreSaveFire = true;
+
+      console.log('Img Firebase', this.arrayInputImageUser);
   }
 }
