@@ -13,6 +13,7 @@ export class LogInComponent implements OnInit {
   loginForm: FormGroup;
   loginDTO: LoginDTO;
   userData: any;
+  submitted = false;
 
   constructor(private formBuilder: FormBuilder, private authService: AuthService) { }
 
@@ -25,11 +26,14 @@ export class LogInComponent implements OnInit {
     });
   }
 
+  get controls() { return this.loginForm.controls; }
+  
   get formulario() { return this.loginForm.value; }
 
   onSubmit() { }
 
   onLogin() {
+    this.submitted = true;
     this.loadLoginDTOByFormGroup();
     this.authService.login(this.loginDTO).subscribe(this.saveStorage());
   }

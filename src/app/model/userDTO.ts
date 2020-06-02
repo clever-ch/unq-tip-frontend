@@ -1,7 +1,7 @@
 import { PersonDTO } from './PersonDTO';
 
 export class UserDTO {
-    id: number;
+    Id: number;
     UserName: string;
     Email: string;
     Password: string;
