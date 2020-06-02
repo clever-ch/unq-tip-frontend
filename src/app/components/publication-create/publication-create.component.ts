@@ -57,6 +57,7 @@ export class PublicationCreateComponent implements OnInit {
     name: new FormControl('', [Validators.required, Validators.minLength(3)]),
     file: new FormControl('', [Validators.required]),
     fileSource: new FormControl('', [Validators.required])
+
   });
 
   imagesToSave = [];

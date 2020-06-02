@@ -53,8 +53,7 @@
               <div class="col-md-6">
                 <label>Edad</label>
                 <input type="text" class="form-control" id="idAge" required [(ngModel)]="animalDTO.AnimalAge"
-                  formControlName="edad" name="inpAnimalAge"
-                  [ngClass]="{ 'is-invalid': submitted && controls.edad.errors }">
+                  formControlName="edad" name="inpAnimalAge" [ngClass]="{ 'is-invalid': submitted && controls.edad.errors }">
                 <div *ngIf="submitted && controls.edad.errors" class="invalid-feedback">
                   <div *ngIf="controls.edad.errors.required">Por favor, especifique la edad</div>
                 </div>
