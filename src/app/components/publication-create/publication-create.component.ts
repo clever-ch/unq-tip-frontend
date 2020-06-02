@@ -13,6 +13,7 @@ import { AngularFireStorage } from '@angular/fire/storage';
 import { finalize, tap } from 'rxjs/operators';
 import { Observable } from 'rxjs/internal/Observable';
 import { UrlManagerFirebase } from 'src/app/utilities/UrlManagerFirebase.service';
+import { ErrorHandlerController } from 'src/app/generic-components/ErrorHandlerController';
 
 @Component({
   selector: 'app-publication-create',
@@ -28,6 +29,9 @@ export class PublicationCreateComponent implements OnInit {
   submitted = false;
   imagesAreUploaded: boolean = false;
   imagesAreSaveFire: boolean = false;
+  createSuccess = false;
+  failCreate = false;
+  errorText;
 
   animalTypeSelected: AnimalType;
   animalTypes = [AnimalType.BIRD, AnimalType.CAT, AnimalType.DOG];
@@ -36,7 +40,7 @@ export class PublicationCreateComponent implements OnInit {
   publicationTypes = [PublicationType.FOUND, PublicationType.LOST];
 
   constructor(private publicationService: PublicationService, private router: Router, private authService: AuthService, 
-              private storage: AngularFireStorage, private urlManagerFirebase: UrlManagerFirebase) { }
+              private storage: AngularFireStorage, private urlManagerFirebase: UrlManagerFirebase, private handlerEr: ErrorHandlerController) { }
 
   uploadPercent: Observable<number>;
   urlImage: Observable<string>;
@@ -90,7 +94,8 @@ export class PublicationCreateComponent implements OnInit {
     this.publicationDTO.UserDTO = this.userDTO;
 
     console.log('Imprimo el DTO a crear:', this.publicationDTO);
-    this.publicationService.createPublication(this.publicationDTO).subscribe(error => console.log(error));
+    this.publicationService.createPublication(this.publicationDTO).subscribe(data => (this.createSuccess = true, this.failCreate = false)
+    , error => (this.failCreate = true, this.errorText = this.handlerEr.handleError(error)));
     
     //this.goToProfile()
   }

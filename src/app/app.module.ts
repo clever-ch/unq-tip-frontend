@@ -28,7 +28,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 // search module
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
-import { ErrorHandlerSignin } from './generic-components/errorHandlerSignin';
+import { ErrorHandlerController } from './generic-components/ErrorHandlerController';
 //Imports Firebase
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireStorageModule } from '@angular/fire/storage';
@@ -36,7 +36,7 @@ import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [AppComponent, PublicationListComponent, PublicationCreateComponent, DialogPublicationComponent, PublicationsFoundComponent, HomepageComponent, SignInComponent, LogInComponent, ProfileComponent],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule, MaterialModule, BrowserAnimationsModule, NgbModule, ReactiveFormsModule, NgxPaginationModule, Ng2SearchPipeModule, ErrorHandlerSignin,
+  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule, MaterialModule, BrowserAnimationsModule, NgbModule, ReactiveFormsModule, NgxPaginationModule, Ng2SearchPipeModule, ErrorHandlerController,
     TranslateModule.forRoot({
     loader: {
       provide: TranslateLoader,
@@ -49,7 +49,7 @@ import { environment } from '../environments/environment';
   AngularFireModule.initializeApp(environment.firebaseConfig),
   AngularFireStorageModule,
 ],
-  providers: [ErrorHandlerSignin],
+  providers: [ErrorHandlerController],
   bootstrap: [AppComponent],
   entryComponents: [DialogPublicationComponent]
 })

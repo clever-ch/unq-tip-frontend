@@ -62,7 +62,7 @@
               <div class="col-md-6">
                 <label>Descripción Animal</label>
                 <input type="text" class="form-control" id="idAnimalDescription" required
-                  [(ngModel)]="animalDTO.AnimalDescription" name="inpAnimalDescription" formControlName="desc"
+                  [(ngModel)]="publicationDTO.PublicationDescription" name="inpAnimalDescription" formControlName="desc"
                   [ngClass]="{ 'is-invalid': submitted && controls.desc.errors }">
                 <div *ngIf="submitted && controls.desc.errors" class="invalid-feedback">
                   <div *ngIf="controls.desc.errors.required">Por favor, ingrese una breve descripción</div>
@@ -132,6 +132,18 @@
             </div>
             <div class="col-md-6">
               <button (click)="goToProfile()" class="btn btn-secondary">Cancelar</button><br>
+            </div>
+          </div>
+          <br>
+          <div *ngIf="failCreate">
+            <div class="alert alert-danger text-center">
+              <strong>Disculpe!</strong> Fallo la creación de la publicación: <strong>{{errorText}}</strong>
+            </div>
+          </div>
+          <div *ngIf="createSuccess">
+            <div class="alert alert-success text-center">
+              <strong>Muchas gracias!</strong> Su publicación quedo registrada.
+              <button (click)="goToProfile()" class="btn btn-success">Perfil</button>
             </div>
           </div>
           <br>

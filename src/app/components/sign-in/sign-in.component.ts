@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { UserDTO } from 'src/app/model/userDTO';
 import { PersonDTO } from 'src/app/model/PersonDTO';
 import { SigninService } from 'src/app/services/login-service/signin.service';
-import { ErrorHandlerSignin } from 'src/app/generic-components/errorHandlerSignin';
+import { ErrorHandlerController } from 'src/app/generic-components/ErrorHandlerController';
 
 @Component({
   selector: 'app-sign-in',
@@ -22,7 +22,7 @@ export class SignInComponent implements OnInit {
   errorText;
 
   constructor(private formBuilder: FormBuilder, private router: Router, private signinService: SigninService,
-    private handlerEr: ErrorHandlerSignin) { }
+    private handlerEr: ErrorHandlerController) { }
 
   ngOnInit() {
     this.signin = this.formBuilder.group({

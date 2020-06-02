@@ -6,11 +6,11 @@ import { text } from '@angular/core/src/render3';
 @NgModule({
     providers: [{
                 provide: ErrorHandler,
-                useClass: ErrorHandlerSignin
+                useClass: ErrorHandlerController
                 }]
 })
 
-export class ErrorHandlerSignin implements ErrorHandler {
+export class ErrorHandlerController implements ErrorHandler {
 
 texts = new Map([
     [406, "El email no es valido"],
