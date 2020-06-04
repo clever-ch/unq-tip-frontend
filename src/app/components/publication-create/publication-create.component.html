@@ -146,6 +146,18 @@
             </div>
           </div>
           <br>
+          <div *ngIf="failCreate">
+            <div class="alert alert-danger text-center">
+              <strong>Disculpe!</strong> Fallo la creación de la publicación: <strong>{{errorText}}</strong>
+            </div>
+          </div>
+          <div *ngIf="createSuccess">
+            <div class="alert alert-success text-center">
+              <strong>Muchas gracias!</strong> Su publicación quedo registrada.
+              <button (click)="goToProfile()" class="btn btn-success">Perfil</button>
+            </div>
+          </div>
+          <br>
         </form>
       </div>
     </div>
