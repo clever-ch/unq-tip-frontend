@@ -53,14 +53,6 @@
           <br>
           <h3>{{ 'signin.subtitle2' | translate }}</h3>
           <div class="form-group">
-            <label>{{ 'login.username' | translate }}</label>
-            <input type="text" formControlName="username" class="form-control"
-              [ngClass]="{ 'is-invalid': submitted && f.username.errors }" [(ngModel)]="userDTO.UserName" />
-            <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
-              <div *ngIf="f.username.errors.required">{{ 'signin.usernameError' | translate }}</div>
-            </div>
-          </div>
-          <div class="form-group">
             <label>{{ 'signin.email' | translate }}</label>
             <input type="text" formControlName="email" class="form-control" aria-describedby="emailHelpBlock"
               [ngClass]="{ 'is-invalid': submitted && f.email.errors }" [(ngModel)]="userDTO.Email" />
@@ -72,12 +64,21 @@
             </small>
           </div>
           <div class="form-group">
+            <label>{{ 'login.username' | translate }}</label>
+            <input type="text" formControlName="username" class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f.username.errors }" [(ngModel)]="userDTO.UserName" />
+            <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+              <div *ngIf="f.username.errors.required">{{ 'signin.usernameError' | translate }}</div>
+            </div>
+          </div>
+          <div class="form-group">
             <label>{{ 'login.password' | translate }}</label>
-            <input type="text" formControlName="pass" class="form-control" aria-describedby="passwordHelpBlock"
+            <input type="{{inputVar}}" formControlName="pass" class="form-control" aria-describedby="passwordHelpBlock"
               [ngClass]="{ 'is-invalid': submitted && f.pass.errors }" [(ngModel)]="userDTO.Password" />
             <div *ngIf="submitted && f.pass.errors" class="invalid-feedback">
               <div *ngIf="f.pass.errors.required">{{ 'signin.passError' | translate }}</div>
             </div>
+            <input type="checkbox" (click)="showPass()"> {{ 'signin.showPass' | translate }}
             <small id="passwordHelpBlock" class="form-text text-muted">
               {{ 'signin.rememberPass' | translate }}
             </small>

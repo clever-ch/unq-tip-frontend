@@ -157,6 +157,7 @@ export class PublicationCreateComponent implements OnInit {
 
   
   this.imagesAreSaveFire = true;
+  this.imagesAreUploaded = false;
 
       console.log('Img Firebase', this.arrayInputImageUser);
   }
