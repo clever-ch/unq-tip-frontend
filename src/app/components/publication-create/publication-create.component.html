@@ -85,6 +85,7 @@
             </div>
           </div>
 
+          <div *ngIf="isDisabled">
           <div class="form-group">
             <label>{{ 'createPublication.addImg' | translate}}</label>
             <div class="custom-file">
@@ -98,12 +99,15 @@
                 <div class="form-group">
                   <div class="col-md-6">
                     <button (click)="saveURLsImgFireBase()" class="btn btn-success">{{ 'createPublication.loadImg' | translate}}</button>
+                    <small id="passwordHelpBlock" class="form-text text-muted">
+                      Favor de chequear las fotos antes de subirlas.
+                    </small>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-
+        </div>
           <div class="form-group">
             <div class="col-md-6">
               <div *ngFor="let url of uploadedImages; let index = index">
