@@ -85,6 +85,7 @@
             </div>
           </div>
 
+          <div *ngIf="isDisabled">
           <div class="form-group">
             <label>{{ 'createPublication.addImg' | translate}}</label>
             <div class="custom-file">
@@ -98,12 +99,15 @@
                 <div class="form-group">
                   <div class="col-md-6">
                     <button (click)="saveURLsImgFireBase()" class="btn btn-success">{{ 'createPublication.loadImg' | translate}}</button>
+                    <small id="passwordHelpBlock" class="form-text text-muted">
+                      Favor de chequear las fotos antes de subirlas.
+                    </small>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-
+        </div>
           <div class="form-group">
             <div class="col-md-6">
               <div *ngFor="let url of uploadedImages; let index = index">
@@ -143,18 +147,6 @@
             <div class="alert alert-success text-center">
               <strong>{{ 'createPublication.success' | translate}}</strong> {{ 'createPublication.success1' | translate}}
               <button (click)="goToProfile()" class="btn btn-success">{{ 'createPublication.profile' | translate}}</button>
-            </div>
-          </div>
-          <br>
-          <div *ngIf="failCreate">
-            <div class="alert alert-danger text-center">
-              <strong>Disculpe!</strong> Fallo la creación de la publicación: <strong>{{errorText}}</strong>
-            </div>
-          </div>
-          <div *ngIf="createSuccess">
-            <div class="alert alert-success text-center">
-              <strong>Muchas gracias!</strong> Su publicación quedo registrada.
-              <button (click)="goToProfile()" class="btn btn-success">Perfil</button>
             </div>
           </div>
           <br>

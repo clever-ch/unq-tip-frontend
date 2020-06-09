@@ -102,6 +102,7 @@
         "cancel" : "Cancel",
         "rememberEmail" : "Remember that your email must have the following format: something@example.com",
         "rememberPass" : "We recommend to you, that your password be between 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.",
+        "showPass" : "Show password",
         "fail": "Sorry!",
         "fail1": "User creation failed:",
         "success": "Thanks!",
