@@ -1,15 +1,13 @@
 <div class="style backg">
   <div class="container p-3 my-3 text-black table-responsive">
-
     <div class="row ">
-
       <div class="col-md-12 mx-auto mt-5 card bg-light">
         <br>
         <form method="post">
           <div class="row">
             <div class="col-md-4">
               <div class="profile-img">
-                <img src= "https://cdn.pixabay.com/photo/2016/08/20/05/38/avatar-1606916_960_720.png" alt="" />
+                <img src="https://cdn.pixabay.com/photo/2016/08/20/05/38/avatar-1606916_960_720.png" alt="" />
               </div>
             </div>
             <div class="col-md-6">
@@ -20,11 +18,15 @@
                 <h6>
                   SOS Pets User
                 </h6>
-                <button type="button" class="btn btn-primary" (click)="redirectMyPublications()">{{ 'profile.myPubli' | translate}}</button>
-                <button type="button" class="btn btn-success" (click)="redirectMyServices()">{{ 'profile.myServ' | translate}}</button>
+                <button type="button" class="btn btn-primary"
+                  (click)="redirectMyPublications()">{{ 'profile.myPubli' | translate}}</button>
+                <button type="button" class="btn btn-success"
+                  (click)="redirectMyServices()">{{ 'profile.myServ' | translate}}</button>
                 <br>
-                <br>  
-                <button type="button" class="btn btn-outline-primary" (click)="redirectCreatePublication()"><i class="fa fa-plus"></i> {{ 'profile.createPubli' | translate}}
+                <br>
+                <button type="button" class="btn btn-outline-primary" (click)="redirectCreatePublication()"><i
+                    class="fa fa-plus"></i> {{ 'profile.createPubli' | translate}}
+
                 </button>
                 <br>
                 <br>
@@ -41,13 +43,15 @@
               </div>
             </div>
             <div class="col-md-2">
-              <button type="submit" class="profile-edit-btn btn-dark text-white" name="btnAddMore" (click)="logout()"> {{ 'profile.logout' | translate}}</button>
+              <button type="submit" class="profile-edit-btn btn-dark text-white" name="btnAddMore" (click)="logout()">
+                {{ 'profile.logout' | translate}}</button>
             </div>
           </div>
           <div class="row">
             <div class="col-md-4">
               <div class="profile-work">
-                  <button  type="submit" class="profile-edit-btn" name="btnAddMore"> <i class="fa fa-edit"></i> {{ 'profile.edit' | translate}} </button>
+                <button type="submit" class="profile-edit-btn" name="btnAddMore"> <i class="fa fa-edit"></i>
+                  {{ 'profile.edit' | translate}} </button>
               </div>
             </div>
             <div class="col-md-8">

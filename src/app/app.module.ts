@@ -29,26 +29,29 @@ import { NgxPaginationModule } from 'ngx-pagination';
 // search module
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { ErrorHandlerController } from './generic-components/ErrorHandlerController';
+
 //Imports Firebase
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { environment } from '../environments/environment';
+import { UserServicesComponent } from './components/user-services/user-services.component';
+import { UserPublicationsComponent } from './components/user-publications/user-publications.component';
 
 @NgModule({
-  declarations: [AppComponent, PublicationListComponent, PublicationCreateComponent, DialogPublicationComponent, PublicationsFoundComponent, HomepageComponent, SignInComponent, LogInComponent, ProfileComponent],
+  declarations: [AppComponent, PublicationListComponent, PublicationCreateComponent, DialogPublicationComponent, PublicationsFoundComponent, HomepageComponent, SignInComponent, LogInComponent, ProfileComponent, UserServicesComponent, UserPublicationsComponent],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule, MaterialModule, BrowserAnimationsModule, NgbModule, ReactiveFormsModule, NgxPaginationModule, Ng2SearchPipeModule, ErrorHandlerController,
     TranslateModule.forRoot({
-    loader: {
-      provide: TranslateLoader,
-      useFactory: (http: HttpClient) => {
-        return new TranslateHttpLoader(http);
-      },
-      deps: [ HttpClient ]
-    }
-  }),
-  AngularFireModule.initializeApp(environment.firebaseConfig),
-  AngularFireStorageModule,
-],
+      loader: {
+        provide: TranslateLoader,
+        useFactory: (http: HttpClient) => {
+          return new TranslateHttpLoader(http);
+        },
+        deps: [HttpClient]
+      }
+    }),
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireStorageModule,
+  ],
   providers: [ErrorHandlerController],
   bootstrap: [AppComponent],
   entryComponents: [DialogPublicationComponent]
