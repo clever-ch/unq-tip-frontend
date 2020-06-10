@@ -50,7 +50,7 @@ export class ProfileComponent implements OnInit {
   }
 
   redirectMyServices() {
-    this.router.navigate(['publications']);
+    this.router.navigate(['userServices']);
   }
 
   redirectCreatePublication() {
