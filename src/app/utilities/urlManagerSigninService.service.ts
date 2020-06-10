@@ -9,4 +9,8 @@ import { Injectable } from '@angular/core';
     getURLCreateUser(): string {
         return 'http://localhost:8080/api/v1/createUser';
     }
+
+    getURLEditProfile(): string {
+        return 'http://localhost:8080/api/v1/editProfile';
+    }
   }

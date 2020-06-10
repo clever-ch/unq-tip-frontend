@@ -136,6 +136,12 @@
         "success": "Muchas gracias!",
         "success1": "Su publicación quedo registrada.",
         "profile": "Perfil"
-    }
+    },
 
+    "edit" : {
+        "title": "Edit profile",
+        "failEdit": "Fail edition",
+        "sucessEdit" : "Edited Profile",
+        "back": "Back to profile"
+    }
 }

@@ -135,5 +135,12 @@
         "success": "Thanks!",
         "success1": "Your publication is registered.",
         "profile": "Profile"
+    },
+
+    "edit" : {
+        "title": "Editar usuario",
+        "failEdit": "Fallo la edición",
+        "sucessEdit" : "Perfil Editado",
+        "back": "Volver al perfil"
     }
 }
