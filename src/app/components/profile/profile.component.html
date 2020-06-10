@@ -18,39 +18,40 @@
                 <h6>
                   SOS Pets User
                 </h6>
-                <button type="button" class="btn btn-primary" (click)="redirectMyPublications()">Mis
-                  Publicaciones</button>
-                <button type="button" class="btn btn-success" (click)="redirectMyServices()">Mis Servicios</button>
+                <button type="button" class="btn btn-primary"
+                  (click)="redirectMyPublications()">{{ 'profile.myPubli' | translate}}</button>
+                <button type="button" class="btn btn-success"
+                  (click)="redirectMyServices()">{{ 'profile.myServ' | translate}}</button>
                 <br>
                 <br>
                 <button type="button" class="btn btn-outline-primary" (click)="redirectCreatePublication()"><i
-                    class="fa fa-plus"></i> Crear
-                  publicación
+                    class="fa fa-plus"></i> {{ 'profile.createPubli' | translate}}
+
                 </button>
                 <br>
                 <br>
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                   <li class="nav-item">
                     <a class="nav-link active" id="home-tab" data-toggle="tab" href="#pers" role="tab"
-                      aria-controls="home" aria-selected="true">Info Personal</a>
+                      aria-controls="home" aria-selected="true">{{ 'profile.infoPer' | translate}}</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" id="profile-tab" data-toggle="tab" href="#user" role="tab"
-                      aria-controls="profile" aria-selected="false">Info User</a>
+                      aria-controls="profile" aria-selected="false">{{ 'profile.infoUser' | translate}}</a>
                   </li>
                 </ul>
               </div>
             </div>
             <div class="col-md-2">
-              <button type="submit" class="profile-edit-btn btn-dark text-white" name="btnAddMore" (click)="logout()"><i
-                  class="fa fa-sign-out"></i> Logout </button>
+              <button type="submit" class="profile-edit-btn btn-dark text-white" name="btnAddMore" (click)="logout()">
+                {{ 'profile.logout' | translate}}</button>
             </div>
           </div>
           <div class="row">
             <div class="col-md-4">
               <div class="profile-work">
-                <button type="submit" class="profile-edit-btn" name="btnAddMore"> <i class="fa fa-edit"></i> Edit
-                  Profile </button>
+                <button type="submit" class="profile-edit-btn" name="btnAddMore"> <i class="fa fa-edit"></i>
+                  {{ 'profile.edit' | translate}} </button>
               </div>
             </div>
             <div class="col-md-8">
@@ -58,7 +59,7 @@
                 <div class="tab-pane fade show active" id="pers" role="tabpanel" aria-labelledby="home-tab">
                   <div class="row">
                     <div class="col-md-6">
-                      <label>Name</label>
+                      <label>{{ 'profile.name' | translate}}</label>
                     </div>
                     <div class="col-md-6">
                       <p>{{userDTO.PersonDTO.Name}}</p>
@@ -66,7 +67,7 @@
                   </div>
                   <div class="row">
                     <div class="col-md-6">
-                      <label>Surname</label>
+                      <label>{{ 'profile.surname' | translate}}</label>
                     </div>
                     <div class="col-md-6">
                       <p>{{userDTO.PersonDTO.SurName}}</p>
@@ -74,7 +75,7 @@
                   </div>
                   <div class="row">
                     <div class="col-md-6">
-                      <label>Telephone</label>
+                      <label>{{ 'profile.phone' | translate}}</label>
                     </div>
                     <div class="col-md-6">
                       <p>{{userDTO.PersonDTO.Telephone}}</p>
@@ -82,7 +83,7 @@
                   </div>
                   <div class="row">
                     <div class="col-md-6">
-                      <label>Address</label>
+                      <label>{{ 'profile.address' | translate}}</label>
                     </div>
                     <div class="col-md-6">
                       <p>{{userDTO.PersonDTO.Address}}</p>
@@ -90,7 +91,7 @@
                   </div>
                   <div class="row">
                     <div class="col-md-6">
-                      <label>Location</label>
+                      <label>{{ 'profile.location' | translate}}</label>
                     </div>
                     <div class="col-md-6">
                       <p>{{userDTO.PersonDTO.Location}}</p>
@@ -100,7 +101,7 @@
                 <div class="tab-pane fade" id="user" role="tabpanel" aria-labelledby="profile-tab">
                   <div class="row">
                     <div class="col-md-6">
-                      <label>UserName</label>
+                      <label>{{ 'profile.username' | translate}}</label>
                     </div>
                     <div class="col-md-6">
                       <p>{{userDTO.UserName}}</p>
@@ -108,7 +109,7 @@
                   </div>
                   <div class="row">
                     <div class="col-md-6">
-                      <label>Email</label>
+                      <label>{{ 'profile.email' | translate}}</label>
                     </div>
                     <div class="col-md-6">
                       <p>{{userDTO.Email}}</p>
@@ -116,7 +117,7 @@
                   </div>
                   <div class="row">
                     <div class="col-md-6">
-                      <label>Password</label>
+                      <label>{{ 'profile.pass' | translate}}</label>
                     </div>
                     <div class="col-md-6">
                       <p>***********</p>

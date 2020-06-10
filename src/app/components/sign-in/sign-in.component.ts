@@ -19,6 +19,7 @@ export class SignInComponent implements OnInit {
   personDTO: PersonDTO = new PersonDTO();
   createSuccess = false;
   failCreate = false
+  inputVar = 'password';
   errorText;
 
   constructor(private formBuilder: FormBuilder, private router: Router, private signinService: SigninService,
@@ -52,6 +53,14 @@ export class SignInComponent implements OnInit {
 
   goToLogin() {
       this.router.navigate(['/log-in']);
+  }
+
+  showPass() {
+    if (this.inputVar === 'password'){
+      this.inputVar = 'text'
+    } else {
+      this.inputVar = 'password'
+    }
   }
   
 }

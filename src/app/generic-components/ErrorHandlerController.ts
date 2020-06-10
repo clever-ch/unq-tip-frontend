@@ -13,10 +13,10 @@ import { text } from '@angular/core/src/render3';
 export class ErrorHandlerController implements ErrorHandler {
 
 texts = new Map([
-    [406, "El email no es valido"],
-    [412, "El email ya existe, por favor usar uno nuevo"],
-    [400, "Campos incompletos en el formulario"],
-    [409, "El usuario ya existe, por favor crear uno nuevo"],
+    [406, "El email no es valido / Email invalid"],
+    [412, "El email ya existe, por favor usar uno nuevo / The email already exists, please use a new one"],
+    [400, "Campos incompletos en el formulario / Incomplete fields in the form"],
+    [409, "El usuario ya existe, por favor crear uno nuevo / The user already exists, please create a new one"],
   ])
 
 handleError(res:Response){

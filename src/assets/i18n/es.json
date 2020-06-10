@@ -43,12 +43,40 @@
         "searchPets" : "Buscar mascota"       
     },
 
+    "dialogPubli": {
+        "contact" : "Contactar con el usuario",
+        "phone" : "Tel:",
+        "nombCom": "Nombre completo",
+        "email": "Correo Electrónico",
+        "locationPet": "Ubicación de la mascota"
+    },
+
     "login": {
         "title" : "Por Favor, registrese",
         "username": "Usuario",
         "password": "Contraseña",
         "login" : "Iniciar sesión",
-        "newCount" : "Crear una cuenta nueva"
+        "newCount" : "Crear una cuenta nueva",
+        "usernameError":"Por favor, ingrese su nombre de usuario",
+        "passwordError":"Por favor, ingrese su password"
+    },
+
+    "profile": {
+        "myPubli":"Mis Publicaciones",
+        "myServ":"Mis Servicios",
+        "createPubli":"Crear publicación",
+        "infoPer":"Info Personal",
+        "infoUser":"Info Usuario",
+        "logout":"Cerrar sesión",
+        "edit":"Editar perfil",
+        "name":"Nombre",
+        "surname":"Apellido",
+        "phone":"Telefono",
+        "address":"Dirección",
+        "location":"Localidad",
+        "username":"Nombre de usuario",
+        "email":"Email",
+        "pass":"Contraseña"
     },
 
     "signin": {
@@ -70,7 +98,42 @@
         "usernameError" : "Por favor, ingrese un username ( 6 Caracteres mínimo )", 
         "passError" : "Por favor, ingrese un password ( 6 Caracteres mínimo )",
         "accept" : "Aceptar",
-        "cancel" : "Cancelar"
+        "cancel" : "Cancelar",
+        "rememberEmail" : "Recuerda que tu mail debe seguir el siguiente formato: mail@ejemplo.com",
+        "rememberPass" : "Le recomendamos que su contraseña tenga entre 8 y 20 caracteres, contenga letras y números, y no debe contener espacios, caracteres especiales o emoji.",
+        "showPass" : "Mostrar contraseña",
+        "fail": "Disculpe!",
+        "fail1": "Fallo la creación del usuario:",
+        "success": "Muchas gracias!",
+        "success1": "Ya puede ingresar como usuario.",
+        "login": "Registrarse"
+    },
+
+    "createPublication": {
+        "create": "Crear publicación",
+        "type": "Tipo de publicación",
+        "typeError": "Por favor, seleccione un tipo de publicación",
+        "breed": "Raza",
+        "breedError": "Por favor, ingrese la raza de su mascota",
+        "typeAnimal": "Tipo de Animal",
+        "typeAnimalError": "Por favor, seleccione un tipo de animal",
+        "age": "Edad",
+        "ageError": "Por favor, especifique la edad",
+        "description": "Descripción del Animal",
+        "descError": "Por favor, ingrese una breve descripción",
+        "address": "Dirección",
+        "addressError": "Por favor, seleccione una ubicación",
+        "addImg": "Agregar Fotos",
+        "selectImg": "Seleccionar archivos",
+        "loadImg": "Subir imágenes",
+        "delImg": "Eliminar",
+        "confirm": "Confirmar",
+        "cancel": "Cancelar",
+        "fail": "Disculpe!",
+        "fail1": "Fallo la creación de la publicación:",
+        "success": "Muchas gracias!",
+        "success1": "Su publicación quedo registrada.",
+        "profile": "Perfil"
     }
 
 }

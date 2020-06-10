@@ -4,13 +4,13 @@
     <div class="row ">
 
       <div class="col-md-12 mx-auto mt-5 card bg-light">
-        <h3>Crear publicación</h3>
+        <h3>{{ 'createPublication.create' | translate}}</h3>
         <br>
         <form (ngSubmit)="onSubmit()" [formGroup]="myForm">
           <div class="form-group">
             <div class="row">
               <div class="col-md-6">
-                <label>Tipo de publicación</label>
+                <label>{{ 'createPublication.type' | translate}}</label>
                 <select [(ngModel)]="publicationTypeSelected" name="status" placeholder="PRUEBA" class="form-control"
                   formControlName="tipoPub" [ngClass]="{ 'is-invalid': submitted && controls.tipoPub.errors }">
                   <option *ngFor="let publicationType of publicationTypes" [ngValue]="publicationType">
@@ -18,7 +18,7 @@
                   </option>
                 </select>
                 <div *ngIf="submitted && controls.tipoPub.errors" class="invalid-feedback">
-                  <div *ngIf="controls.tipoPub.errors.required">Por favor, seleccione un tipo de publicación</div>
+                  <div *ngIf="controls.tipoPub.errors.required">{{ 'createPublication.typeError' | translate}}</div>
                 </div>
               </div>
             </div>
@@ -27,22 +27,22 @@
           <div class="form-group">
             <div class="row">
               <div class="col-md-6">
-                <label>Raza</label>
+                <label>{{ 'createPublication.breed' | translate}}</label>
                 <input type="text" formControlName="raza" class="form-control" id="idBreed" required
                   [(ngModel)]="animalDTO.Breed" [ngClass]="{ 'is-invalid': submitted && controls.raza.errors }">
                 <div *ngIf="submitted && controls.raza.errors" class="invalid-feedback">
-                  <div *ngIf="controls.raza.errors.required">Por favor, ingrese la raza de su mascota</div>
+                  <div *ngIf="controls.raza.errors.required">{{ 'createPublication.breedError' | translate}}</div>
                 </div>
               </div>
 
               <div class="col-md-6">
-                <label>Tipo de Animal</label>
+                <label>{{ 'createPublication.typeAnimal' | translate}}</label>
                 <select [(ngModel)]="animalTypeSelected" name="status" placeholder="PRUEBA" class="form-control"
                   formControlName="tipo" [ngClass]="{ 'is-invalid': submitted && controls.tipo.errors }">
                   <option *ngFor="let animalType of animalTypes" [ngValue]="animalType"> {{animalType}} </option>
                 </select>
                 <div *ngIf="submitted && controls.tipo.errors" class="invalid-feedback">
-                  <div *ngIf="controls.tipo.errors.required">Por favor, seleccione un tipo de animal</div>
+                  <div *ngIf="controls.tipo.errors.required">{{ 'createPublication.typeAnimalError' | translate}}</div>
                 </div>
               </div>
             </div>
@@ -51,22 +51,22 @@
           <div class="form-group">
             <div class="row">
               <div class="col-md-6">
-                <label>Edad</label>
+                <label>{{ 'createPublication.age' | translate}}</label>
                 <input type="text" class="form-control" id="idAge" required [(ngModel)]="animalDTO.AnimalAge"
                   formControlName="edad" name="inpAnimalAge"
                   [ngClass]="{ 'is-invalid': submitted && controls.edad.errors }">
                 <div *ngIf="submitted && controls.edad.errors" class="invalid-feedback">
-                  <div *ngIf="controls.edad.errors.required">Por favor, especifique la edad</div>
+                  <div *ngIf="controls.edad.errors.required">{{ 'createPublication.ageError' | translate}}</div>
                 </div>
               </div>
 
               <div class="col-md-6">
-                <label>Descripción Animal</label>
+                <label>{{ 'createPublication.description' | translate}}</label>
                 <input type="text" class="form-control" id="idAnimalDescription" required
                   [(ngModel)]="publicationDTO.PublicationDescription" name="inpAnimalDescription" formControlName="desc"
                   [ngClass]="{ 'is-invalid': submitted && controls.desc.errors }">
                 <div *ngIf="submitted && controls.desc.errors" class="invalid-feedback">
-                  <div *ngIf="controls.desc.errors.required">Por favor, ingrese una breve descripción</div>
+                  <div *ngIf="controls.desc.errors.required">{{ 'createPublication.descError' | translate}}</div>
                 </div>
               </div>
             </div>
@@ -75,22 +75,23 @@
           <div class="form-group">
             <div class="row">
               <div class="col-md-6">
-                <label>Dirección publicación</label>
+                <label>{{ 'createPublication.address' | translate}}</label>
                 <input type="text" class="form-control" required [(ngModel)]="publicationDTO.PublicationAddress"
                   name="inpPublicationAddress" formControlName="ubi"
                   [ngClass]="{ 'is-invalid': submitted && controls.ubi.errors }">
                 <div *ngIf="submitted && controls.ubi.errors" class="invalid-feedback">
-                  <div *ngIf="controls.ubi.errors.required">Por favor, seleccione una ubicación</div>
+                  <div *ngIf="controls.ubi.errors.required">{{ 'createPublication.addressError' | translate}}</div>
                 </div>
               </div>
             </div>
           </div>
 
+          <div *ngIf="isDisabled">
           <div class="form-group">
-            <label>Agregar Fotos</label>
+            <label>{{ 'createPublication.addImg' | translate}}</label>
             <div class="custom-file">
               <div class="col-md-6">
-                <label class="custom-file-label" for="name">Choose file</label>
+                <label class="custom-file-label" for="name">{{ 'createPublication.selectImg' | translate}}</label>
                 <input [formControl]="myFormUploadedImages" type="file" class="custom-file-input" multiple="true"
                   accept=".png, .jpg" (change)="onUpload($event)">
               </div>
@@ -98,19 +99,22 @@
                 <br>
                 <div class="form-group">
                   <div class="col-md-6">
-                    <button (click)="saveURLsImgFireBase()" class="btn btn-success">Subir imágenes</button>
+                    <button (click)="saveURLsImgFireBase()" class="btn btn-success">{{ 'createPublication.loadImg' | translate}}</button>
+                    <small id="passwordHelpBlock" class="form-text text-muted">
+                      Favor de chequear las fotos antes de subirlas.
+                    </small>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-
+        </div>
           <div class="form-group">
             <div class="col-md-6">
               <div *ngFor="let url of uploadedImages; let index = index">
                 <img [src]="url" height="150" width="200px" style="margin: 3px;">
                 <button class="btn btn-secondary" (click)="removeSelectedFile(index)"><i class='fas fa-trash-alt'></i>
-                  Delete</button>
+                  {{ 'createPublication.delImg' | translate}}</button>
               </div>
             </div>
           </div>
@@ -128,23 +132,22 @@
 
           <div class="row">
             <div class="col-md-6">
-              <button (click)="createPublication()" [disabled]="!imagesAreSaveFire" class="btn btn-primary">Crear
-                publicación</button>
+              <button (click)="createPublication()" [disabled]="!imagesAreSaveFire" class="btn btn-primary">{{ 'createPublication.confirm' | translate}}</button>
             </div>
             <div class="col-md-6">
-              <button (click)="goToProfile()" class="btn btn-secondary">Cancelar</button><br>
+              <button (click)="goToProfile()" class="btn btn-secondary">{{ 'createPublication.cancel' | translate}}</button><br>
             </div>
           </div>
           <br>
           <div *ngIf="failCreate">
             <div class="alert alert-danger text-center">
-              <strong>Disculpe!</strong> Fallo la creación de la publicación: <strong>{{errorText}}</strong>
+              <strong>{{ 'createPublication.fail' | translate}}</strong> {{ 'createPublication.fail1' | translate}} <strong>{{errorText}}</strong>
             </div>
           </div>
           <div *ngIf="createSuccess">
             <div class="alert alert-success text-center">
-              <strong>Muchas gracias!</strong> Su publicación quedo registrada.
-              <button (click)="goToProfile()" class="btn btn-success">Perfil</button>
+              <strong>{{ 'createPublication.success' | translate}}</strong> {{ 'createPublication.success1' | translate}}
+              <button (click)="goToProfile()" class="btn btn-success">{{ 'createPublication.profile' | translate}}</button>
             </div>
           </div>
           <br>

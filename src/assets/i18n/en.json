@@ -43,12 +43,40 @@
         "searchPets" : "Search pet"
     },
 
+    "dialogPubli": {
+        "contact" : "Contact the user",
+        "phone" : "Phone:",
+        "nombCom": "Full name",
+        "email": "Email",
+        "locationPet": "Location of the pet"
+    },
+
     "login": {
         "title" : "Please sing in",
         "username": "Username",
         "password": "Password",
         "login" : "Login",
-        "newCount" : "Create a new account"
+        "newCount" : "Create a new account",
+        "usernameError":"Please enter your username",
+        "passwordError":"Please enter your password"
+    },
+
+    "profile": {
+        "myPubli":"My posts",
+        "myServ":"My services",
+        "createPubli":"Create post",
+        "infoPer":"Info Personal",
+        "infoUser":"Info User",
+        "logout":"Logout",
+        "edit":"Edit profile",
+        "name":"Name",
+        "surname":"surname",
+        "phone":"Phone",
+        "address":"Address",
+        "location":"Location",
+        "username":"Username",
+        "email":"Email",
+        "pass":"Password"
     },
 
     "signin": {
@@ -70,6 +98,41 @@
         "usernameError" : "Please enter a username (6 Characters minimum)",
         "passError" : "Please enter a password (6 Characters minimum)",
         "accept" : "Accept",
-        "cancel" : "Cancel"
+        "cancel" : "Cancel",
+        "rememberEmail" : "Remember that your email must have the following format: something@example.com",
+        "rememberPass" : "We recommend to you, that your password be between 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.",
+        "showPass" : "Show password",
+        "fail": "Sorry!",
+        "fail1": "User creation failed:",
+        "success": "Thanks!",
+        "success1": "You can now enter as a user.",
+        "login": "Login"
+    },
+
+    "createPublication": {
+        "create": "Create publication",
+        "type": "Publication type",
+        "typeError": "Please select a publication type",
+        "breed": "Breed",
+        "breedError": "Please enter your pet's breed",
+        "typeAnimal": "Animal type",
+        "typeAnimalError": "Please select a tipe of animal",
+        "age": "Age",
+        "ageError": "Please specify age",
+        "description": "Description of the animal",
+        "descError": "Please enter a description",
+        "address": "Address",
+        "addressError": "Please enter a address",
+        "addImg": "Add images",
+        "selectImg": "Select files",
+        "loadImg": "Load images",
+        "delImg": "Delete",
+        "confirm": "Confirm",
+        "cancel": "Cancel",
+        "fail": "Sorry!",
+        "fail1": "Post creation failed:",
+        "success": "Thanks!",
+        "success1": "Your publication is registered.",
+        "profile": "Profile"
     }
 }

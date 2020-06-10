@@ -32,6 +32,7 @@ export class PublicationCreateComponent implements OnInit {
   createSuccess = false;
   failCreate = false;
   errorText;
+  isDisabled = true;
 
   animalTypeSelected: AnimalType;
   animalTypes = [AnimalType.BIRD, AnimalType.CAT, AnimalType.DOG];
@@ -157,6 +158,8 @@ export class PublicationCreateComponent implements OnInit {
 
   
   this.imagesAreSaveFire = true;
+  this.imagesAreUploaded = false;
+  this.isDisabled = false;
 
       console.log('Img Firebase', this.arrayInputImageUser);
   }
