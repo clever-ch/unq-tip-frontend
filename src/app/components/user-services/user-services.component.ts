@@ -26,9 +26,9 @@ export class UserServicesComponent implements OnInit {
 
   ngOnInit() {
     this.loginDTO = JSON.parse(localStorage.getItem("loginDTO"));
-    this.GetUserLoggedInByGuid(this.loginDTO.UserGuid);
 
-    this.reloadData();
+    this.GetUserLoggedInByGuid(this.loginDTO.UserGuid);
+    //this.reloadData();
   }
 
   reloadData() {
