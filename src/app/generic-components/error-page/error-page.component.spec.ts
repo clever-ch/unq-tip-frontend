@@ -22,4 +22,22 @@ describe('ErrorPageComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('El título está definido', () => {
+    const title = document.getElementById('title').innerHTML;
+
+    expect(title).toBeDefined();
+  });
+
+  it('Nombre correcto de título', async(() => {
+    const title = document.getElementById('title').innerHTML;
+
+    expect(title).toContain('¡Error!');
+  }));
+
+  it('El botón para ir al home está definido', () => {
+    const title = document.getElementById('idBtnHome').innerHTML;
+
+    expect(title).toBeDefined();
+  });
 });

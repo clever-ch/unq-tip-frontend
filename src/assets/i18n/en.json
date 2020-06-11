@@ -36,7 +36,6 @@
         "serButtonCon" : "Contract Service",
         "serButtonSignUp" : "Sign up"
     },
-
     "petsList": {
         "viewDetails" : "View Details",
         "paginationNext" : "Next",
@@ -138,9 +137,9 @@
     },
 
     "edit" : {
-        "title": "Editar usuario",
-        "failEdit": "Fallo la edición",
-        "sucessEdit" : "Perfil Editado",
-        "back": "Volver al perfil"
+        "title": "Edit profile",
+        "failEdit": "Fail edition",
+        "sucessEdit" : "Edited Profile",
+        "back": "Back to profile"
     }
 }

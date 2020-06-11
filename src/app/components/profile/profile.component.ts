@@ -46,11 +46,11 @@ export class ProfileComponent implements OnInit {
   }
 
   redirectMyPublications() {
-    this.router.navigate(['publications']);
+    this.router.navigate(['userPublications']);
   }
 
   redirectMyServices() {
-    this.router.navigate(['publications']);
+    this.router.navigate(['userServices']);
   }
 
   redirectCreatePublication() {

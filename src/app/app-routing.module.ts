@@ -10,6 +10,9 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { ErrorPageComponent } from '././generic-components/error-page/error-page.component';
 import { SignInComponent } from './components/sign-in/sign-in.component';
 import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
+import { UserServicesComponent } from './components/user-services/user-services.component';
+import { ServicesListComponent } from './components/services-list/services-list.component';
+import { UserPublicationsComponent } from './components/user-publications/user-publications.component';
 
 
 const routes: Routes = [
@@ -22,7 +25,10 @@ const routes: Routes = [
   { path: 'log-in', component: LogInComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'errorPage', component: ErrorPageComponent },
-  { path: 'editProfile', component: EditProfileComponent}
+  { path: 'editProfile', component: EditProfileComponent},
+  { path: 'userServices', component: UserServicesComponent },
+  { path: 'servicesList', component: ServicesListComponent },
+  { path: 'userPublications', component: UserPublicationsComponent }
 ];
 
 @NgModule({
