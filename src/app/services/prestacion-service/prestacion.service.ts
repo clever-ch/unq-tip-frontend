@@ -10,10 +10,6 @@ export class PrestacionService {
 
   constructor(private http: HttpClient, private urlManagerPrestacionService: UrlManagerPrestacionService) { }
 
-  getAllServices(): Observable<any> {
-    return this.http.get(`${this.urlManagerPrestacionService.getURLAllServices()}`);
-  }
-
   getAllCareServices(): Observable<any> {
     return this.http.get(`${this.urlManagerPrestacionService.getURLAllCareServices()}`);
   }
@@ -24,5 +20,17 @@ export class PrestacionService {
 
   getAllTransportServices(): Observable<any> {
     return this.http.get(`${this.urlManagerPrestacionService.getURLAllTransportServices()}`);
+  }
+
+  getAllCareServicesByIdUser(idUser: number): Observable<any> {
+    return this.http.get(`${this.urlManagerPrestacionService.getURLAllCareServicesByIdUser()}/${idUser}`);
+  }
+
+  getAllTransitServicesByIdUser(idUser: number): Observable<any> {
+    return this.http.get(`${this.urlManagerPrestacionService.getURLAllTransitServicesByIdUser()}/${idUser}`);
+  }
+
+  getAllTransportServicesByIdUser(idUser: number): Observable<any> {
+    return this.http.get(`${this.urlManagerPrestacionService.getURLAllTransportServicesByIdUser()}/${idUser}`);
   }
 }

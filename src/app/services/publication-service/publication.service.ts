@@ -21,4 +21,12 @@ export class PublicationService {
   createPublication(publicationDTO: Object): Observable<Object> {
     return this.http.post(`${this.urlManagerPublication.getURLCreatePublication()}`, publicationDTO);
   }
+
+  getAllPublicationsLostByIdUser(idUser: number): Observable<any> {
+    return this.http.get(`${this.urlManagerPublication.getURLAllPublicationsLostByIdUser()}/${idUser}`);
+  }
+
+  getAllPublicationsFoundByIdUser(idUser: number): Observable<any> {
+    return this.http.get(`${this.urlManagerPublication.getURLAllPublicationsFoundByIdUser()}/${idUser}`);
+  }
 }

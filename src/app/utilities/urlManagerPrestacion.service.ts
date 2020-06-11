@@ -5,10 +5,6 @@ import { Injectable } from '@angular/core';
   })
 export class UrlManagerPrestacionService {
 
-    getURLAllServices(): string {
-        return 'http://localhost:8080/api/v1/allServices';
-    }
-
     getURLAllCareServices(): string {
         return 'http://localhost:8080/api/v1/allCareServices';
     }
@@ -19,5 +15,17 @@ export class UrlManagerPrestacionService {
 
     getURLAllTransportServices(): string {
         return 'http://localhost:8080/api/v1/allTransportServices';
+    }
+
+    getURLAllCareServicesByIdUser(): string {
+        return 'http://localhost:8080/api/v1/allUserCareServices';
+    }
+
+    getURLAllTransitServicesByIdUser(): string {
+        return 'http://localhost:8080/api/v1/allUserTransitServices';
+    }
+
+    getURLAllTransportServicesByIdUser(): string {
+        return 'http://localhost:8080/api/v1/allUserTransportServices';
     }
 }
