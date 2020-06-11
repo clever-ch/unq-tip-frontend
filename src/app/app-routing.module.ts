@@ -11,6 +11,7 @@ import { ErrorPageComponent } from '././generic-components/error-page/error-page
 import { SignInComponent } from './components/sign-in/sign-in.component';
 import { UserServicesComponent } from './components/user-services/user-services.component';
 import { ServicesListComponent } from './components/services-list/services-list.component';
+import { UserPublicationsComponent } from './components/user-publications/user-publications.component';
 
 
 const routes: Routes = [
@@ -24,7 +25,8 @@ const routes: Routes = [
   { path: 'profile', component: ProfileComponent },
   { path: 'errorPage', component: ErrorPageComponent },
   { path: 'userServices', component: UserServicesComponent },
-  { path: 'servicesList', component: ServicesListComponent }
+  { path: 'servicesList', component: ServicesListComponent },
+  { path: 'userPublications', component: UserPublicationsComponent }
 ];
 
 @NgModule({
