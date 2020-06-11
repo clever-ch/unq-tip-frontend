@@ -26,13 +26,25 @@ export class UserServicesComponent implements OnInit {
 
   ngOnInit() {
     this.loginDTO = JSON.parse(localStorage.getItem("loginDTO"));
+    this.GetUserLoggedInByGuid(this.loginDTO.UserGuid);
 
     this.reloadData();
   }
 
   reloadData() {
-    this.prestacionService.getAllCareServices().subscribe(data => this.careServices = data);
-    this.prestacionService.getAllTransitServices().subscribe(data => this.transitServices = data);
-    this.prestacionService.getAllTransportServices().subscribe(data => this.transportServices = data);
+    console.log('Mando el Id del Usario: ', this.userDTO.Id);
+
+    this.prestacionService.getAllCareServicesByIdUser(this.userDTO.Id).subscribe(data => this.careServices = data);
+    this.prestacionService.getAllTransitServicesByIdUser(this.userDTO.Id).subscribe(data => this.transitServices = data);
+    this.prestacionService.getAllTransportServicesByIdUser(this.userDTO.Id).subscribe(data => this.transportServices = data);
+  }
+
+  private GetUserLoggedInByGuid(userGuid: string) {
+    this.authService.getUserByGuid(userGuid).subscribe(data => {
+      this.userDTO = data;
+      this.prestacionService.getAllCareServicesByIdUser(this.userDTO.Id).subscribe(data => this.careServices = data);
+      this.prestacionService.getAllTransitServicesByIdUser(this.userDTO.Id).subscribe(data => this.transitServices = data);
+      this.prestacionService.getAllTransportServicesByIdUser(this.userDTO.Id).subscribe(data => this.transportServices = data);
+    })
   }
 }
