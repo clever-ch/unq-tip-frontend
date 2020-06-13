@@ -1,77 +1,79 @@
-<div class="container">
-  <div class="table-dark panel-heading text-center">
-    <h2>Lista de servicios de Tránsito</h2>
-    <div class="panel-body table-responsive">
-      <table class="table table-dark text-center">
-        <thead>
-          <tr>
-            <th scope="col">Descripción</th>
-            <th scope="col">Unidad de tiempo</th>
-            <th scope="col">Tiempo de tránsito</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let transit of transitServices">
-            <td>{{transit.ServiceDescription}}</td>
-            <td>{{transit.UnidOfTime}}</td>
-            <td>{{transit.TransitTime}}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</div>
+<div class="style backg">
+  <div class="container p-3 my-3">
+    <div class="row">
+      <div class="container">
+        <div class="table panel-heading text-center">
+          <h1 class="t-stroke-shadow"><strong>{{loginDTO.Username}}</strong></h1>
+          <h3 class="t-stroke-shadow"><strong>Estos son tus servicios</strong></h3>
+          <h2 class="t-stroke-shadow"><u>Lista de servicios de Tránsito</u></h2>
+          <table class="table table-striped text-center">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">Descripción</th>
+                <th scope="col">Unidad de tiempo</th>
+                <th scope="col">Tiempo de tránsito</th>
+                <th scope="col">Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let transit of transitServices">
+                <td>{{transit.ServiceDescription}}</td>
+                <td>{{transit.UnidOfTime}}</td>
+                <td>{{transit.TransitTime}}</td>
+                <td><strong>Contactar</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
 
-<br>
-<br>
+      <div class="container">
+        <div class="table panel-heading text-center">
+          <h2 class="t-stroke-shadow"><u>Lista de servicios de Transporte</u></h2>
+          <table class="table table-striped text-center">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">Descripción</th>
+                <th scope="col">Unidad de tiempo</th>
+                <th scope="col">Tiempo de transporte</th>
+                <th scope="col">Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let transport of transportServices">
+                <td>{{transport.ServiceDescription}}</td>
+                <td>{{transport.UnidOfTime}}</td>
+                <td>{{transport.ScheduleAvailable}}</td>
+                <td><strong>Contactar</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
 
-<div class="container">
-  <div class="table-dark panel-heading text-center">
-    <h2>Lista de servicios de Transporte</h2>
-    <div class="panel-body table-responsive">
-      <table class="table table-dark text-center">
-        <thead>
-          <tr>
-            <th scope="col">Descripción</th>
-            <th scope="col">Unidad de tiempo</th>
-            <th scope="col">Tiempo de transporte</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let transport of transportServices">
-            <td>{{transport.ServiceDescription}}</td>
-            <td>{{transport.UnidOfTime}}</td>
-            <td>{{transport.ScheduleAvailable}}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</div>
-
-<br>
-<br>
-
-<div class="container">
-  <div class="table-dark panel-heading text-center">
-    <h2>Lista de servicios de Cuidado</h2>
-    <div class="panel-body table-responsive">
-      <table class="table table-dark text-center">
-        <thead>
-          <tr>
-            <th scope="col">Descripción</th>
-            <th scope="col">Unidad de tiempo</th>
-            <th scope="col">Tiempo de cuidado</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let care of careServices">
-            <td>{{care.ServiceDescription}}</td>
-            <td>{{care.UnidOfTime}}</td>
-            <td>{{care.CareTime}}</td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="container">
+        <div class="table panel-heading text-center ">
+          <h2 class="t-stroke-shadow"><u>Lista de servicios de Cuidado</u></h2>
+          <table class="table table-striped text-center">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">Descripción</th>
+                <th scope="col">Unidad de tiempo</th>
+                <th scope="col">Tiempo de cuidado</th>
+                <th scope="col">Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let care of careServices">
+                <td>{{care.ServiceDescription}}</td>
+                <td>{{care.UnidOfTime}}</td>
+                <td>{{care.CareTime}}</td>
+                <td><strong>Contactar</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
   </div>
 </div>
