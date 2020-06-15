@@ -18,7 +18,8 @@
                 <td>{{transit.ServiceDescription}}</td>
                 <td>{{transit.UnidOfTime}}</td>
                 <td>{{transit.TransitTime}}</td>
-                <td><strong>Contactar</strong></td>
+                <td><button type="button" class="btn btn-primary"
+                  (click)="openDialogTransit(transit)"><i class='fas fa-eye'></i> {{ 'petsList.viewDetails' | translate }}</button></td>
               </tr>
             </tbody>
           </table>
@@ -42,7 +43,8 @@
                 <td>{{transport.ServiceDescription}}</td>
                 <td>{{transport.UnidOfTime}}</td>
                 <td>{{transport.ScheduleAvailable}}</td>
-                <td><strong>Contactar</strong></td>
+                <td><button type="button" class="btn btn-primary"
+                  (click)="openDialogTransport(transport)"><i class='fas fa-eye'></i> {{ 'petsList.viewDetails' | translate }}</button></td>
               </tr>
             </tbody>
           </table>
@@ -66,7 +68,8 @@
                 <td>{{care.ServiceDescription}}</td>
                 <td>{{care.UnidOfTime}}</td>
                 <td>{{care.CareTime}}</td>
-                <td><strong>Contactar</strong></td>
+                <td><button type="button" class="btn btn-primary"
+                  (click)="openDialogCare(care)"><i class='fas fa-eye'></i> {{ 'petsList.viewDetails' | translate }}</button></td>
               </tr>
             </tbody>
           </table>
