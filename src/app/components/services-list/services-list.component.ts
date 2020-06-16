@@ -8,6 +8,8 @@ import { PrestacionService } from 'src/app/services/prestacion-service/prestacio
 import { TransitServiceDTO } from 'src/app/model/transitServiceDTO';
 import { TransportServiceDTO } from 'src/app/model/transportServiceDTO';
 import { CareServiceDTO } from 'src/app/model/careServiceDTO';
+import { MatDialog } from '@angular/material';
+import { DialogPublicationComponent } from '../dialog-publication/dialog-publication.component';
 
 @Component({
   selector: 'app-services-list',
@@ -22,7 +24,7 @@ export class ServicesListComponent implements OnInit {
   transportServices: Observable<TransportServiceDTO[]>;
   careServices: Observable<CareServiceDTO[]>;
 
-  constructor(private prestacionService: PrestacionService, private router: Router) { }
+  constructor(private prestacionService: PrestacionService, private router: Router, public dialog: MatDialog) { }
 
   ngOnInit() {
     this.loadData();
@@ -33,4 +35,26 @@ export class ServicesListComponent implements OnInit {
     this.prestacionService.getAllTransitServices().subscribe(data => this.transitServices = data);
     this.prestacionService.getAllTransportServices().subscribe(data => this.transportServices = data);
   }
+
+  openDialogTransit(transitDTO: TransitServiceDTO): void {
+    this.dialog.open(DialogPublicationComponent, {
+      width: '700',
+      data: transitDTO
+    });
+  }
+
+  openDialogTransport(transportDTO: TransportServiceDTO): void {
+    this.dialog.open(DialogPublicationComponent, {
+      width: '700',
+      data: transportDTO
+    });
+  }
+
+  openDialogCare(careDTO: CareServiceDTO): void {
+    this.dialog.open(DialogPublicationComponent, {
+      width: '700',
+      data: careDTO
+    });
+  }
 }
+

@@ -1,7 +1,9 @@
 <div class="style backg">
   <div class="container p-3 my-3 text-black">
     <div class="panel-heading text-center">
-      <h1 class="t-stroke-shadow">Publicaciones mascotas perdidas</h1>
+      <h1 class="t-stroke-shadow"><strong>{{loginDTO.Username}}</strong></h1>
+      <h3 class="t-stroke-shadow"><strong>Estas son tus publicaciones</strong></h3>
+      <h1 class="t-stroke-shadow">Publicaciones de mascotas perdidas</h1>
     </div>
     <div class="album text-center bg-transparent">
       <div class="container">
@@ -22,8 +24,8 @@
               {{publication.PublicationAddress}} -
               {{publication.PublicationDescription}}
             </p>
-            <button type="button" class="btn btn-info"
-              (click)="openDialog(publication)">{{ 'petsList.viewDetails' | translate }}</button>
+            <!-- <button type="button" class="btn btn-info"
+              (click)="openDialog(publication)">{{ 'petsList.viewDetails' | translate }}</button> -->
           </div>
         </div>
       </div>
@@ -33,13 +35,9 @@
           nextLabel="{{ 'petsList.paginationNext' | translate }}" responsive="true"></pagination-controls>
       </ul>
     </div>
-  </div>
-</div>
 
-<div class="style backg">
-  <div class="container p-3 my-3 text-black">
     <div class="panel-heading text-center">
-      <h1 class="t-stroke-shadow">Publicaciones mascotas encontradas</h1>
+      <h1 class="t-stroke-shadow">Publicaciones de mascotas encontradas</h1>
     </div>
     <div class="album text-center bg-transparent">
       <div class="container">
@@ -60,8 +58,8 @@
               {{publication.PublicationAddress}} -
               {{publication.PublicationDescription}}
             </p>
-            <button type="button" class="btn btn-info"
-              (click)="openDialog(publication)">{{ 'petsList.viewDetails' | translate }}</button>
+            <!--<button type="button" class="btn btn-info"
+              (click)="openDialog(publication)">{{ 'petsList.viewDetails' | translate }}</button> -->
           </div>
         </div>
       </div>

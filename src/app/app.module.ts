@@ -34,12 +34,13 @@ import { ErrorHandlerController } from './generic-components/ErrorHandlerControl
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { environment } from '../environments/environment';
+import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
 import { UserServicesComponent } from './components/user-services/user-services.component';
 import { UserPublicationsComponent } from './components/user-publications/user-publications.component';
 import { ServicesListComponent } from './components/services-list/services-list.component';
 
 @NgModule({
-  declarations: [AppComponent, PublicationListComponent, PublicationCreateComponent, DialogPublicationComponent, PublicationsFoundComponent, HomepageComponent, SignInComponent, LogInComponent, ProfileComponent, UserServicesComponent, UserPublicationsComponent, ServicesListComponent],
+  declarations: [AppComponent, PublicationListComponent, PublicationCreateComponent, DialogPublicationComponent, PublicationsFoundComponent, HomepageComponent, SignInComponent, LogInComponent, ProfileComponent, UserServicesComponent, UserPublicationsComponent, ServicesListComponent, EditProfileComponent],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule, MaterialModule, BrowserAnimationsModule, NgbModule, ReactiveFormsModule, NgxPaginationModule, Ng2SearchPipeModule, ErrorHandlerController,
     TranslateModule.forRoot({
       loader: {

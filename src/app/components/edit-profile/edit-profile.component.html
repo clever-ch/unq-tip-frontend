@@ -1,0 +1,109 @@
+<div class="style backg">
+  <div class="container p-3 my-3 text-black">
+
+    <div class="row">
+
+      <div class="col-md-8 mx-auto mt-5 card bg-light">
+
+        <h1>{{ 'edit.title' | translate }}</h1>
+        <br>
+        <h3>{{ 'signin.subtitle1' | translate }}</h3>
+        <br>
+        <form [formGroup]="editProfile" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label>{{ 'signin.name' | translate }}</label>
+            <input type="text" formControlName="nombE" class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f.nombE.errors }" [(ngModel)]="personDTO.Name" />
+            <div *ngIf="submitted && f.nombE.errors" class="invalid-feedback">
+              <div *ngIf="f.nombE.errors.required">{{ 'signin.nameError' | translate }}</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>{{ 'signin.surname' | translate }}</label>
+            <input type="text" formControlName="apeE" class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f.apeE.errors }" [(ngModel)]="personDTO.SurName" />
+            <div *ngIf="submitted && f.apeE.errors" class="invalid-feedback">
+              <div *ngIf="f.apeE.errors.required">{{ 'signin.surnameError' | translate }}</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>{{ 'signin.telephone' | translate }}</label>
+            <input type="text" formControlName="phoneE" class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f.phoneE.errors }" [(ngModel)]="personDTO.Telephone" />
+            <div *ngIf="submitted && f.phoneE.errors" class="invalid-feedback">
+              <div *ngIf="f.phoneE.errors.required">{{ 'signin.telephoneError' | translate }}</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>{{ 'signin.address' | translate }}</label>
+            <input type="text" formControlName="dirE" class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f.dirE.errors }" [(ngModel)]="personDTO.Address" />
+            <div *ngIf="submitted && f.dirE.errors" class="invalid-feedback">
+              <div *ngIf="f.dirE.errors.required">{{ 'signin.addressError' | translate }}</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>{{ 'signin.location' | translate }}</label>
+            <input type="text" formControlName="locE" class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f.locE.errors }" [(ngModel)]="personDTO.Location" />
+            <div *ngIf="submitted && f.locE.errors" class="invalid-feedback">
+              <div *ngIf="f.locE.errors.required">{{ 'signin.locationError' | translate }}</div>
+            </div>
+          </div>
+          <br>
+          <h3>{{ 'signin.subtitle2' | translate }}</h3>
+          <div class="form-group">
+            <label>{{ 'signin.email' | translate }}</label>
+            <input type="text" formControlName="emailE" class="form-control" aria-describedby="emailHelpBlock"
+              [ngClass]="{ 'is-invalid': submitted && f.emailE.errors }" [(ngModel)]="userDTO.Email" />
+            <div *ngIf="submitted && f.emailE.errors" class="invalid-feedback">
+              <div *ngIf="f.emailE.errors.required">{{ 'signin.emailErrorObl' | translate }}</div>
+            </div>
+            <small id="emailHelpBlock" class="form-text text-muted">
+              {{ 'signin.rememberEmail' | translate }}
+            </small>
+          </div>
+          <div class="form-group">
+            <label>{{ 'login.username' | translate }}</label>
+            <input type="text" formControlName="usernameE" class="form-control" [(ngModel)]="userDTO.UserName"
+              disabled />
+          </div>
+          <div class="form-group">
+            <label>{{ 'login.password' | translate }}</label>
+            <input type="{{inputVar}}" formControlName="passE" class="form-control" aria-describedby="passwordHelpBlock"
+              [ngClass]="{ 'is-invalid': submitted && f.passE.errors }" [(ngModel)]="userDTO.Password" />
+            <div *ngIf="submitted && f.passE.errors" class="invalid-feedback">
+              <div *ngIf="f.passE.errors.required">{{ 'signin.passError' | translate }}</div>
+            </div>
+            <input type="checkbox" (click)="showPass()"> {{ 'signin.showPass' | translate }}
+            <small id="passwordHelpBlock" class="form-text text-muted">
+              {{ 'signin.rememberPass' | translate }}
+            </small>
+          </div>
+
+          <div class="form-group">
+            <div class="row">
+              <div class="col-md-6">
+                <button [disabled]="loading" class="btn btn-primary">{{ 'signin.accept' | translate }}</button>
+              </div>
+              <button (click)="goToProfile()" class="btn btn-danger">{{ 'signin.cancel' | translate }}</button>
+            </div>
+          </div>
+
+
+          <div *ngIf="failEdit">
+            <div class="alert alert-danger text-center">
+              {{ 'edit.failEdit' | translate }} <strong> {{errorMsg}} </strong>
+            </div>
+          </div>
+          <div *ngIf="editSuccess">
+            <div class="alert alert-success text-center">
+              <strong><h4>{{ 'edit.sucessEdit' | translate }}</h4></strong> 
+              <button (click)="goToProfile()" class="btn btn-sm btn-success"> {{ 'edit.back' | translate }} </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
