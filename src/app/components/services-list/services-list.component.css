@@ -1,0 +1,17 @@
+.backg {
+    background: url("../../images/img-services/backgroundService.jpg");
+    background-size: cover;
+    height: 100%; 
+    display: table;
+    width: 100%;
+    min-height: 100%;
+    
+  }
+
+.t-stroke-shadow {
+  
+    color: #FFFFFF;
+  
+    text-shadow: 2px 2px #333;
+  
+  }

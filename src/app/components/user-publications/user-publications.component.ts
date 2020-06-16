@@ -31,12 +31,12 @@ export class UserPublicationsComponent implements OnInit {
     this.GetUserLoggedInByGuid(this.loginDTO.UserGuid);
   }
 
-  openDialog(publicationDTO: PublicationDTO): void {
-    this.dialog.open(DialogPublicationComponent, {
-      width: '700',
-      data: publicationDTO
-    });
-  }
+  //openDialog(publicationDTO: PublicationDTO): void {
+    //this.dialog.open(DialogPublicationComponent, {
+      //width: '700',
+      //data: publicationDTO
+    //});
+  //}
 
   private GetUserLoggedInByGuid(userGuid: string) {
     this.authService.getUserByGuid(userGuid).subscribe(data => {

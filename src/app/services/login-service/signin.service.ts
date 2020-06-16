@@ -13,4 +13,8 @@ export class SigninService {
   createUser(userDTO: Object): Observable<Object> {
     return this.http.post(`${this.urlManagerSignin.getURLCreateUser()}`, userDTO);
   }
+
+  updateUser(guid: string, value: any): Observable<Object> {
+    return this.http.put(`${this.urlManagerSignin.getURLEditProfile()}/${guid}`, value);
+  }
 }
