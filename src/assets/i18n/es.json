@@ -106,7 +106,7 @@
         "fail1": "Fallo la creación del usuario:",
         "success": "Muchas gracias!",
         "success1": "Ya puede ingresar como usuario.",
-        "login": "Registrarse"
+        "login": "Ingresar"
     },
 
     "createPublication": {
