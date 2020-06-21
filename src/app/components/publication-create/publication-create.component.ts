@@ -89,7 +89,6 @@ export class PublicationCreateComponent implements OnInit {
     this.animalDTO.AnimalType = this.animalTypeSelected;
 
     this.publicationDTO.PublicationType = this.publicationTypeSelected;
-    this.publicationDTO.PublicationLocation = "Prueba location";
     this.publicationDTO.Photos = this.arrayInputImageUser;
     this.publicationDTO.AnimalDTO = this.animalDTO;
     this.publicationDTO.UserDTO = this.userDTO;
