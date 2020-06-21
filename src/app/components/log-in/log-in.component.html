@@ -5,6 +5,8 @@
       <div class="card">
         <div class="card-body">
           <h2 id="title">Bienvenido!</h2>
+          <h6 id="subtitle">Por favor, ingrese su usuario y contraseña</h6>
+          <br>
           <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
             <div class="form-group">
               <label>{{ 'login.username' | translate }}</label>
