@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { UrlManagerPrestacionService } from 'src/app/utilities/urlManagerPrestacion.service';
+import { TypeService } from 'src/app/constants/type-service.enum';
 
 @Injectable({
   providedIn: 'root'
@@ -32,5 +33,9 @@ export class PrestacionService {
 
   getAllTransportServicesByIdUser(idUser: number): Observable<any> {
     return this.http.get(`${this.urlManagerPrestacionService.getURLAllTransportServicesByIdUser()}/${idUser}`);
+  }
+
+  getServiceByIdAndTypeService(type: TypeService, idService: number): Observable<any> {
+    return this.http.get(`${this.urlManagerPrestacionService.getURLServiceByIdAndTypeService()}/${type}/${idService}`);
   }
 }

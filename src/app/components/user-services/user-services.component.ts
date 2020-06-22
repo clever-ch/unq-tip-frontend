@@ -8,6 +8,7 @@ import { PrestacionService } from 'src/app/services/prestacion-service/prestacio
 import { TransitServiceDTO } from 'src/app/model/transitServiceDTO';
 import { TransportServiceDTO } from 'src/app/model/transportServiceDTO';
 import { CareServiceDTO } from 'src/app/model/careServiceDTO';
+import { TypeService } from 'src/app/constants/type-service.enum';
 
 @Component({
   selector: 'app-user-services',
@@ -46,5 +47,9 @@ export class UserServicesComponent implements OnInit {
       this.prestacionService.getAllTransitServicesByIdUser(this.userDTO.Id).subscribe(data => this.transitServices = data);
       this.prestacionService.getAllTransportServicesByIdUser(this.userDTO.Id).subscribe(data => this.transportServices = data);
     })
+  }
+
+  redirectEditService(id: number, type: TypeService){
+    this.router.navigate(['updateService', id, type]);
   }
 }

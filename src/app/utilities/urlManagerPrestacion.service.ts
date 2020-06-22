@@ -28,4 +28,8 @@ export class UrlManagerPrestacionService {
     getURLAllTransportServicesByIdUser(): string {
         return 'http://localhost:8080/api/v1/allUserTransportServices';
     }
+
+    getURLServiceByIdAndTypeService(): string {
+        return 'http://localhost:8080/api/v1/service';
+      }
 }

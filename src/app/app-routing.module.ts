@@ -13,6 +13,7 @@ import { EditProfileComponent } from './components/edit-profile/edit-profile.com
 import { UserServicesComponent } from './components/user-services/user-services.component';
 import { ServicesListComponent } from './components/services-list/services-list.component';
 import { UserPublicationsComponent } from './components/user-publications/user-publications.component';
+import { UpdateServiceComponent } from './components/update-service/update-service.component';
 
 
 const routes: Routes = [
@@ -28,7 +29,8 @@ const routes: Routes = [
   { path: 'editProfile', component: EditProfileComponent},
   { path: 'userServices', component: UserServicesComponent },
   { path: 'servicesList', component: ServicesListComponent },
-  { path: 'userPublications', component: UserPublicationsComponent }
+  { path: 'userPublications', component: UserPublicationsComponent },
+  { path: 'updateService/:id/:type', component: UpdateServiceComponent }
 ];
 
 @NgModule({
