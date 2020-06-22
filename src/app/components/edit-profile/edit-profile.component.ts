@@ -63,7 +63,7 @@ export class EditProfileComponent implements OnInit {
   }
 
   updateProfile(){
-    this.signinService.updateUser(this.userDTO.UserGuid, this.userDTO)
+    this.signinService.updateUser(this.userDTO)
       .subscribe(data => (this.editSuccess = true, this.failEdit = false), 
       error => (this.failEdit = true, this.errorMsg = this.handlerEr.handleError(error)));
   }

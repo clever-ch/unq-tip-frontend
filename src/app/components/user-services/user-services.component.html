@@ -12,8 +12,6 @@
                 <th scope="col">Descripción</th>
                 <th scope="col">Unidad de tiempo</th>
                 <th scope="col">Tiempo de tránsito</th>
-                <th scope="col">Tipo servicio</th>
-                <th scope="col"> ID</th>
                 <th scope="col">Acciones</th>
               </tr>
             </thead>
@@ -22,11 +20,8 @@
                 <td>{{transit.ServiceDescription}}</td>
                 <td>{{transit.UnidOfTime}}</td>
                 <td>{{transit.TransitTime}}</td>
-                <td>{{transit.TypeService}}</td>
-                <td>{{transit.Id}}</td>
-                <td>
-                  <button type="button" class="btn btn-secondary" (click)="redirectEditService(transit.Id, transit.TypeService)"><i class='far fa-edit'></i> Editar</button>
-                  <button type="button" class="btn btn-danger"><i class='fas fa-trash-alt'></i> Eliminar</button>
+                <td><button type="button" class="btn btn-secondary" (click)="redirectEditService(transit.Id, transit.TypeService)"><i class='far fa-edit'></i> Editar</button>
+                    <button type="button" class="btn btn-danger"><i class='fas fa-trash-alt'></i> Eliminar</button>
                 </td>
               </tr>
             </tbody>
@@ -43,7 +38,6 @@
                 <th scope="col">Descripción</th>
                 <th scope="col">Unidad de tiempo</th>
                 <th scope="col">Tiempo de transporte</th>
-                <th scope="col">Tipo servicio</th>
                 <th scope="col">Acciones</th>
               </tr>
             </thead>
@@ -52,7 +46,6 @@
                 <td>{{transport.ServiceDescription}}</td>
                 <td>{{transport.UnidOfTime}}</td>
                 <td>{{transport.ScheduleAvailable}}</td>
-                <td>{{transport.TypeService}}</td>
                 <td><button type="button" class="btn btn-secondary"><i class='far fa-edit'></i> Editar</button>
                   <button type="button" class="btn btn-danger"><i class='fas fa-trash-alt'></i> Eliminar</button>
               </td>
@@ -71,7 +64,6 @@
                 <th scope="col">Descripción</th>
                 <th scope="col">Unidad de tiempo</th>
                 <th scope="col">Tiempo de cuidado</th>
-                <th scope="col">Tipo servicio</th>
                 <th scope="col">Acciones</th>
               </tr>
             </thead>
@@ -80,7 +72,6 @@
                 <td>{{care.ServiceDescription}}</td>
                 <td>{{care.UnidOfTime}}</td>
                 <td>{{care.CareTime}}</td>
-                <td>{{care.TypeService}}</td>
                 <td><button type="button" class="btn btn-secondary"><i class='far fa-edit'></i> Editar</button>
                   <button type="button" class="btn btn-danger"><i class='fas fa-trash-alt'></i> Eliminar</button>
               </td>
