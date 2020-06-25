@@ -1,0 +1,100 @@
+<div class="style backg">
+  <div class="container p-3 my-3 text-black">
+
+    <div class="row">
+
+      <div class="col-md-8 mx-auto mt-5 card bg-light">
+
+        <h1>Editar Servicio</h1>
+        <h3>{{service.UserDTO.UserName}}</h3>
+
+        <form [formGroup]="editService" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label>Tipo</label>
+            <input type="text" class="form-control" formControlName="type" [(ngModel)]="service.TypeService" disabled />
+          </div>
+
+          <div class="form-group">
+            <label>Descripción</label>
+            <input type="text" class="form-control" formControlName="desc" [(ngModel)]="service.ServiceDescription"
+              [ngClass]="{ 'is-invalid': submitted && f.desc.errors }" />
+            <div *ngIf="submitted && f.desc.errors" class="invalid-feedback">
+              <div *ngIf="f.desc.errors.required">Este campo no puede estar vacio</div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Unidad de tiempo</label>
+            <select [(ngModel)]="service.UnidOfTime" class="form-control" formControlName="unidTime"
+              [ngClass]="{ 'is-invalid': submitted && f.unidTime.errors }">
+              <option *ngFor="let unid of unidTime" [ngValue]="unid">
+                {{unid}}
+              </option>
+            </select>
+            <div *ngIf="submitted && f.unidTime.errors" class="invalid-feedback">
+              <div *ngIf="f.unidTime.errors.required">Este campo no puede estar vacio</div>
+            </div>
+          </div>
+
+          <div *ngIf="showTransitTime">
+            <div class="form-group">
+              <label>Tiempo de transito</label>
+              <input type='number' step='1' min='1' class="form-control"
+                formControlName="timeTransit" [(ngModel)]="service.TransitTime"
+                [ngClass]="{ 'is-invalid': submitted && f.timeTransit.errors }" />
+              <div *ngIf="submitted && f.timeTransit.errors" class="invalid-feedback">
+                <div *ngIf="f.timeTransit.errors.required">Este campo no puede estar vacio</div>
+              </div>
+            </div>
+          </div>
+
+          <div *ngIf="showScheduleAvailable">
+            <div class="form-group">
+              <label>Horario de disponibilidad de trasporte</label>
+              <input type='number' step='1' min="1" class="form-control"
+                formControlName="timeTransport" [(ngModel)]="service.ScheduleAvailable"
+                [ngClass]="{ 'is-invalid': submitted && f.timeTransport.errors }" />
+              <div *ngIf="submitted && f.timeTransport.errors" class="invalid-feedback">
+                <div *ngIf="f.timeTransport.errors.required">Este campo no puede estar vacio</div>
+              </div>
+            </div>
+          </div>
+
+          <div *ngIf="showCareTime">
+            <div class="form-group ">
+              <label>Tiempo de cuidado</label>
+              <input type="number" step="1" min="1" name="timeCare" class="form-control"
+                formControlName="timeCare" [(ngModel)]="service.CareTime"
+                [ngClass]="{ 'is-invalid': submitted && f.timeCare.errors }" />
+              <div *ngIf="submitted && f.timeCare.errors" class="invalid-feedback">
+                <div *ngIf="f.timeCare.errors.required">Este campo no puede estar vacio</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="row">
+              <div class="col-md-6">
+                <button type="submit" class="btn btn-primary">Aceptar</button>
+              </div>
+              <button (click)="gotoMyServices()" class="btn btn-danger">Cancelar</button>
+            </div>
+          </div>
+
+          <div *ngIf="failEdit">
+            <div class="alert alert-danger text-center">
+              <strong> Revise el formulario</strong>
+            </div>
+          </div>
+          <div *ngIf="editSuccess">
+            <div class="alert alert-success text-center">
+              <strong><h4>Servicio editado correctamente</h4></strong> 
+              <button (click)="gotoMyServices()" class="btn btn-sm btn-success"> Volver a Mis Servicios </button>
+            </div>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

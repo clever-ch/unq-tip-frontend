@@ -20,7 +20,7 @@
                 <td>{{transit.ServiceDescription}}</td>
                 <td>{{transit.UnidOfTime}}</td>
                 <td>{{transit.TransitTime}}</td>
-                <td><button type="button" class="btn btn-secondary"><i class='far fa-edit'></i> Editar</button>
+                <td><button type="button" class="btn btn-secondary" (click)="redirectEditService(transit.Id, transit.TypeService)"><i class='far fa-edit'></i> Editar</button>
                     <button type="button" class="btn btn-danger"><i class='fas fa-trash-alt'></i> Eliminar</button>
                 </td>
               </tr>
@@ -46,7 +46,7 @@
                 <td>{{transport.ServiceDescription}}</td>
                 <td>{{transport.UnidOfTime}}</td>
                 <td>{{transport.ScheduleAvailable}}</td>
-                <td><button type="button" class="btn btn-secondary"><i class='far fa-edit'></i> Editar</button>
+                <td><button type="button" class="btn btn-secondary" (click)="redirectEditService(transport.Id, transport.TypeService)"><i class='far fa-edit'></i> Editar</button>
                   <button type="button" class="btn btn-danger"><i class='fas fa-trash-alt'></i> Eliminar</button>
               </td>
               </tr>
@@ -72,7 +72,7 @@
                 <td>{{care.ServiceDescription}}</td>
                 <td>{{care.UnidOfTime}}</td>
                 <td>{{care.CareTime}}</td>
-                <td><button type="button" class="btn btn-secondary"><i class='far fa-edit'></i> Editar</button>
+                <td><button type="button" class="btn btn-secondary" (click)="redirectEditService(care.Id, care.TypeService)"><i class='far fa-edit'></i> Editar</button>
                   <button type="button" class="btn btn-danger"><i class='fas fa-trash-alt'></i> Eliminar</button>
               </td>
               </tr>

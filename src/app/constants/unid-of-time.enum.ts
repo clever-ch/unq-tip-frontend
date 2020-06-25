@@ -1,7 +1,7 @@
 export enum UnidOfTime {
-    HOURS,
-	DAYS,
-	WEEKS,
-	MONTHS,
-	YEARS
+    HOURS = "Hours",
+	DAYS = "Days",
+	WEEKS = "Weeks",
+	MONTHS = "Months",
+	YEARS = "Years"
 }

@@ -29,14 +29,8 @@ export class UserPublicationsComponent implements OnInit {
   ngOnInit() {
     this.loginDTO = JSON.parse(localStorage.getItem("loginDTO"));
     this.GetUserLoggedInByGuid(this.loginDTO.UserGuid);
-  }
 
-  //openDialog(publicationDTO: PublicationDTO): void {
-    //this.dialog.open(DialogPublicationComponent, {
-      //width: '700',
-      //data: publicationDTO
-    //});
-  //}
+  }
 
   private GetUserLoggedInByGuid(userGuid: string) {
     this.authService.getUserByGuid(userGuid).subscribe(data => {
