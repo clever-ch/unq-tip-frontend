@@ -1,5 +1,5 @@
 export enum TypeService {
-    TRANSIT,
-    TRANSPORT,
-    CARE
+    Transit = "Transit",
+    Transport = "Transport",
+    Care = "Care"
 }

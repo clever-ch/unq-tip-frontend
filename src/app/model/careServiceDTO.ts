@@ -5,7 +5,7 @@ import { TypeService } from '../constants/type-service.enum';
 
 export class CareServiceDTO {
     
-    id: number;
+    Id: number;
     UserDTO: UserDTO;
     ServiceStatus: ServiceStatus;
     ServiceDescription: string;
