@@ -28,4 +28,17 @@ export class UrlManagerPrestacionService {
     getURLAllTransportServicesByIdUser(): string {
         return 'http://localhost:8080/api/v1/allUserTransportServices';
     }
+
+    //Por alguna razón para los DELETE no funciona devolver la url por string con el UrlManager
+    getURLDeleteTransitServiceById(): string {
+        return 'http://localhost:8080/api/v1/deleteTransitService';
+    }
+
+    getURLDeleteTransportServiceById(): string {
+        return 'http://localhost:8080/api/v1/deleteTransportService';
+    }
+
+    getURLDeleteCareServiceById(): string {
+        return 'http://localhost:8080/api/v1/deleteCareService';
+    }
 }
