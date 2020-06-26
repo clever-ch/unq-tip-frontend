@@ -33,4 +33,16 @@ export class PrestacionService {
   getAllTransportServicesByIdUser(idUser: number): Observable<any> {
     return this.http.get(`${this.urlManagerPrestacionService.getURLAllTransportServicesByIdUser()}/${idUser}`);
   }
+
+  deleteTransitServiceById(id: number): Observable<any>{
+    return this.http.delete(`${'http://localhost:8080/api/v1/deleteTransitService'}/${id}`, { responseType: 'text' });
+  }
+
+  deleteTransportServiceById(idTransport: number): Observable<any>{
+    return this.http.delete(`${'http://localhost:8080/api/v1/deleteTransportService'}/${idTransport}`, { responseType: 'text' });
+  }
+
+  deleteCareServiceById(idCare: number): Observable<any>{
+    return this.http.delete(`${'http://localhost:8080/api/v1/deleteCareService'}/${idCare}`, { responseType: 'text' });
+  }
 }
