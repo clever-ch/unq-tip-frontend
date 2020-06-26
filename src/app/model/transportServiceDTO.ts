@@ -4,7 +4,7 @@ import { UnidOfTime } from '../constants/unid-of-time.enum';
 
 export class TransportServiceDTO {
 
-    id: number;
+    Id: number;
     UserDTO: UserDTO;
     ServiceStatus: ServiceStatus;
     ServiceDescription: string;
