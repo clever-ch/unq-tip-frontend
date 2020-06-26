@@ -52,7 +52,8 @@
     },
 
     "login": {
-        "title" : "Please sing in",
+        "title" : "Welcome",
+        "subtitle" : "Please, enter your username and password",
         "username": "Username",
         "password": "Password",
         "login" : "Login",
@@ -126,6 +127,7 @@
         "addImg": "Add images",
         "selectImg": "Select files",
         "loadImg": "Load images",
+        "checkImg" : "Please check the photos before uploading.",
         "delImg": "Delete",
         "confirm": "Confirm",
         "cancel": "Cancel",
@@ -141,5 +143,40 @@
         "failEdit": "Fail edition",
         "sucessEdit" : "Edited Profile",
         "back": "Back to profile"
+    },
+
+    "serviceList" : {
+        "title1" : "Transit Services List",
+        "title2" : "Transportation services list",
+        "title3" : "List of care services",
+        "desp" : "Description",
+        "unidTime" : "Time unit",
+        "timeTransit" : "Transit time",
+        "timeCare" : "Care time",
+        "timeTransport" : "Transportation time",
+        "actions" : "Actions",
+        "delete" : "Delete",
+        "edit" : "Edit",
+        "thisServ" : "These are your services"
+    },
+
+    "editService" : {
+        "title" : "Edit Service",
+        "type" : "Type",
+        "error" : "This field can not be blank",
+        "acepted" : "Accept",
+        "cancel" : "Cancel",
+        "fail" : "Review the form",
+        "success" : "Service successfully edited",
+        "backServ" : "Back to My Services"
+    },
+
+    "userPubli" : {
+        "title" : "These are your posts",
+        "subtile1" : "Lost pet posts",
+        "subtile2" : "Pet posts found",
+        "oup" : "Oups!",
+        "emptyLost" : "Apparently you don't have any lost pet posts",
+        "emptyFound" : "Apparently you don't have any pet posts found"
     }
 }

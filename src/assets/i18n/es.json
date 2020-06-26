@@ -52,7 +52,8 @@
     },
 
     "login": {
-        "title" : "Por Favor, registrese",
+        "title" : "Bienvenido!",
+        "subtitle" : "Por favor, ingrese su usuario y contraseña",
         "username": "Usuario",
         "password": "Contraseña",
         "login" : "Iniciar sesión",
@@ -126,6 +127,7 @@
         "addImg": "Agregar Fotos",
         "selectImg": "Seleccionar archivos",
         "loadImg": "Subir imágenes",
+        "checkImg" : "Favor de chequear las fotos antes de subirlas.",
         "delImg": "Eliminar",
         "confirm": "Confirmar",
         "cancel": "Cancelar",
@@ -141,5 +143,40 @@
         "failEdit": "Fallo la edición",
         "sucessEdit" : "Perfil Editado",
         "back": "Volver al perfil"
+    },
+
+    "serviceList" : {
+        "title1" : "Lista de servicios de Tránsito",
+        "title2" : "Lista de servicios de Transporte",
+        "title3" : "Lista de servicios de Cuidado",
+        "desp" : "Descripción",
+        "unidTime" : "Unidad de tiempo",
+        "timeTransit" : "Tiempo de tránsito",
+        "timeCare" : "Tiempo de cuidado",
+        "timeTransport" : "Tiempo de transporte",
+        "actions" : "Acciones",
+        "delete" : "Eliminar",
+        "edit" : "Editar",
+        "thisServ" : "Estos son tus servicios"
+    },
+
+    "editService" : {
+        "title" : "Editar Servicio",
+        "type" : "Tipo",
+        "error" : "Este campo no puede estar vacio",
+        "acepted" : "Aceptar",
+        "cancel" : "Cancelar",
+        "fail" : "Revise el formulario",
+        "success" : "Servicio editado correctamente",
+        "backServ" : "Volver a Mis Servicios"
+    },
+
+    "userPubli" : {
+        "title" : "Estas son tus publicaciones",
+        "subtile1" : "Publicaciones de mascotas perdidas",
+        "subtile2" : "Publicaciones de mascotas encontradas",
+        "oup" : "Oups!",
+        "emptyLost" : "Al parecer no tienes publicaciones de mascotas perdidas",
+        "emptyFound" : "Al parecer no tienes publicaciones de mascotas encontradas"
     }
 }

@@ -2,14 +2,22 @@
   <div class="container p-3 my-3 text-black">
     <div class="panel-heading text-center">
       <h1 class="t-stroke-shadow"><strong>{{loginDTO.Username}}</strong></h1>
-      <h3 class="t-stroke-shadow"><strong>Estas son tus publicaciones</strong></h3>
-      <h1 class="t-stroke-shadow">Publicaciones de mascotas perdidas</h1>
+      <h3 class="t-stroke-shadow"><strong>{{ 'userPubli.title' | translate }}</strong></h3>   
     </div>
-    <div class="album text-center bg-transparent">
+    <div class="panel-heading text-center">
+      <h1 class="t-stroke-shadow">{{ 'userPubli.subtile1' | translate }}</h1>
+    </div>
+    <div *ngIf="isEmptyListLost">
+      <div class="alert alert-info alert-dismissible fade show text-center">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <strong>{{ 'userPubli.oup' | translate }}</strong> {{ 'userPubli.emptyLost' | translate }}
+      </div>
+    </div>
+    <div class="album text-center bg-transparent" *ngIf="!isEmptyListLost">
       <div class="container">
         <div class="row">
           <div class="card"
-            *ngFor="let publication of publicationsLost | async | filter:searchText | paginate: { itemsPerPage: 2, currentPage: p }">
+            *ngFor="let publication of publicationsLost | paginate: { itemsPerPage: 2, currentPage: p }">
             <ngb-carousel *ngIf='images'>
               <ng-template ngbSlide *ngFor="let image of publication.Photos">
                 <div class="picsum-img-wrapper">
@@ -35,13 +43,19 @@
     </div>
 
     <div class="panel-heading text-center">
-      <h1 class="t-stroke-shadow">Publicaciones de mascotas encontradas</h1>
+      <h1 class="t-stroke-shadow">{{ 'userPubli.subtile2' | translate }}</h1>
     </div>
-    <div class="album text-center bg-transparent">
+    <div *ngIf="isEmptyListFound">
+      <div class="alert alert-info alert-dismissible fade show text-center">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <strong>{{ 'userPubli.oup' | translate }}</strong> {{ 'userPubli.emptyFound' | translate }}
+      </div>
+    </div>
+    <div class="album text-center bg-transparent" *ngIf="!isEmptyListFound">
       <div class="container">
         <div class="row">
           <div class="card"
-            *ngFor="let publication of publicationsFound | async | filter:searchText | paginate: { itemsPerPage: 2, currentPage: p }">
+            *ngFor="let publication of publicationsFound | paginate: { itemsPerPage: 2, currentPage: p }">
             <ngb-carousel *ngIf='images'>
               <ng-template ngbSlide *ngFor="let image of publication.Photos">
                 <div class="picsum-img-wrapper">
