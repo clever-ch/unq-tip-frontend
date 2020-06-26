@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 @Injectable({
     providedIn: 'root'
-  })
+})
 export class UrlManagerPrestacionService {
 
     getURLAllCareServices(): string {
@@ -27,6 +27,30 @@ export class UrlManagerPrestacionService {
 
     getURLAllTransportServicesByIdUser(): string {
         return 'http://localhost:8080/api/v1/allUserTransportServices';
+    }
+
+    getURLTransitServiceByIdAndTypeService(): string {
+        return 'http://localhost:8080/api/v1/service/Transit';
+    }
+
+    getURLTransportServiceByIdAndTypeService(): string {
+        return 'http://localhost:8080/api/v1/service/Transport';
+    }
+
+    getURLCareServiceByIdAndTypeService(): string {
+        return 'http://localhost:8080/api/v1/service/Care';
+    }
+
+    getURLEditTransitService(): string {
+        return 'http://localhost:8080/api/v1/editService/Transit';
+    }
+
+    getURLEditTransportService(): string {
+        return 'http://localhost:8080/api/v1/editService/Transport';
+    }
+
+    getURLEditCareService(): string {
+        return 'http://localhost:8080/api/v1/editService/Care';
     }
 
     //Por alguna razón para los DELETE no funciona devolver la url por string con el UrlManager

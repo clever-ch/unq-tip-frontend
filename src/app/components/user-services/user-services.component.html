@@ -4,16 +4,16 @@
       <div class="container">
         <div class="table panel-heading text-center">
           <h1 class="t-stroke-shadow"><strong>{{loginDTO.Username}}</strong></h1>
-          <h3 class="t-stroke-shadow"><strong>Estos son tus servicios</strong></h3>
-          <h2 class="t-stroke-shadow"><u>Servicios de Tránsito</u></h2>
+          <h3 class="t-stroke-shadow"><strong>{{ 'serviceList.thisServ' | translate }}</strong></h3>
+          <h2 class="t-stroke-shadow"><u>{{ 'serviceList.title1' | translate }}</u></h2>
           <table class="table table-striped text-center">
             <thead class="thead-dark">
               <tr>
-                <th scope="col">Descripción</th>
-                <th scope="col">Unidad de tiempo</th>
-                <th scope="col">Tiempo de tránsito</th>
+                <th scope="col">{{ 'serviceList.desp' | translate }}</th>
+                <th scope="col">{{ 'serviceList.unidTime' | translate }}</th>
+                <th scope="col">{{ 'serviceList.timeTransit' | translate }}</th>
                 <th scope="col">Habilitado</th>
-                <th scope="col">Acciones</th>
+                <th scope="col">{{ 'serviceList.actions' | translate }}</th>
               </tr>
             </thead>
             <tbody>
@@ -22,8 +22,13 @@
                 <td>{{transit.UnidOfTime}}</td>
                 <td>{{transit.TransitTime}}</td>
                 <td>{{transit.ServiceStatus}}</td>
-                <td><button type="button" class="btn btn-secondary"><i class='far fa-edit'></i> Editar</button>
-                    <button (click)="deleteTransitService(transit.Id)" type="button" class="btn btn-danger"><i class='fas fa-trash-alt'></i> Eliminar</button>
+                <td>
+                  <button type="button" class="btn btn-secondary"
+                    (click)="redirectEditService(transit.Id, transit.TypeService)"><i class='far fa-edit'></i>
+                    {{ 'serviceList.edit' | translate }}</button>
+
+                  <button (click)="deleteTransitService(transit.Id)" type="button" class="btn btn-danger"><i
+                      class='fas fa-trash-alt'></i> {{ 'serviceList.delete' | translate }} </button>
                 </td>
               </tr>
             </tbody>
@@ -33,15 +38,15 @@
 
       <div class="container">
         <div class="table panel-heading text-center">
-          <h2 class="t-stroke-shadow"><u>Servicios de Transporte</u></h2>
+          <h2 class="t-stroke-shadow"><u>{{ 'serviceList.title2' | translate }}</u></h2>
           <table class="table table-striped text-center">
             <thead class="thead-dark">
               <tr>
-                <th scope="col">Descripción</th>
-                <th scope="col">Unidad de tiempo</th>
-                <th scope="col">Tiempo de transporte</th>
+                <th scope="col">{{ 'serviceList.desp' | translate }}</th>
+                <th scope="col">{{ 'serviceList.unidTime' | translate }}</th>
+                <th scope="col">{{ 'serviceList.timeTransport' | translate }}</th>
                 <th scope="col">Habilitado</th>
-                <th scope="col">Acciones</th>
+                <th scope="col">{{ 'serviceList.actions' | translate }}</th>
               </tr>
             </thead>
             <tbody>
@@ -50,9 +55,13 @@
                 <td>{{transport.UnidOfTime}}</td>
                 <td>{{transport.ScheduleAvailable}}</td>
                 <td>{{transport.ServiceStatus}}</td>
-                <td><button type="button" class="btn btn-secondary"><i class='far fa-edit'></i> Editar</button>
-                  <button (click)="deleteTransportService(transport.Id)" type="button" class="btn btn-danger"><i class='fas fa-trash-alt'></i> Eliminar</button>
-              </td>
+                <td>
+                  <button type="button" class="btn btn-secondary"
+                    (click)="redirectEditService(transport.Id, transport.TypeService)"><i class='far fa-edit'></i>
+                    {{ 'serviceList.edit' | translate }}</button>
+                  <button (click)="deleteTransportService(transport.Id)" type="button" class="btn btn-danger"><i
+                      class='fas fa-trash-alt'></i> {{ 'serviceList.delete' | translate }} </button>
+                </td>
               </tr>
             </tbody>
           </table>
@@ -78,9 +87,13 @@
                 <td>{{care.UnidOfTime}}</td>
                 <td>{{care.CareTime}}</td>
                 <td>{{care.ServiceStatus}}</td>
-                <td><button type="button" class="btn btn-secondary"><i class='far fa-edit'></i> Editar</button>
-                  <button (click)="deleteCareService(care.Id)" type="button" class="btn btn-danger"><i class='fas fa-trash-alt'></i> Eliminar</button>
-              </td>
+                <td>
+                  <button type="button" class="btn btn-secondary"
+                    (click)="redirectEditService(care.Id, care.TypeService)"><i class='far fa-edit'></i>
+                    {{ 'serviceList.edit' | translate }}</button>
+                  <button (click)="deleteCareService(care.Id)" type="button" class="btn btn-danger"><i
+                      class='fas fa-trash-alt'></i> {{ 'serviceList.delete' | translate }} </button>
+                </td>
               </tr>
             </tbody>
           </table>

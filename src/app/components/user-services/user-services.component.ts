@@ -8,6 +8,7 @@ import { PrestacionService } from 'src/app/services/prestacion-service/prestacio
 import { TransitServiceDTO } from 'src/app/model/transitServiceDTO';
 import { TransportServiceDTO } from 'src/app/model/transportServiceDTO';
 import { CareServiceDTO } from 'src/app/model/careServiceDTO';
+import { TypeService } from 'src/app/constants/type-service.enum';
 
 @Component({
   selector: 'app-user-services',
@@ -45,35 +46,39 @@ export class UserServicesComponent implements OnInit {
     })
   }
 
-  deleteTransitService(id: number){
+  deleteTransitService(id: number) {
 
-    console.log('Id del servicio: ', id);    
+    console.log('Id del servicio: ', id);
     this.prestacionService.deleteTransitServiceById(id)
-    .subscribe(
-      data => {
-        console.log('data: ', data);
-        this.reloadData();
-      },
-      error => console.log('error: ', error));
+      .subscribe(
+        data => {
+          console.log('data: ', data);
+          this.reloadData();
+        },
+        error => console.log('error: ', error));
   }
 
-  deleteTransportService(idTransport: number){
+  deleteTransportService(idTransport: number) {
     this.prestacionService.deleteTransportServiceById(idTransport)
-    .subscribe(
-      data => {
-        console.log('data: ', data);
-        this.reloadData();
-      },
-      error => console.log('error: ', error));
+      .subscribe(
+        data => {
+          console.log('data: ', data);
+          this.reloadData();
+        },
+        error => console.log('error: ', error));
   }
 
-  deleteCareService(idCare: number){
+  deleteCareService(idCare: number) {
     this.prestacionService.deleteCareServiceById(idCare)
-    .subscribe(
-      data => {
-        console.log('data: ', data);
-        this.reloadData();
-      },
-      error => console.log('error: ', error));
+      .subscribe(
+        data => {
+          console.log('data: ', data);
+          this.reloadData();
+        },
+        error => console.log('error: ', error));
+  }
+
+  redirectEditService(id: number, type: TypeService) {
+    this.router.navigate(['updateService', id, type]);
   }
 }
