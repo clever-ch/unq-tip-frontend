@@ -12,6 +12,7 @@
                 <th scope="col">{{ 'serviceList.desp' | translate }}</th>
                 <th scope="col">{{ 'serviceList.unidTime' | translate }}</th>
                 <th scope="col">{{ 'serviceList.timeTransit' | translate }}</th>
+                <th scope="col">Habilitado</th>
                 <th scope="col">{{ 'serviceList.actions' | translate }}</th>
               </tr>
             </thead>
@@ -20,8 +21,14 @@
                 <td>{{transit.ServiceDescription}}</td>
                 <td>{{transit.UnidOfTime}}</td>
                 <td>{{transit.TransitTime}}</td>
-                <td><button type="button" class="btn btn-secondary" (click)="redirectEditService(transit.Id, transit.TypeService)"><i class='far fa-edit'></i> {{ 'serviceList.edit' | translate }}</button>
-                    <button type="button" class="btn btn-danger"><i class='fas fa-trash-alt'></i> {{ 'serviceList.delete' | translate }}</button>
+                <td>{{transit.ServiceStatus}}</td>
+                <td>
+                  <button type="button" class="btn btn-secondary"
+                    (click)="redirectEditService(transit.Id, transit.TypeService)"><i class='far fa-edit'></i>
+                    {{ 'serviceList.edit' | translate }}</button>
+
+                  <button (click)="deleteTransitService(transit.Id)" type="button" class="btn btn-danger"><i
+                      class='fas fa-trash-alt'></i> {{ 'serviceList.delete' | translate }} </button>
                 </td>
               </tr>
             </tbody>
@@ -38,6 +45,7 @@
                 <th scope="col">{{ 'serviceList.desp' | translate }}</th>
                 <th scope="col">{{ 'serviceList.unidTime' | translate }}</th>
                 <th scope="col">{{ 'serviceList.timeTransport' | translate }}</th>
+                <th scope="col">Habilitado</th>
                 <th scope="col">{{ 'serviceList.actions' | translate }}</th>
               </tr>
             </thead>
@@ -46,9 +54,14 @@
                 <td>{{transport.ServiceDescription}}</td>
                 <td>{{transport.UnidOfTime}}</td>
                 <td>{{transport.ScheduleAvailable}}</td>
-                <td><button type="button" class="btn btn-secondary" (click)="redirectEditService(transport.Id, transport.TypeService)"><i class='far fa-edit'></i> {{ 'serviceList.edit' | translate }}</button>
-                  <button type="button" class="btn btn-danger"><i class='fas fa-trash-alt'></i> {{ 'serviceList.delete' | translate }}</button>
-              </td>
+                <td>{{transport.ServiceStatus}}</td>
+                <td>
+                  <button type="button" class="btn btn-secondary"
+                    (click)="redirectEditService(transport.Id, transport.TypeService)"><i class='far fa-edit'></i>
+                    {{ 'serviceList.edit' | translate }}</button>
+                  <button (click)="deleteTransportService(transport.Id)" type="button" class="btn btn-danger"><i
+                      class='fas fa-trash-alt'></i> {{ 'serviceList.delete' | translate }} </button>
+                </td>
               </tr>
             </tbody>
           </table>
@@ -57,14 +70,15 @@
 
       <div class="container">
         <div class="table panel-heading text-center ">
-          <h2 class="t-stroke-shadow"><u>{{ 'serviceList.title3' | translate }}</u></h2>
+          <h2 class="t-stroke-shadow"><u>Servicios de Cuidado</u></h2>
           <table class="table table-striped text-center">
             <thead class="thead-dark">
               <tr>
-                <th scope="col">{{ 'serviceList.desp' | translate }}</th>
-                <th scope="col">{{ 'serviceList.unidTime' | translate }}</th>
-                <th scope="col">{{ 'serviceList.timeCare' | translate }}</th>
-                <th scope="col">{{ 'serviceList.actions' | translate }}</th>
+                <th scope="col">Descripción</th>
+                <th scope="col">Unidad de tiempo</th>
+                <th scope="col">Tiempo de cuidado</th>
+                <th scope="col">Habilitado</th>
+                <th scope="col">Acciones</th>
               </tr>
             </thead>
             <tbody>
@@ -72,9 +86,14 @@
                 <td>{{care.ServiceDescription}}</td>
                 <td>{{care.UnidOfTime}}</td>
                 <td>{{care.CareTime}}</td>
-                <td><button type="button" class="btn btn-secondary" (click)="redirectEditService(care.Id, care.TypeService)"><i class='far fa-edit'></i> {{ 'serviceList.edit' | translate }}</button>
-                  <button type="button" class="btn btn-danger"><i class='fas fa-trash-alt'></i> {{ 'serviceList.delete' | translate }}</button>
-              </td>
+                <td>{{care.ServiceStatus}}</td>
+                <td>
+                  <button type="button" class="btn btn-secondary"
+                    (click)="redirectEditService(care.Id, care.TypeService)"><i class='far fa-edit'></i>
+                    {{ 'serviceList.edit' | translate }}</button>
+                  <button (click)="deleteCareService(care.Id)" type="button" class="btn btn-danger"><i
+                      class='fas fa-trash-alt'></i> {{ 'serviceList.delete' | translate }} </button>
+                </td>
               </tr>
             </tbody>
           </table>
