@@ -27,8 +27,7 @@
                     (click)="redirectEditService(transit.Id, transit.TypeService)"><i class='far fa-edit'></i>
                     {{ 'serviceList.edit' | translate }}</button>
 
-                  <button (click)="deleteTransitService(transit.Id)" type="button" class="btn btn-danger"><i
-                      class='fas fa-trash-alt'></i> {{ 'serviceList.delete' | translate }} </button>
+                  <button (click)="deleteTransitService(transit.Id)" type="button" class="btn btn-danger"><i class='fas fa-minus-circle'></i> {{ 'serviceList.desactivate' | translate }} </button>
                 </td>
               </tr>
             </tbody>
@@ -59,8 +58,7 @@
                   <button type="button" class="btn btn-secondary"
                     (click)="redirectEditService(transport.Id, transport.TypeService)"><i class='far fa-edit'></i>
                     {{ 'serviceList.edit' | translate }}</button>
-                  <button (click)="deleteTransportService(transport.Id)" type="button" class="btn btn-danger"><i
-                      class='fas fa-trash-alt'></i> {{ 'serviceList.delete' | translate }} </button>
+                  <button (click)="deleteTransportService(transport.Id)" type="button" class="btn btn-danger"><i class='fas fa-minus-circle'></i> {{ 'serviceList.desactivate' | translate }} </button>
                 </td>
               </tr>
             </tbody>
@@ -77,6 +75,7 @@
                 <th scope="col">{{ 'serviceList.desp' | translate }}</th>
                 <th scope="col">{{ 'serviceList.unidTime' | translate }}</th>
                 <th scope="col">{{ 'serviceList.timeCare' | translate }}</th>
+                <th scope="col">Habilitado</th>
                 <th scope="col">{{ 'serviceList.actions' | translate }}</th>
               </tr>
             </thead>
@@ -90,8 +89,7 @@
                   <button type="button" class="btn btn-secondary"
                     (click)="redirectEditService(care.Id, care.TypeService)"><i class='far fa-edit'></i>
                     {{ 'serviceList.edit' | translate }}</button>
-                  <button (click)="deleteCareService(care.Id)" type="button" class="btn btn-danger"><i
-                      class='fas fa-trash-alt'></i> {{ 'serviceList.delete' | translate }} </button>
+                  <button (click)="deleteCareService(care.Id)" type="button" class="btn btn-danger"><i class='fas fa-minus-circle'></i> {{ 'serviceList.desactivate' | translate }} </button>
                 </td>
               </tr>
             </tbody>

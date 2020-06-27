@@ -1,5 +1,6 @@
 .backg {
-    background: url("../../images/img-login/fondo-login.png");
+    background: url("../../images/img-login/fondo-login.jpg");
+    background-repeat: no-repeat;
     background-size: cover;
     height: 100%; 
     display: table;

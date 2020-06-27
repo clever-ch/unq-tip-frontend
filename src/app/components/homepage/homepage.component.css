@@ -23,8 +23,9 @@ body {
           box-shadow: inset 0 0 5rem rgba(0,0,0,.5);
 }
 .site-wrapper-inner {
-  background: url("../../images/img-homepage/fondo-home.png");
-  background-size:cover;
+  background: url("../../images/img-homepage/fondo-home.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
   display: table-cell;
   vertical-align: top;
 }
