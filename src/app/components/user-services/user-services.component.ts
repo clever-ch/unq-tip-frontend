@@ -29,12 +29,9 @@ export class UserServicesComponent implements OnInit {
     this.loginDTO = JSON.parse(localStorage.getItem("loginDTO"));
 
     this.GetUserLoggedInByGuid(this.loginDTO.UserGuid);
-    //this.reloadData();
   }
 
   reloadData() {
-    console.log('Mando el Id del Usario: ', this.userDTO.Id);
-
     this.prestacionService.getAllCareServicesByIdUser(this.userDTO.Id).subscribe(data => this.careServices = data);
     this.prestacionService.getAllTransitServicesByIdUser(this.userDTO.Id).subscribe(data => this.transitServices = data);
     this.prestacionService.getAllTransportServicesByIdUser(this.userDTO.Id).subscribe(data => this.transportServices = data);
@@ -49,7 +46,39 @@ export class UserServicesComponent implements OnInit {
     })
   }
 
-  redirectEditService(id: number, type: TypeService){
+  deleteTransitService(id: number) {
+
+    console.log('Id del servicio: ', id);
+    this.prestacionService.deleteTransitServiceById(id)
+      .subscribe(
+        data => {
+          console.log('data: ', data);
+          this.reloadData();
+        },
+        error => console.log('error: ', error));
+  }
+
+  deleteTransportService(idTransport: number) {
+    this.prestacionService.deleteTransportServiceById(idTransport)
+      .subscribe(
+        data => {
+          console.log('data: ', data);
+          this.reloadData();
+        },
+        error => console.log('error: ', error));
+  }
+
+  deleteCareService(idCare: number) {
+    this.prestacionService.deleteCareServiceById(idCare)
+      .subscribe(
+        data => {
+          console.log('data: ', data);
+          this.reloadData();
+        },
+        error => console.log('error: ', error));
+  }
+
+  redirectEditService(id: number, type: TypeService) {
     this.router.navigate(['updateService', id, type]);
   }
 }
