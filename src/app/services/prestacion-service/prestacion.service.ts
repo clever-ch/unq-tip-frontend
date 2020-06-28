@@ -71,4 +71,16 @@ export class PrestacionService {
   deleteCareServiceById(idCare: number): Observable<any>{
     return this.http.delete(`${'http://localhost:8080/api/v1/deleteCareService'}/${idCare}`, { responseType: 'text' });
   }
+
+  createTransitService(transitServiceDTO: Object): Observable<Object> {
+    return this.http.post(`${this.urlManagerPrestacionService.getURLCreateTransitService()}`, transitServiceDTO);
+  }
+
+  createTransportService(transportServiceDTO: Object): Observable<Object> {
+    return this.http.post(`${this.urlManagerPrestacionService.getURLCreateTransportService()}`, transportServiceDTO);
+  }
+
+  createCareService(careServiceDTO: Object): Observable<Object> {
+    return this.http.post(`${this.urlManagerPrestacionService.getURLCreateCareService()}`, careServiceDTO);
+  }
 }
