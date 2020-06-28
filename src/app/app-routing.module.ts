@@ -14,6 +14,7 @@ import { UserServicesComponent } from './components/user-services/user-services.
 import { ServicesListComponent } from './components/services-list/services-list.component';
 import { UserPublicationsComponent } from './components/user-publications/user-publications.component';
 import { UpdateServiceComponent } from './components/update-service/update-service.component';
+import { CreateServiceComponent } from './components/create-service/create-service.component';
 
 
 const routes: Routes = [
@@ -30,7 +31,8 @@ const routes: Routes = [
   { path: 'userServices', component: UserServicesComponent },
   { path: 'servicesList', component: ServicesListComponent },
   { path: 'userPublications', component: UserPublicationsComponent },
-  { path: 'updateService/:id/:type', component: UpdateServiceComponent }
+  { path: 'updateService/:id/:type', component: UpdateServiceComponent },
+  { path: 'createService', component: CreateServiceComponent }
 ];
 
 @NgModule({
