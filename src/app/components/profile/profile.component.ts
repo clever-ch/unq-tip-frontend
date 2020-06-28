@@ -61,5 +61,7 @@ export class ProfileComponent implements OnInit {
     this.router.navigate(['editProfile']);
   }
 
-
+  redirectCreateService () {
+    this.router.navigate(['createService']);
+  }
 }
