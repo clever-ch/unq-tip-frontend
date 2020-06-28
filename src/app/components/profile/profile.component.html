@@ -7,7 +7,8 @@
           <div class="row">
             <div class="col-md-4">
               <div class="profile-img">
-                <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" alt="" />
+                <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
+                  alt="" />
               </div>
             </div>
             <div class="col-md-6">
@@ -26,7 +27,9 @@
                 <br>
                 <button type="button" class="btn btn-outline-primary" (click)="redirectCreatePublication()"><i
                     class="fa fa-plus"></i> {{ 'profile.createPubli' | translate}}
-
+                </button>
+                <button type="button" class="btn btn-outline-primary" (click)="redirectCreateService()"><i
+                    class="fa fa-plus"></i> Crear servicio
                 </button>
                 <br>
                 <br>
@@ -50,7 +53,8 @@
           <div class="row">
             <div class="col-md-4">
               <div class="profile-work">
-                  <button  type="submit" class="profile-edit-btn" name="btnAddMore" (click)="redirectEditProfile()"> <i class="fa fa-edit"></i> {{ 'profile.edit' | translate}} </button>
+                <button type="submit" class="profile-edit-btn" name="btnAddMore" (click)="redirectEditProfile()"> <i
+                    class="fa fa-edit"></i> {{ 'profile.edit' | translate}} </button>
               </div>
             </div>
             <div class="col-md-8">
