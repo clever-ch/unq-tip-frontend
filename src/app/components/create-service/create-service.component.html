@@ -1,46 +1,47 @@
-<div class="style backg">
-  <div class="container p-3 my-3 text-black">
-    <div class="row">
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      
+      <h1> Crear servicio </h1>
 
-      <div class="col-md-8 mx-auto mt-5 card bg-light">
-        <h1> Crear servicio </h1>
-
-        <form [formGroup]="createServiceFG">
-          <div class="form-group">
+      <form [formGroup]="createServiceFG">
+        <div class="form-group">
             <label> Tipo de servicio </label>
-            <input type="text" class="form-control" formControlName="typeFCN" [(ngModel)]="service.TypeService" />
+            <select [(ngModel)]="service.TypeService" class="form-control" formControlName="typeServiceFCN">
+              <option *ngFor="let type of serviceTypes" [ngValue]="type"> {{type}} </option>
+            </select>
           </div>
 
-          <div class="form-group">
-            <label> Descripción </label>
-            <input type="text" class="form-control" formControlName="descriptionFCN"
-              [(ngModel)]="service.ServiceDescription" />
-          </div>
+        <div class="form-group">
+          <label> Descripción </label>
+          <input type="text" class="form-control" formControlName="descriptionFCN"
+            [(ngModel)]="service.ServiceDescription" />
+        </div>
 
-          <div class="form-group">
+        <div class="form-group">
             <label> Unidad de tiempo </label>
             <select [(ngModel)]="service.UnidOfTime" class="form-control" formControlName="unidTimeFCN">
               <option *ngFor="let unid of unidTime" [ngValue]="unid"> {{unid}} </option>
             </select>
           </div>
 
-          <div class="form-group">
-            <label> Tiempo </label>
-            <input type='number' step='1' min='1' class="form-control" formControlName="timeServiceFCN"
-              [(ngModel)]="service.Time" />
-          </div>
+        <div class="form-group">
+          <label> Tiempo </label>
+          <input type='number' step='1' min='1' class="form-control" formControlName="timeServiceFCN"
+            [(ngModel)]="service.Time" />
+        </div>
 
-          <div class="form-group">
-            <div class="row">
-              <div class="col-md-6">
-                <button (click)="createService()" class="btn btn-primary"> Crear </button>
-              </div>
-              <button (click)="gotoMyServices()" class="btn btn-danger">{{ 'editService.cancel' | translate }}</button>
+        <div class="form-group">
+          <div class="row">
+            <div class="col-md-6">
+              <button (click)="createService()" class="btn btn-primary"> Crear </button>
             </div>
+            <button (click)="goToProfile()" class="btn btn-danger"> Cancelar </button>
           </div>
+        </div>
 
-        </form>
-      </div>
+      </form>
+
     </div>
   </div>
 </div>
