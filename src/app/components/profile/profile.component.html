@@ -1,63 +1,62 @@
 <div class="style backg">
   <div class="container p-3 my-3 text-black table-responsive">
     <div class="row ">
-      <div class="col-md-12 mx-auto mt-5 card bg-light">
+      <div class="col-md-6 mx-auto mt-5 card backgForm">
         <br>
-        <form method="post">
-          <div class="row">
-            <div class="col-md-4">
-              <div class="profile-img">
-                <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
-                  alt="" />
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="profile-head">
-                <h2>
-                  {{userDTO.UserName}}
-                </h2>
-                <h6>
-                  SOS Pets User
-                </h6>
-                <button type="button" class="btn btn-primary"
-                  (click)="redirectMyPublications()">{{ 'profile.myPubli' | translate}}</button>
-                <button type="button" class="btn btn-success"
-                  (click)="redirectMyServices()">{{ 'profile.myServ' | translate}}</button>
-                <br>
-                <br>
-                <button type="button" class="btn btn-outline-primary" (click)="redirectCreatePublication()"><i
-                    class="fa fa-plus"></i> {{ 'profile.createPubli' | translate}}
-                </button>
-                <button type="button" class="btn btn-outline-primary" (click)="redirectCreateService()"><i
-                    class="fa fa-plus"></i> Crear servicio
-                </button>
-                <br>
-                <br>
-                <ul class="nav nav-tabs" id="myTab" role="tablist">
-                  <li class="nav-item">
-                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#pers" role="tab"
-                      aria-controls="home" aria-selected="true">{{ 'profile.infoPer' | translate}}</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#user" role="tab"
-                      aria-controls="profile" aria-selected="false">{{ 'profile.infoUser' | translate}}</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div class="col-md-2">
-              <button type="submit" class="profile-edit-btn btn-dark text-white" name="btnAddMore" (click)="logout()">
-                {{ 'profile.logout' | translate}}</button>
+        <div class="row">
+          <div class="col">
+            <div class="profile-head">
+              <h2>
+                {{userDTO.UserName}}
+              </h2>
+              <h6>
+                SOS Pets User
+              </h6>
+              <button type="button" class="btn btn-primary"
+                (click)="redirectMyPublications()">{{ 'profile.myPubli' | translate}}</button>
+              <button type="button" class="btn btn-success"
+                (click)="redirectMyServices()">{{ 'profile.myServ' | translate}}</button>
+              <br>
+              <br>
+              <button type="button" class="btn btn-outline-primary" (click)="redirectCreatePublication()"><i
+                  class="fa fa-plus"></i> {{ 'profile.createPubli' | translate}}
+              </button>
+              <button type="button" class="btn btn-outline-primary" (click)="redirectCreateService()"><i
+                  class="fa fa-plus"></i> Crear servicio
+
+              </button>
+              <br>
+              <br>
             </div>
           </div>
-          <div class="row">
-            <div class="col-md-4">
-              <div class="profile-work">
-                <button type="submit" class="profile-edit-btn" name="btnAddMore" (click)="redirectEditProfile()"> <i
-                    class="fa fa-edit"></i> {{ 'profile.edit' | translate}} </button>
-              </div>
+          <div class="col-md-4">
+            <button type="submit" class="profile-edit-btn" name="btnAddMore" (click)="redirectEditProfile()"> <i
+                class="fa fa-edit"></i> {{ 'profile.edit' | translate}} </button>
+            <button type="submit" class="profile-edit-btn btn-dark text-white" name="btnAddMore" (click)="logout()"><i
+                class='fas fa-sign-out-alt'></i>
+              {{ 'profile.logout' | translate}}</button>
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="col-md-4">
+            <div class="profile-work">
+              <button type="submit" class="profile-edit-btn" name="btnAddMore" (click)="redirectEditProfile()"> <i
+                  class="fa fa-edit"></i> {{ 'profile.edit' | translate}} </button>
             </div>
-            <div class="col-md-8">
+          </div>
+          <div class="col-md-8">
+            <div class="col-md-10">
+              <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item">
+                  <a class="nav-link active " id="home-tab" data-toggle="tab" href="#pers" role="tab"
+                    aria-controls="home" aria-selected="true">{{ 'profile.infoPer' | translate}}</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" id="profile-tab" data-toggle="tab" href="#user" role="tab" aria-controls="profile"
+                    aria-selected="false">{{ 'profile.infoUser' | translate}}</a>
+                </li>
+              </ul>
               <div class="tab-content profile-tab" id="myTabContent">
                 <div class="tab-pane fade show active" id="pers" role="tabpanel" aria-labelledby="home-tab">
                   <div class="row">
@@ -130,8 +129,7 @@
               </div>
             </div>
           </div>
-        </form>
+        </div>
       </div>
     </div>
   </div>
-</div>
