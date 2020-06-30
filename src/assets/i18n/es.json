@@ -66,6 +66,7 @@
         "myPubli":"Mis Publicaciones",
         "myServ":"Mis Servicios",
         "createPubli":"Crear publicación",
+        "createServ" : "Crear Servicio",
         "infoPer":"Info Personal",
         "infoUser":"Info Usuario",
         "logout":"Cerrar sesión",
@@ -155,8 +156,7 @@
         "timeCare" : "Tiempo de cuidado",
         "timeTransport" : "Tiempo de transporte",
         "actions" : "Acciones",
-        "desactivate" : "Desactivar",
-        "active" : "Activar",
+        "desActive" : "Cambiar Estado",
         "edit" : "Editar",
         "status" : "Estado",
         "thisServ" : "Estos son tus servicios"

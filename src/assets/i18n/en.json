@@ -66,6 +66,7 @@
         "myPubli":"My posts",
         "myServ":"My services",
         "createPubli":"Create post",
+        "createServ" : "Create service",
         "infoPer":"Info Personal",
         "infoUser":"Info User",
         "logout":"Logout",
@@ -155,8 +156,7 @@
         "timeCare" : "Care time",
         "timeTransport" : "Transportation time",
         "actions" : "Actions",
-        "desactivate" : "Desactivate",
-        "active" : "Activate",
+        "desActive" : "Change state",
         "edit" : "Edit",
         "status" : "Status",
         "thisServ" : "These are your services"

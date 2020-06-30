@@ -39,9 +39,10 @@ import { UserServicesComponent } from './components/user-services/user-services.
 import { UserPublicationsComponent } from './components/user-publications/user-publications.component';
 import { ServicesListComponent } from './components/services-list/services-list.component';
 import { UpdateServiceComponent } from './components/update-service/update-service.component';
+import { CreateServiceComponent } from './components/create-service/create-service.component';
 
 @NgModule({
-  declarations: [AppComponent, PublicationListComponent, PublicationCreateComponent, DialogPublicationComponent, PublicationsFoundComponent, HomepageComponent, SignInComponent, LogInComponent, ProfileComponent, UserServicesComponent, UserPublicationsComponent, ServicesListComponent, EditProfileComponent, UpdateServiceComponent],
+  declarations: [AppComponent, PublicationListComponent, PublicationCreateComponent, DialogPublicationComponent, PublicationsFoundComponent, HomepageComponent, SignInComponent, LogInComponent, ProfileComponent, UserServicesComponent, UserPublicationsComponent, ServicesListComponent, EditProfileComponent, UpdateServiceComponent, CreateServiceComponent],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule, MaterialModule, BrowserAnimationsModule, NgbModule, ReactiveFormsModule, NgxPaginationModule, Ng2SearchPipeModule, ErrorHandlerController,
     TranslateModule.forRoot({
       loader: {
