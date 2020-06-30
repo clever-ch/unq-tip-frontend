@@ -65,4 +65,16 @@ export class UrlManagerPrestacionService {
     getURLDeleteCareServiceById(): string {
         return 'http://localhost:8080/api/v1/deleteCareService';
     }
+
+    getURLCreateTransitService(): string {
+        return 'http://localhost:8080/api/v1/createTransitService';
+    }
+
+    getURLCreateTransportService(): string {
+        return 'http://localhost:8080/api/v1/createTransportService';
+    }
+
+    getURLCreateCareService(): string {
+        return 'http://localhost:8080/api/v1/createCareService';
+    }
 }
