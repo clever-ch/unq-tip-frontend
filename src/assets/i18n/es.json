@@ -101,7 +101,7 @@
         "accept" : "Aceptar",
         "cancel" : "Cancelar",
         "rememberEmail" : "Recuerda que tu mail debe seguir el siguiente formato: mail@ejemplo.com",
-        "rememberPass" : "Le recomendamos que su contraseña tenga entre 8 y 20 caracteres, contenga letras y números, y no debe contener espacios, caracteres especiales o emoji.",
+        "rememberPass" : "Le recomendamos que su contraseña debe tener entre 8 y 20 caracteres, debe contener letras y números, y no debe contener espacios, caracteres especiales o emoji.",
         "showPass" : "Mostrar contraseña",
         "fail": "Disculpe!",
         "fail1": "Fallo la creación del usuario:",
@@ -156,7 +156,9 @@
         "timeTransport" : "Tiempo de transporte",
         "actions" : "Acciones",
         "desactivate" : "Desactivar",
+        "active" : "Activar",
         "edit" : "Editar",
+        "status" : "Estado",
         "thisServ" : "Estos son tus servicios"
     },
 

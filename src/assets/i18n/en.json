@@ -156,7 +156,9 @@
         "timeTransport" : "Transportation time",
         "actions" : "Actions",
         "desactivate" : "Desactivate",
+        "active" : "Activate",
         "edit" : "Edit",
+        "status" : "Status",
         "thisServ" : "These are your services"
     },
 
