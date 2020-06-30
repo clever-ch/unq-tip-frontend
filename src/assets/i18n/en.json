@@ -155,7 +155,7 @@
         "timeCare" : "Care time",
         "timeTransport" : "Transportation time",
         "actions" : "Actions",
-        "delete" : "Delete",
+        "desactivate" : "Desactivate",
         "edit" : "Edit",
         "thisServ" : "These are your services"
     },

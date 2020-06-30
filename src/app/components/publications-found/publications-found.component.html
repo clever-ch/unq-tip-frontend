@@ -11,7 +11,7 @@
         </div>
         <div class="row">
           <div class="card"
-            *ngFor="let publication of publications | async | filter:searchText | paginate: { itemsPerPage: 2, currentPage: p }">
+            *ngFor="let publication of publications | async | filter:searchText | paginate: { itemsPerPage: 3, currentPage: p }">
             <ngb-carousel *ngIf='images'>
               <ng-template ngbSlide *ngFor="let image of publication.Photos">
                 <div class="picsum-img-wrapper">

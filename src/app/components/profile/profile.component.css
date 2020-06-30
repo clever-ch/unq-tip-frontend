@@ -1,5 +1,5 @@
 .backg {
-    background: url("../../images/img-profile/fondo.png");
+    background: url("../../images/img-profile/fondo.jpg");
     background-size: cover;
     height: 100%; 
     display: table;
@@ -7,19 +7,9 @@
     min-height: 100%;
   }
 
-.profile-img{
-    text-align: center;
-}
-.profile-img img{
-    
-    width: 70%;
-    height: 100%;
-}
-
-.feather {
-    width: 16px;
-    height: 16px;
-    vertical-align: text-bottom;
+.backgForm{
+    background: url("../../images/img-profile/fondo2.jpg");
+    background-size: cover;
 }
 
 .profile-head h2{
@@ -31,43 +21,26 @@
 .profile-edit-btn{
     border: none;
     border-radius: 1.5rem;
-    width: 70%;
+    width: 100%;
     padding: 2%;
     font-weight: 600;
     color: #6c757d;
     cursor: pointer;
 }
 
-.profile-head .nav-tabs{
+.nav-tabs{
     margin-bottom:5%;
 }
-.profile-head .nav-tabs .nav-link{
+.nav-tabs .nav-link{
     font-weight:600;
     border: none;
 }
-.profile-head .nav-tabs .nav-link.active{
+
+.nav-tabs .nav-link.active{
     border: none;
     border-bottom:2px solid #0062cc;
 }
-.profile-work{
-    padding: 14%;
-    margin-top: -15%;
-}
-.profile-work p{
-    font-size: 12px;
-    color: #818182;
-    font-weight: 600;
-    margin-top: 10%;
-}
-.profile-work a{
-    text-decoration: none;
-    color: #495057;
-    font-weight: 600;
-    font-size: 14px;
-}
-.profile-work ul{
-    list-style: none;
-}
+
 .profile-tab label{
     font-weight: 600;
 }
