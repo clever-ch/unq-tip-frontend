@@ -130,14 +130,11 @@
                   </div>
                 <br> -->
 
-          <div class="row">
-            <div class="col-md-6">
+            <div class="form-group">
               <button (click)="createPublication()" [disabled]="!imagesAreSaveFire" class="btn btn-primary">{{ 'createPublication.confirm' | translate}}</button>
+              <button (click)="goToProfile()" class="btn btn-secondary">{{ 'createPublication.cancel' | translate}}</button>
             </div>
-            <div class="col-md-6">
-              <button (click)="goToProfile()" class="btn btn-secondary">{{ 'createPublication.cancel' | translate}}</button><br>
-            </div>
-          </div>
+            
           <br>
           <div *ngIf="failCreate">
             <div class="alert alert-danger text-center">
