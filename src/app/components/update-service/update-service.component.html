@@ -15,11 +15,15 @@
 
           <div class="form-group">
             <label>{{ 'serviceList.desp' | translate }}</label>
-            <input type="text" class="form-control" formControlName="desc" [(ngModel)]="service.ServiceDescription"
-              [ngClass]="{ 'is-invalid': submitted && f.desc.errors }" />
-            <div *ngIf="submitted && f.desc.errors" class="invalid-feedback">
-              <div *ngIf="f.desc.errors.required">{{ 'editService.error' | translate }}</div>
-            </div>
+            <textarea type="text" class="form-control" formControlName="desc" [(ngModel)]="service.ServiceDescription"
+              [ngClass]="{ 'is-invalid': submitted && f.desc.errors }" maxlength="200"> </textarea>
+              <div *ngIf="submitted && f.desc.errors" class="invalid-feedback">
+                <div *ngIf="f.desc.errors.required">Por favor, complete este campo</div>
+                <div *ngIf="f.desc.errors.minlength">Este campo debe contener al menos 50 caracteres</div>
+              </div>
+              <small id="descHelpBlock" class="form-text text-muted">
+                El maximo de caracteres a escribir es de 200 caracteres y el minimo son 50.
+              </small>
           </div>
 
           <div class="form-group">
@@ -38,11 +42,12 @@
           <div *ngIf="showTransitTime">
             <div class="form-group">
               <label>{{ 'serviceList.timeTransit' | translate }}</label>
-              <input type='number' step='1' min='1' class="form-control"
+              <input type='number' step='1' min='1' max='31' class="form-control"
                 formControlName="timeTransit" [(ngModel)]="service.TransitTime"
                 [ngClass]="{ 'is-invalid': submitted && f.timeTransit.errors }" />
               <div *ngIf="submitted && f.timeTransit.errors" class="invalid-feedback">
                 <div *ngIf="f.timeTransit.errors.required">{{ 'editService.error' | translate }}</div>
+                <div *ngIf="f.timeTransit.errors.max">Este campo debe estar entre 1 y 31, segun corresponda "Unidad de tiempo"</div>
               </div>
             </div>
           </div>
@@ -50,11 +55,12 @@
           <div *ngIf="showScheduleAvailable">
             <div class="form-group">
               <label>{{ 'serviceList.timeTransit' | translate }}</label>
-              <input type='number' step='1' min="1" class="form-control"
+              <input type='number' step='1' min="1" max='31' class="form-control"
                 formControlName="timeTransport" [(ngModel)]="service.ScheduleAvailable"
                 [ngClass]="{ 'is-invalid': submitted && f.timeTransport.errors }" />
               <div *ngIf="submitted && f.timeTransport.errors" class="invalid-feedback">
                 <div *ngIf="f.timeTransport.errors.required">{{ 'editService.error' | translate }}</div>
+                <div *ngIf="f.timeTransport.errors.max">Este campo debe estar entre 1 y 31, segun corresponda "Unidad de tiempo"</div>
               </div>
             </div>
           </div>
@@ -62,11 +68,12 @@
           <div *ngIf="showCareTime">
             <div class="form-group ">
               <label>{{ 'serviceList.timeCare' | translate }}</label>
-              <input type="number" step="1" min="1" name="timeCare" class="form-control"
+              <input type="number" step="1" min="1" max='31' name="timeCare" class="form-control"
                 formControlName="timeCare" [(ngModel)]="service.CareTime"
                 [ngClass]="{ 'is-invalid': submitted && f.timeCare.errors }" />
               <div *ngIf="submitted && f.timeCare.errors" class="invalid-feedback">
                 <div *ngIf="f.timeCare.errors.required">{{ 'editService.error' | translate }}</div>
+                <div *ngIf="f.timeCare.errors.max">Este campo debe estar entre 1 y 31, segun corresponda "Unidad de tiempo"</div>
               </div>
             </div>
           </div>
@@ -76,7 +83,9 @@
               <div class="col-md-6">
                 <button type="submit" class="btn btn-primary">{{ 'editService.acepted' | translate }}</button>
               </div>
-              <button (click)="gotoMyServices()" class="btn btn-danger">{{ 'editService.cancel' | translate }}</button>
+              <div class="col-md-6">
+              <button (click)="gotoMyServices()" class="btn btn-danger float-right">{{ 'editService.cancel' | translate }}</button>
+            </div>
             </div>
           </div>
 
