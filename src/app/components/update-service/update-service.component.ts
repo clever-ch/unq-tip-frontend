@@ -67,11 +67,11 @@ constructor(private route: ActivatedRoute, private router: Router, private prest
 
       this.editService = this.formBuilder.group({
         type: ['', Validators.required],
-        desc: ['', Validators.required],
+        desc: ['', [Validators.required, Validators.minLength(50)]],
         unidTime: ['', Validators.required],
-        timeTransit: ['', Validators.required],
-        timeCare: ['', Validators.required],
-        timeTransport: ['', Validators.required]
+        timeTransit: ['', [Validators.required, Validators.max(31)]],
+        timeCare: ['', [Validators.required, Validators.max(31)]],
+        timeTransport: ['', [Validators.required, Validators.max(31)]]
     });
     }
 
