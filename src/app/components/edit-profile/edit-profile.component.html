@@ -71,7 +71,7 @@
           <div class="form-group">
             <label>{{ 'login.password' | translate }}</label>
             <input type="{{inputVar}}" formControlName="passE" class="form-control" aria-describedby="passwordHelpBlock"
-              [ngClass]="{ 'is-invalid': submitted && f.passE.errors }" [(ngModel)]="userDTO.Password" maxlength="50"/>
+              [ngClass]="{ 'is-invalid': submitted && f.passE.errors }" [(ngModel)]="userDTO.Password" maxlength="20"/>
             <div *ngIf="submitted && f.passE.errors" class="invalid-feedback">
               <div *ngIf="f.passE.errors.required">{{ 'signin.passError' | translate }}</div>
             </div>
