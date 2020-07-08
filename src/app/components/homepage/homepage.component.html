@@ -7,7 +7,7 @@
       <div class="cover-container responsive" >
 
         <div class="inner cover">
-          <h1 class="cover-heading">{{ 'home.title' | translate }}</h1>
+          <h1 class="cover-heading">{{ 'home.title' | translate }} <i class='fas fa-cat'></i><i class='fas fa-dog'></i></h1>
           <p class="lead">{{ 'home.text' | translate }}</p>      
         </div>
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -33,7 +33,9 @@
                 <div class="carousel-caption d-none d-md-block">
                   <h1>{{ 'home.titleImg2' | translate }}</h1>
                   <p>{{ 'home.textImg2' | translate }}.</p>
+                  <div *ngIf="!authService.isLoggedIn">
                   <p><a class="btn btn-lg btn-primary" href="log-in" role="button">{{ 'home.buttonImg2' | translate }}</a></p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -43,7 +45,9 @@
                 <div class="carousel-caption d-none d-md-block">
                   <h1>{{ 'home.titleImg3' | translate }}</h1>
                   <p>{{ 'home.textImg3' | translate }}</p>
+                  <div *ngIf="!authService.isLoggedIn">
                   <p><a class="btn btn-lg btn-primary" href="log-in" role="button">{{ 'home.buttonImg2' | translate }}</a></p>
+                  </div>
                 </div>
               </div>
             </div>            
@@ -62,27 +66,30 @@
       <hr class="featurette-divider">
 
       <div class="container marketing">
-        <h1 class="cover-heading">{{ 'home.serviceTitle' | translate }}</h1>
+        <h2 class="subtitle" >{{ 'home.serviceTitle' | translate }}</h2>
         <div class="row">
           <div class="col-lg-4">
             <img class="rounded-circle img1M" width="200" height="200">
-            <h2>{{ 'home.servCare' | translate }}</h2>
-            <p>{{ 'home.servCareText' | translate }}</p>
+            <h2 >{{ 'home.servCare' | translate }}</h2>
+            <p class="font-weight-bold sizeFont">{{ 'home.servCareText' | translate }}</p>
           </div><!-- /.col-lg-4 -->
           <div class="col-lg-4">
-            <img class="rounded-circle img2M"width="200" height="200">
+            <img class="rounded-circle img2M" width="200" height="200">
             <h2>{{ 'home.servTransit' | translate }}</h2>
-            <p>{{ 'home.servTransitText' | translate }}</p>
+            <p class="font-weight-bold sizeFont">{{ 'home.servTransitText' | translate }}</p>
           </div><!-- /.col-lg-4 -->
           <div class="col-lg-4">
             <img class="rounded-circle img3M" width="200" height="200">
             <h2>{{ 'home.serTransport' | translate }}</h2>
-            <p>{{ 'home.serTransportText' | translate }}</p>
+            <p class="font-weight-bold sizeFont">{{ 'home.serTransportText' | translate }}</p>
           </div><!-- /.col-lg-4 -->
         </div><!-- /.row -->
         <hr class="featurette-divider">
         <p><a class="btn btn-info btn-block" href="servicesList" role="button">{{ 'home.serButtonCon' | translate }} &raquo;</a></p>
-        <p><a class="btn btn-success btn-block" href="log-in" role="button"> {{ 'home.serButtonSignUp' | translate }}&raquo;</a></p>
+        <div *ngIf="!authService.isLoggedIn">
+        <p><a class="btn btn-success btn-block" href="log-in" role="button"> {{ 'home.serButtonSignUp' | translate }}&raquo;
+        </a></p>
+      </div>
       </div>  
     <hr class="featurette-divider">
     </div>
