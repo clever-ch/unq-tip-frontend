@@ -106,8 +106,6 @@ export class PublicationCreateComponent implements OnInit {
 
   onUpload(event) {
 
-    this.imagesAreUploaded = this.imagesToSave.length > 0;
-
     if (event.target.files && event.target.files[0]) {
       var filesAmount = event.target.files.length;
 
@@ -124,6 +122,7 @@ export class PublicationCreateComponent implements OnInit {
       }
     }
 
+    this.imagesAreUploaded = this.imagesToSave.length > 0;
     console.log('Lista de imagenes: ', this.imagesToSave);
   }
 
