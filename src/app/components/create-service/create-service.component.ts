@@ -24,6 +24,9 @@ export class CreateServiceComponent implements OnInit {
   loginDTO: LoginDTO;
   userDTO: UserDTO;
   service: PrestacionDTO = new PrestacionDTO();   //Mientras no se conozca el tipo del servicio se guarda todo en este DTO
+  submitted = false;
+  createSuccess = false;
+  failCreate = false
 
   careService: CareServiceDTO = new CareServiceDTO();
   transitService: TransitServiceDTO = new TransitServiceDTO();
@@ -42,11 +45,13 @@ export class CreateServiceComponent implements OnInit {
 
     this.createServiceFG = this.formBuilder.group({
       typeServiceFCN: ['', Validators.required],
-      descriptionFCN: ['', Validators.required],
+      descriptionFCN: ['', [Validators.required, Validators.minLength(50)]],
       unidTimeFCN: ['', Validators.required],
-      timeServiceFCN: ['', Validators.required]
+      timeServiceFCN: ['', [Validators.required, Validators.max(31)]]
     });
   }
+
+  get controls() { return this.createServiceFG.controls; }
 
   private GetUserLoggedInByGuid(userGuid: string) {
     this.authService.getUserByGuid(userGuid).subscribe(data => {
@@ -55,7 +60,7 @@ export class CreateServiceComponent implements OnInit {
   }
 
   createService() {
-
+    this.submitted = true;
     if (this.service.TypeService === TypeService.Care) {
 
       this.careService.TypeService = this.service.TypeService;
@@ -64,10 +69,9 @@ export class CreateServiceComponent implements OnInit {
       this.careService.ServiceDescription = this.service.ServiceDescription;
       this.careService.UserDTO = this.userDTO;
 
-      console.log('careDTO armado: ', this.careService);
-
       this.prestacionService.createCareService(this.careService).
-        subscribe(data => console.log('data: ', data), error => console.log('error: ', error));
+        subscribe(data => (this.failCreate = false, this.createSuccess = true), 
+        error => this.failCreate = true);
     }
 
     if (this.service.TypeService === TypeService.Transit) {
@@ -78,10 +82,9 @@ export class CreateServiceComponent implements OnInit {
       this.transitService.ServiceDescription = this.service.ServiceDescription;
       this.transitService.UserDTO = this.userDTO;
 
-      console.log('transitDTO armado: ', this.transitService);
-
       this.prestacionService.createTransitService(this.transitService).
-        subscribe(data => console.log('data: ', data), error => console.log('error: ', error));
+        subscribe(data => (this.failCreate = false, this.createSuccess = true), 
+        error => this.failCreate = true);
 
     }
 
@@ -93,10 +96,13 @@ export class CreateServiceComponent implements OnInit {
       this.transportService.ServiceDescription = this.service.ServiceDescription;
       this.transportService.UserDTO = this.userDTO;
 
-      console.log('transportDTO armado: ', this.transportService);
-
       this.prestacionService.createTransportService(this.transportService).
-        subscribe(data => console.log('data: ', data), error => console.log('error: ', error));
+        subscribe(data => (this.failCreate = false, this.createSuccess = true), 
+        error => this.failCreate = true);
+    }
+
+    if(this.service.TypeService === undefined){
+      this.failCreate = true;
     }
   }
 

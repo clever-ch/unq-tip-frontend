@@ -13,7 +13,7 @@
           <div class="form-group">
             <label>{{ 'signin.name' | translate }}</label>
             <input type="text" formControlName="nombE" class="form-control"
-              [ngClass]="{ 'is-invalid': submitted && f.nombE.errors }" [(ngModel)]="personDTO.Name" />
+              [ngClass]="{ 'is-invalid': submitted && f.nombE.errors }" [(ngModel)]="personDTO.Name" maxlength="30" />
             <div *ngIf="submitted && f.nombE.errors" class="invalid-feedback">
               <div *ngIf="f.nombE.errors.required">{{ 'signin.nameError' | translate }}</div>
             </div>
@@ -21,7 +21,7 @@
           <div class="form-group">
             <label>{{ 'signin.surname' | translate }}</label>
             <input type="text" formControlName="apeE" class="form-control"
-              [ngClass]="{ 'is-invalid': submitted && f.apeE.errors }" [(ngModel)]="personDTO.SurName" />
+              [ngClass]="{ 'is-invalid': submitted && f.apeE.errors }" [(ngModel)]="personDTO.SurName" maxlength="30" />
             <div *ngIf="submitted && f.apeE.errors" class="invalid-feedback">
               <div *ngIf="f.apeE.errors.required">{{ 'signin.surnameError' | translate }}</div>
             </div>
@@ -29,7 +29,7 @@
           <div class="form-group">
             <label>{{ 'signin.telephone' | translate }}</label>
             <input type="text" formControlName="phoneE" class="form-control"
-              [ngClass]="{ 'is-invalid': submitted && f.phoneE.errors }" [(ngModel)]="personDTO.Telephone" />
+              [ngClass]="{ 'is-invalid': submitted && f.phoneE.errors }" [(ngModel)]="personDTO.Telephone" maxlength="30" />
             <div *ngIf="submitted && f.phoneE.errors" class="invalid-feedback">
               <div *ngIf="f.phoneE.errors.required">{{ 'signin.telephoneError' | translate }}</div>
             </div>
@@ -37,7 +37,7 @@
           <div class="form-group">
             <label>{{ 'signin.address' | translate }}</label>
             <input type="text" formControlName="dirE" class="form-control"
-              [ngClass]="{ 'is-invalid': submitted && f.dirE.errors }" [(ngModel)]="personDTO.Address" />
+              [ngClass]="{ 'is-invalid': submitted && f.dirE.errors }" [(ngModel)]="personDTO.Address" maxlength="50"/>
             <div *ngIf="submitted && f.dirE.errors" class="invalid-feedback">
               <div *ngIf="f.dirE.errors.required">{{ 'signin.addressError' | translate }}</div>
             </div>
@@ -45,7 +45,7 @@
           <div class="form-group">
             <label>{{ 'signin.location' | translate }}</label>
             <input type="text" formControlName="locE" class="form-control"
-              [ngClass]="{ 'is-invalid': submitted && f.locE.errors }" [(ngModel)]="personDTO.Location" />
+              [ngClass]="{ 'is-invalid': submitted && f.locE.errors }" [(ngModel)]="personDTO.Location" maxlength="50"/>
             <div *ngIf="submitted && f.locE.errors" class="invalid-feedback">
               <div *ngIf="f.locE.errors.required">{{ 'signin.locationError' | translate }}</div>
             </div>
@@ -55,7 +55,7 @@
           <div class="form-group">
             <label>{{ 'signin.email' | translate }}</label>
             <input type="text" formControlName="emailE" class="form-control" aria-describedby="emailHelpBlock"
-              [ngClass]="{ 'is-invalid': submitted && f.emailE.errors }" [(ngModel)]="userDTO.Email" />
+              [ngClass]="{ 'is-invalid': submitted && f.emailE.errors }" [(ngModel)]="userDTO.Email" maxlength="50" />
             <div *ngIf="submitted && f.emailE.errors" class="invalid-feedback">
               <div *ngIf="f.emailE.errors.required">{{ 'signin.emailErrorObl' | translate }}</div>
             </div>
@@ -71,7 +71,7 @@
           <div class="form-group">
             <label>{{ 'login.password' | translate }}</label>
             <input type="{{inputVar}}" formControlName="passE" class="form-control" aria-describedby="passwordHelpBlock"
-              [ngClass]="{ 'is-invalid': submitted && f.passE.errors }" [(ngModel)]="userDTO.Password" />
+              [ngClass]="{ 'is-invalid': submitted && f.passE.errors }" [(ngModel)]="userDTO.Password" maxlength="50"/>
             <div *ngIf="submitted && f.passE.errors" class="invalid-feedback">
               <div *ngIf="f.passE.errors.required">{{ 'signin.passError' | translate }}</div>
             </div>
