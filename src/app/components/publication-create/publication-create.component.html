@@ -11,9 +11,10 @@
             <div class="row">
               <div class="col-md-6">
                 <label>{{ 'createPublication.type' | translate}}</label>
-                <select [(ngModel)]="publicationTypeSelected" name="status" placeholder="PRUEBA" class="form-control"
+                <select [(ngModel)]="publicationTypeSelected" name="status" class="form-control"
                   formControlName="tipoPub" [ngClass]="{ 'is-invalid': submitted && controls.tipoPub.errors }">
-                  <option *ngFor="let publicationType of publicationTypes" [ngValue]="publicationType">
+                  <option *ngFor="let publicationType of publicationTypes" [ngValue]="publicationType"
+                    [selected]="publicationType">
                     {{publicationType}}
                   </option>
                 </select>
@@ -37,9 +38,10 @@
 
               <div class="col-md-6">
                 <label>{{ 'createPublication.typeAnimal' | translate}}</label>
-                <select [(ngModel)]="animalTypeSelected" name="status" placeholder="PRUEBA" class="form-control"
-                  formControlName="tipo" [ngClass]="{ 'is-invalid': submitted && controls.tipo.errors }">
-                  <option *ngFor="let animalType of animalTypes" [ngValue]="animalType"> {{animalType}} </option>
+                <select [(ngModel)]="animalTypeSelected" name="status" class="form-control" formControlName="tipo"
+                  [ngClass]="{ 'is-invalid': submitted && controls.tipo.errors }">
+                  <option *ngFor="let animalType of animalTypes" [ngValue]="animalType" [selected]="animalType">
+                    {{animalType}} </option>
                 </select>
                 <div *ngIf="submitted && controls.tipo.errors" class="invalid-feedback">
                   <div *ngIf="controls.tipo.errors.required">{{ 'createPublication.typeAnimalError' | translate}}</div>
@@ -62,12 +64,16 @@
 
               <div class="col-md-6">
                 <label>{{ 'createPublication.description' | translate}}</label>
-                <input type="text" class="form-control" id="idAnimalDescription" required
-                  [(ngModel)]="publicationDTO.PublicationDescription" name="inpAnimalDescription" formControlName="desc"
+                <textarea type="text" class="form-control" formControlName="desc"
+                  [(ngModel)]="publicationDTO.PublicationDescription" maxlength="200"
                   [ngClass]="{ 'is-invalid': submitted && controls.desc.errors }">
+                </textarea>
                 <div *ngIf="submitted && controls.desc.errors" class="invalid-feedback">
                   <div *ngIf="controls.desc.errors.required">{{ 'createPublication.descError' | translate}}</div>
                 </div>
+                <small id="descHelpBlock" class="form-text text-muted">
+                  El maximo de caracteres a escribir es de 200 caracteres y el minimo son 50.
+                </small>
               </div>
             </div>
           </div>
@@ -87,28 +93,29 @@
           </div>
 
           <div *ngIf="isDisabled">
-          <div class="form-group">
-            <label>{{ 'createPublication.addImg' | translate}}</label>
-            <div class="custom-file">
-              <div class="col-md-6">
-                <label class="custom-file-label" for="name">{{ 'createPublication.selectImg' | translate}}</label>
-                <input [formControl]="myFormUploadedImages" type="file" class="custom-file-input" multiple="true"
-                  accept=".png, .jpg" (change)="onUpload($event)">
-              </div>
-              <div *ngIf="imagesAreUploaded">
-                <br>
-                <div class="form-group">
-                  <div class="col-md-6">
-                    <button (click)="saveURLsImgFireBase()" class="btn btn-success">{{ 'createPublication.loadImg' | translate}}</button>
-                    <small id="passwordHelpBlock" class="form-text text-muted">
-                      {{ 'createPublication.checkImg' | translate}}
-                    </small>
+            <div class="form-group">
+              <label>{{ 'createPublication.addImg' | translate}}</label>
+              <div class="custom-file">
+                <div class="col-md-6">
+                  <label class="custom-file-label" for="name">{{ 'createPublication.selectImg' | translate}}</label>
+                  <input [formControl]="myFormUploadedImages" type="file" class="custom-file-input" multiple="true"
+                    accept=".png, .jpg" (change)="onUpload($event)">
+                </div>
+                <div *ngIf="imagesAreUploaded">
+                  <br>
+                  <div class="form-group">
+                    <div class="col-md-6">
+                      <button (click)="saveURLsImgFireBase()"
+                        class="btn btn-success">{{ 'createPublication.loadImg' | translate}}</button>
+                      <small id="passwordHelpBlock" class="form-text text-muted">
+                        {{ 'createPublication.checkImg' | translate}}
+                      </small>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
           <div class="form-group">
             <div class="col-md-6">
               <div *ngFor="let url of uploadedImages; let index = index">
@@ -119,32 +126,32 @@
             </div>
           </div>
 
-          <!-- TODO: Incorporar ubicación por Maps -->
-          <!-- <div class="form-group">
-                    <div class="row">
-                      <div class="col-md-6">
-                        <label for="name">Localización publicación</label>
-                        <p>Agregar componente para ubicación</p>
-                      </div>
-                    </div>
-                  </div>
-                <br> -->
-
-            <div class="form-group">
-              <button (click)="createPublication()" [disabled]="!imagesAreSaveFire" class="btn btn-primary">{{ 'createPublication.confirm' | translate}}</button>
-              <button (click)="goToProfile()" class="btn btn-secondary">{{ 'createPublication.cancel' | translate}}</button>
+          <div class="form-group">
+            <div class="row">
+              <div class="col-md-6">
+                <button (click)="createPublication()" [disabled]="!imagesAreSaveFire"
+                  class="btn btn-primary">{{ 'createPublication.confirm' | translate}}</button>
+              </div>
+              <div class="col-md-6">
+                <button (click)="goToProfile()"
+                  class="btn btn-danger">{{ 'createPublication.cancel' | translate}}</button>
+              </div>
             </div>
-            
+          </div>
+
           <br>
           <div *ngIf="failCreate">
             <div class="alert alert-danger text-center">
-              <strong>{{ 'createPublication.fail' | translate}}</strong> {{ 'createPublication.fail1' | translate}} <strong>{{errorText}}</strong>
+              <strong>{{ 'createPublication.fail' | translate}}</strong> {{ 'createPublication.fail1' | translate}}
+              <strong>{{errorText}}</strong>
             </div>
           </div>
           <div *ngIf="createSuccess">
             <div class="alert alert-success text-center">
-              <strong>{{ 'createPublication.success' | translate}}</strong> {{ 'createPublication.success1' | translate}}
-              <button (click)="goToProfile()" class="btn btn-success">{{ 'createPublication.profile' | translate}}</button>
+              <strong>{{ 'createPublication.success' | translate}}</strong>
+              {{ 'createPublication.success1' | translate}}
+              <button (click)="goToProfile()"
+                class="btn btn-success">{{ 'createPublication.profile' | translate}}</button>
             </div>
           </div>
           <br>
