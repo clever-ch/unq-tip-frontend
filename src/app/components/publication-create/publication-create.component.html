@@ -99,7 +99,7 @@
                 <div class="col-md-6">
                   <label class="custom-file-label" for="name">{{ 'createPublication.selectImg' | translate}}</label>
                   <input [formControl]="myFormUploadedImages" type="file" class="custom-file-input" multiple="true"
-                    accept=".png, .jpg" (change)="onUpload($event)">
+                    accept=".png,.jpg" (change)="onUpload($event)">
                 </div>
                 <div *ngIf="imagesAreUploaded">
                   <br>
