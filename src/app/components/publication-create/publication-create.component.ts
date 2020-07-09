@@ -106,9 +106,7 @@ export class PublicationCreateComponent implements OnInit {
 
   onUpload(event) {
 
-    //Limpio la lista para la nueva carga
-    this.imagesToSave = [];
-    this.imagesAreUploaded = true;
+    this.imagesAreUploaded = this.imagesToSave.length > 0;
 
     if (event.target.files && event.target.files[0]) {
       var filesAmount = event.target.files.length;
@@ -116,7 +114,6 @@ export class PublicationCreateComponent implements OnInit {
       for (let i = 0; i < filesAmount; i++) {
         var reader = new FileReader();
         reader.onload = (etherEvent: any) => {
-          //console.log(event.target.result);
           this.uploadedImages.push(etherEvent.target.result);
           this.myFormUploadedImages.patchValue({
             fileSource: this.uploadedImages
@@ -126,6 +123,8 @@ export class PublicationCreateComponent implements OnInit {
         this.imagesToSave.push(event.target.files[i]);
       }
     }
+
+    console.log('Lista de imagenes: ', this.imagesToSave);
   }
 
   removeSelectedFile(index) {
@@ -134,7 +133,9 @@ export class PublicationCreateComponent implements OnInit {
 
     //Actualizo las imágenes que se eliminaron
     this.imagesToSave.splice(index, 1);
-    
+    this.imagesAreUploaded = this.imagesToSave.length > 0;
+
+    console.log('Lista de imagenes: ', this.imagesToSave);
   }
 
   saveURLsImgFireBase() {
