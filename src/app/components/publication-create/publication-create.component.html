@@ -97,7 +97,8 @@
               <label>{{ 'createPublication.addImg' | translate}}</label>
               <div class="custom-file">
                 <div class="col-md-6">
-                  <label class="custom-file-label" for="name">{{ 'createPublication.selectImg' | translate}}</label>
+                  <label id="lblSelectImg" class="custom-file-label"
+                    for="name">{{ 'createPublication.selectImg' | translate}}</label>
                   <input [formControl]="myFormUploadedImages" type="file" class="custom-file-input" multiple="true"
                     accept=".png,.jpg" (change)="onUpload($event)">
                 </div>
@@ -117,11 +118,16 @@
             </div>
           </div>
           <div class="form-group">
-            <div class="col-md-6">
-              <div *ngFor="let url of uploadedImages; let index = index">
-                <img [src]="url" height="150" width="200px" style="margin: 3px;">
-                <button class="btn btn-secondary" (click)="removeSelectedFile(index)"><i class='fas fa-trash-alt'></i>
-                  {{ 'createPublication.delImg' | translate}}</button>
+            <div class="row">
+              <div class="col-md-12">
+                <div *ngFor="let url of uploadedImages; let index = index">
+                  <div class="col-md-3">
+                    <img [src]="url" height="150" width="200px" style="margin: 3px;">
+                    <button class="btn btn-secondary" (click)="removeSelectedFile(index)"><i
+                        class='fas fa-trash-alt'></i>
+                      {{ 'createPublication.delImg' | translate}}</button>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
