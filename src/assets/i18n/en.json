@@ -59,7 +59,8 @@
         "login" : "Login",
         "newCount" : "Create a new account",
         "usernameError":"Please enter your username",
-        "passwordError":"Please enter your password"
+        "passwordError":"Please enter your password",
+        "fail" : "User o password invalid"
     },
 
     "profile": {
@@ -147,9 +148,9 @@
     },
 
     "serviceList" : {
-        "title1" : "Transit Services List",
-        "title2" : "Transportation services list",
-        "title3" : "List of care services",
+        "title1" : "Transit",
+        "title2" : "Transport",
+        "title3" : "Care",
         "desp" : "Description",
         "unidTime" : "Time unit",
         "timeTransit" : "Transit time",
