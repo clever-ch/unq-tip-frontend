@@ -29,7 +29,7 @@
             <div class="row">
               <div class="col-md-6">
                 <label>{{ 'createPublication.breed' | translate}}</label>
-                <input type="text" formControlName="raza" class="form-control" id="idBreed" required
+                <input type="text" formControlName="raza" class="form-control" id="idBreed" maxlength="50" required
                   [(ngModel)]="animalDTO.Breed" [ngClass]="{ 'is-invalid': submitted && controls.raza.errors }">
                 <div *ngIf="submitted && controls.raza.errors" class="invalid-feedback">
                   <div *ngIf="controls.raza.errors.required">{{ 'createPublication.breedError' | translate}}</div>
@@ -54,8 +54,8 @@
             <div class="row">
               <div class="col-md-6">
                 <label>{{ 'createPublication.age' | translate}}</label>
-                <input type="text" class="form-control" id="idAge" required [(ngModel)]="animalDTO.AnimalAge"
-                  formControlName="edad" name="inpAnimalAge"
+                <input type="text" class="form-control" id="idAge" maxlength="50" required
+                  [(ngModel)]="animalDTO.AnimalAge" formControlName="edad" name="inpAnimalAge"
                   [ngClass]="{ 'is-invalid': submitted && controls.edad.errors }">
                 <div *ngIf="submitted && controls.edad.errors" class="invalid-feedback">
                   <div *ngIf="controls.edad.errors.required">{{ 'createPublication.ageError' | translate}}</div>
@@ -82,8 +82,8 @@
             <div class="row">
               <div class="col-md-6">
                 <label>{{ 'createPublication.address' | translate}}</label>
-                <input type="text" class="form-control" required [(ngModel)]="publicationDTO.PublicationAddress"
-                  name="inpPublicationAddress" formControlName="ubi"
+                <input type="text" class="form-control" maxlength="50" required
+                  [(ngModel)]="publicationDTO.PublicationAddress" name="inpPublicationAddress" formControlName="ubi"
                   [ngClass]="{ 'is-invalid': submitted && controls.ubi.errors }">
                 <div *ngIf="submitted && controls.ubi.errors" class="invalid-feedback">
                   <div *ngIf="controls.ubi.errors.required">{{ 'createPublication.addressError' | translate}}</div>
@@ -100,7 +100,7 @@
                   <label id="lblSelectImg" class="custom-file-label"
                     for="name">{{ 'createPublication.selectImg' | translate}}</label>
                   <input [formControl]="myFormUploadedImages" type="file" class="custom-file-input" multiple="true"
-                    accept=".png,.jpg" (change)="onUpload($event)">
+                    accept=".png,.jpg, .jpeg" (change)="onUpload($event)">
                 </div>
                 <div *ngIf="imagesAreUploaded">
                   <br>
@@ -121,11 +121,14 @@
             <div class="row">
               <div class="col-md-12">
                 <div *ngFor="let url of uploadedImages; let index = index">
-                  <div class="col-md-3">
+                  <div class="row">
                     <img [src]="url" height="150" width="200px" style="margin: 3px;">
-                    <button class="btn btn-secondary" (click)="removeSelectedFile(index)"><i
-                        class='fas fa-trash-alt'></i>
-                      {{ 'createPublication.delImg' | translate}}</button>
+                    <div *ngIf="!imagesAreSaveFire" style="padding-top: 50px;">
+                      <button class="btn btn-secondary" (click)="removeSelectedFile(index)"><i
+                          class='fas fa-trash-alt'></i>
+                        {{ 'createPublication.delImg' | translate}}</button>
+                    </div>
+                    <br>
                   </div>
                 </div>
               </div>
