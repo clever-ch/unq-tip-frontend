@@ -1,17 +1,19 @@
 <div class="style backg">
   <div class="container p-3 my-3 text-black">
     <div class="panel-heading text-center">
-      <h1 class="t-stroke-shadow"><strong>{{loginDTO.Username}}</strong></h1>
-      <h3 class="t-stroke-shadow"><strong>{{ 'userPubli.title' | translate }}</strong></h3>   
+      <h1 class="t-stroke-shadow"><strong>Bienvenido {{loginDTO.Username}}</strong></h1>
+      <h4 class="t-stroke-shadow"><strong>{{ 'userPubli.title' | translate }}</strong></h4>
     </div>
+    <br>
     <div class="panel-heading text-center">
       <h1 class="t-stroke-shadow">{{ 'userPubli.subtile1' | translate }}</h1>
     </div>
     <div *ngIf="isEmptyListLost">
+      <br>
       <div class="alert alert-info alert-dismissible fade show text-center">
-        <button type="button" class="close" data-dismiss="alert">&times;</button>
         <strong>{{ 'userPubli.oup' | translate }}</strong> {{ 'userPubli.emptyLost' | translate }}
       </div>
+      <br>
     </div>
     <div class="album text-center bg-transparent" *ngIf="!isEmptyListLost">
       <div class="container">
@@ -41,13 +43,13 @@
           nextLabel="{{ 'petsList.paginationNext' | translate }}" responsive="true"></pagination-controls>
       </ul>
     </div>
+    <br>
 
     <div class="panel-heading text-center">
       <h1 class="t-stroke-shadow">{{ 'userPubli.subtile2' | translate }}</h1>
     </div>
     <div *ngIf="isEmptyListFound">
       <div class="alert alert-info alert-dismissible fade show text-center">
-        <button type="button" class="close" data-dismiss="alert">&times;</button>
         <strong>{{ 'userPubli.oup' | translate }}</strong> {{ 'userPubli.emptyFound' | translate }}
       </div>
     </div>

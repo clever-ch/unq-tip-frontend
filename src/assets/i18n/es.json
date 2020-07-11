@@ -16,7 +16,7 @@
         "english": "Ingles"
     },
     "home": {
-        "title": "Bienvenido a SOS Pets",
+        "title": "¡Bienvenido a SOS Pets! ",
         "text": "Este sitio publica busquedas sobre mascotas perdidas, publica mascotas encontradas y otros servicios para animales",
         "titleImg1": "¿Perdiste tu mascota?",
         "textImg1": "Buscalo en el listado mascotas encontradas.",
@@ -175,10 +175,10 @@
 
     "userPubli" : {
         "title" : "Estas son tus publicaciones",
-        "subtile1" : "Publicaciones de mascotas perdidas",
-        "subtile2" : "Publicaciones de mascotas encontradas",
+        "subtile1" : "Mascotas perdidas",
+        "subtile2" : "Mascotas encontradas",
         "oup" : "Oups!",
-        "emptyLost" : "Al parecer no tienes publicaciones de mascotas perdidas",
-        "emptyFound" : "Al parecer no tienes publicaciones de mascotas encontradas"
+        "emptyLost" : "Al parecer aún no tienes publicaciones de mascotas perdidas.",
+        "emptyFound" : "Al parecer aún no tienes publicaciones de mascotas encontradas."
     }
 }
