@@ -40,8 +40,10 @@ export class PublicationCreateComponent implements OnInit {
   publicationTypeSelected: PublicationType;
   publicationTypes = [PublicationType.FOUND, PublicationType.LOST];
 
-  constructor(private publicationService: PublicationService, private router: Router, private authService: AuthService, 
-              private storage: AngularFireStorage, private urlManagerFirebase: UrlManagerFirebase, private handlerEr: ErrorHandlerController) { }
+  limitImages = 4;
+
+  constructor(private publicationService: PublicationService, private router: Router, private authService: AuthService,
+    private storage: AngularFireStorage, private urlManagerFirebase: UrlManagerFirebase, private handlerEr: ErrorHandlerController) { }
 
   uploadPercent: Observable<number>;
   urlImage: Observable<string>;
@@ -56,7 +58,7 @@ export class PublicationCreateComponent implements OnInit {
     desc: new FormControl('', [Validators.required]),
     ubi: new FormControl('', [Validators.required])
   });
-  
+
   uploadedImages = [];
   myFormUploadedImages = new FormGroup({
     name: new FormControl('', [Validators.required, Validators.minLength(3)]),
@@ -95,9 +97,7 @@ export class PublicationCreateComponent implements OnInit {
 
     console.log('Imprimo el DTO a crear:', this.publicationDTO);
     this.publicationService.createPublication(this.publicationDTO).subscribe(data => (this.createSuccess = true, this.failCreate = false)
-    , error => (this.failCreate = true, this.errorText = this.handlerEr.handleError(error)));
-    
-    //this.goToProfile()
+      , error => (this.failCreate = true, this.errorText = this.handlerEr.handleError(error)));
   }
 
   goToProfile() {
@@ -106,26 +106,32 @@ export class PublicationCreateComponent implements OnInit {
 
   onUpload(event) {
 
-    //Limpio la lista para la nueva carga
-    this.imagesToSave = [];
-    this.imagesAreUploaded = true;
-
     if (event.target.files && event.target.files[0]) {
+
       var filesAmount = event.target.files.length;
 
       for (let i = 0; i < filesAmount; i++) {
-        var reader = new FileReader();
-        reader.onload = (etherEvent: any) => {
-          //console.log(event.target.result);
-          this.uploadedImages.push(etherEvent.target.result);
-          this.myFormUploadedImages.patchValue({
-            fileSource: this.uploadedImages
-          });
+
+        if (this.fileHasCorrectFormat(event, i) && this.canUploadImages()) {
+          var reader = new FileReader();
+          reader.onload = (etherEvent: any) => {
+            this.uploadedImages.push(etherEvent.target.result);
+            this.myFormUploadedImages.patchValue({
+              fileSource: this.uploadedImages
+            });
+          }
+          reader.readAsDataURL(event.target.files[i]);
+          this.imagesToSave.push(event.target.files[i]);
         }
-        reader.readAsDataURL(event.target.files[i]);
-        this.imagesToSave.push(event.target.files[i]);
+        else {
+          console.log('ERROR! Archivo incorrecto');
+        }
+
       }
     }
+
+    this.imagesAreUploaded = this.imagesToSave.length > 0;
+    console.log('Lista de imágenes: ', this.imagesToSave);
   }
 
   removeSelectedFile(index) {
@@ -134,7 +140,9 @@ export class PublicationCreateComponent implements OnInit {
 
     //Actualizo las imágenes que se eliminaron
     this.imagesToSave.splice(index, 1);
-    
+    this.imagesAreUploaded = this.imagesToSave.length > 0;
+
+    console.log('Lista de imagenes: ', this.imagesToSave);
   }
 
   saveURLsImgFireBase() {
@@ -146,20 +154,29 @@ export class PublicationCreateComponent implements OnInit {
       const filePath = `${folder}MiArchivo_${id}`;
       const ref = this.storage.ref(filePath);
       const task = this.storage.upload(filePath, file);
-      
-      task.snapshotChanges().pipe(tap(console.log),finalize(
-        async() => {
+
+      task.snapshotChanges().pipe(tap(console.log), finalize(
+        async () => {
           this.urlImage = await ref.getDownloadURL().toPromise();
           this.arrayInputImageUser.push(this.urlImage);
         }
-        )).subscribe();
-      }
+      )).subscribe();
+    }
 
+
+    this.imagesAreSaveFire = true;
+    this.imagesAreUploaded = false;
+    this.isDisabled = false;
+
+    console.log('Img Firebase', this.arrayInputImageUser);
+  }
   
-  this.imagesAreSaveFire = true;
-  this.imagesAreUploaded = false;
-  this.isDisabled = false;
+  private fileHasCorrectFormat(event: any, i: number) {
+    return event.target.files[i].type.split('/')[0] == "image";
+  }
 
-      console.log('Img Firebase', this.arrayInputImageUser);
+  private canUploadImages(): boolean {
+    return this.imagesToSave.length < this.limitImages;
   }
 }
+

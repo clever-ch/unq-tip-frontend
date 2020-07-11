@@ -22,10 +22,12 @@
             <label> Descripción </label>
             <textarea type="text" class="form-control" formControlName="descriptionFCN"
               [(ngModel)]="service.ServiceDescription" maxlength="200"
-              [ngClass]="{ 'is-invalid': submitted && controls.descriptionFCN.errors }"> </textarea>
+              [ngClass]="{ 'is-invalid': submitted && controls.descriptionFCN.errors }">
+            </textarea>
             <div *ngIf="submitted && controls.descriptionFCN.errors" class="invalid-feedback">
               <div *ngIf="controls.descriptionFCN.errors.required">Por favor, complete este campo</div>
-              <div *ngIf="controls.descriptionFCN.errors.minlength">Este campo debe contener al menos 50 caracteres</div>
+              <div *ngIf="controls.descriptionFCN.errors.minlength">Este campo debe contener al menos 50 caracteres
+              </div>
             </div>
             <small id="descHelpBlock" class="form-text text-muted">
               El maximo de caracteres a escribir es de 200 caracteres y el minimo son 50.
@@ -50,7 +52,8 @@
               [ngClass]="{ 'is-invalid': submitted && controls.timeServiceFCN.errors }" pattern="[0-9]+" />
             <div *ngIf="submitted && controls.timeServiceFCN.errors" class="invalid-feedback">
               <div *ngIf="controls.timeServiceFCN.errors.required">Por favor, complete este campo</div>
-              <div *ngIf="controls.timeServiceFCN.errors.max">Este campo debe estar entre 1 y 31, segun corresponda "Unidad de tiempo"</div>
+              <div *ngIf="controls.timeServiceFCN.errors.max">Este campo debe estar entre 1 y 31, segun corresponda
+                "Unidad de tiempo"</div>
             </div>
           </div>
 
