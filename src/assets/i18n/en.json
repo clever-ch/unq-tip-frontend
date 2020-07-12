@@ -160,7 +160,10 @@
         "desActive" : "Change state",
         "edit" : "Edit",
         "status" : "Status",
-        "thisServ" : "These are your services"
+        "thisServ" : "These are your services",
+        "emptyTransit" : "Apparently you don't have any transit service",
+        "emptyCare" : "Apparently you don't have any care service",
+        "emptyTransport" : "Apparently you don't have any transport service"
     },
 
     "editService" : {

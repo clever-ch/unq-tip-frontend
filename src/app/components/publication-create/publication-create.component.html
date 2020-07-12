@@ -143,12 +143,11 @@
               </div>
               <div class="col-md-6">
                 <button (click)="goToProfile()"
-                  class="btn btn-danger">{{ 'createPublication.cancel' | translate}}</button>
+                  class="btn btn-danger float-right">{{ 'createPublication.cancel' | translate}}</button>
               </div>
             </div>
           </div>
 
-          <br>
           <div *ngIf="failCreate">
             <div class="alert alert-danger text-center">
               <strong>{{ 'createPublication.fail' | translate}}</strong> {{ 'createPublication.fail1' | translate}}

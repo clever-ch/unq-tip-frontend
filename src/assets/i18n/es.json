@@ -160,7 +160,10 @@
         "desActive" : "Cambiar Estado",
         "edit" : "Editar",
         "status" : "Estado",
-        "thisServ" : "Estos son tus servicios"
+        "thisServ" : "Estos son tus servicios",
+        "emptyTransit" : "Aún no tienes publicado ningun servicio de transito.",
+        "emptyCare" : "Aún no tienes publicado ningun servicio de cuidado.",
+        "emptyTransport" : "Aún no tienes publicado ningun servicio de transporte."
     },
 
     "editService" : {
