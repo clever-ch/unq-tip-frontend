@@ -4,4 +4,6 @@
 .imgHeader {
     background-image: url(imgHeader.png); 
     background-size:cover;
+    background-position-x: 80px;
+    background-position-y: -10px;
 }
