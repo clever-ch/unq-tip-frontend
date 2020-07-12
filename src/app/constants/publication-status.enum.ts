@@ -1,4 +1,4 @@
 export enum PublicationStatus {
-    ACTIVE,
-    INACTIVE
+    ACTIVE = "Activo",
+    INACTIVE = "Inactivo"
 }
