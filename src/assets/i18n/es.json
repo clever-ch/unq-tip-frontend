@@ -59,7 +59,8 @@
         "login" : "Iniciar sesión",
         "newCount" : "Crear una cuenta nueva",
         "usernameError":"Por favor, ingrese su nombre de usuario",
-        "passwordError":"Por favor, ingrese su password"
+        "passwordError":"Por favor, ingrese su password",
+        "fail" : "Usuario o contraseña invalidos"
     },
 
     "profile": {
@@ -147,9 +148,9 @@
     },
 
     "serviceList" : {
-        "title1" : "Lista de servicios de Tránsito",
-        "title2" : "Lista de servicios de Transporte",
-        "title3" : "Lista de servicios de Cuidado",
+        "title1" : "Tránsito",
+        "title2" : "Transporte",
+        "title3" : "Cuidado",
         "desp" : "Descripción",
         "unidTime" : "Unidad de tiempo",
         "timeTransit" : "Tiempo de tránsito",

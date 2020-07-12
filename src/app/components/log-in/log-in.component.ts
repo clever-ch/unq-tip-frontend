@@ -14,6 +14,7 @@ export class LogInComponent implements OnInit {
   loginDTO: LoginDTO;
   userData: any;
   submitted = false;
+  failCreate = false;
 
   constructor(private formBuilder: FormBuilder, private authService: AuthService) { }
 
@@ -35,7 +36,7 @@ export class LogInComponent implements OnInit {
   onLogin() {
     this.submitted = true;
     this.loadLoginDTOByFormGroup();
-    this.authService.login(this.loginDTO).subscribe(this.saveStorage());
+    this.authService.login(this.loginDTO).subscribe(this.saveStorage(), error => this.failCreate = true );
   }
 
   private loadLoginDTOByFormGroup() {
@@ -53,7 +54,6 @@ export class LogInComponent implements OnInit {
       else {
         localStorage.setItem('loginDTO', null);
         this.userData = null;
-        //Si no existe el usuario debería lanzar excepcion, catchearla y mostrar error
       }
     };
   }
