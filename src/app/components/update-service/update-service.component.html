@@ -18,11 +18,11 @@
             <textarea type="text" class="form-control" formControlName="desc" [(ngModel)]="service.ServiceDescription"
               [ngClass]="{ 'is-invalid': submitted && f.desc.errors }" maxlength="200"> </textarea>
               <div *ngIf="submitted && f.desc.errors" class="invalid-feedback">
-                <div *ngIf="f.desc.errors.required">Por favor, complete este campo</div>
-                <div *ngIf="f.desc.errors.minlength">Este campo debe contener al menos 50 caracteres</div>
+                <div *ngIf="f.desc.errors.required">{{ 'editService.error' | translate }}</div>
+                <div *ngIf="f.desc.errors.minlength">{{ 'editService.min50' | translate }}</div>
               </div>
               <small id="descHelpBlock" class="form-text text-muted">
-                El maximo de caracteres a escribir es de 200 caracteres y el minimo son 50.
+                {{ 'editService.max200' | translate }}
               </small>
           </div>
 
@@ -47,7 +47,7 @@
                 [ngClass]="{ 'is-invalid': submitted && f.timeTransit.errors }" />
               <div *ngIf="submitted && f.timeTransit.errors" class="invalid-feedback">
                 <div *ngIf="f.timeTransit.errors.required">{{ 'editService.error' | translate }}</div>
-                <div *ngIf="f.timeTransit.errors.max">Este campo debe estar entre 1 y 31, segun corresponda "Unidad de tiempo"</div>
+                <div *ngIf="f.timeTransit.errors.max">{{ 'editService.helptime' | translate }}</div>
               </div>
             </div>
           </div>
@@ -60,7 +60,7 @@
                 [ngClass]="{ 'is-invalid': submitted && f.timeTransport.errors }" />
               <div *ngIf="submitted && f.timeTransport.errors" class="invalid-feedback">
                 <div *ngIf="f.timeTransport.errors.required">{{ 'editService.error' | translate }}</div>
-                <div *ngIf="f.timeTransport.errors.max">Este campo debe estar entre 1 y 31, segun corresponda "Unidad de tiempo"</div>
+                <div *ngIf="f.timeTransport.errors.max">{{ 'editService.helptime' | translate }}</div>
               </div>
             </div>
           </div>
@@ -73,7 +73,7 @@
                 [ngClass]="{ 'is-invalid': submitted && f.timeCare.errors }" />
               <div *ngIf="submitted && f.timeCare.errors" class="invalid-feedback">
                 <div *ngIf="f.timeCare.errors.required">{{ 'editService.error' | translate }}</div>
-                <div *ngIf="f.timeCare.errors.max">Este campo debe estar entre 1 y 31, segun corresponda "Unidad de tiempo"</div>
+                <div *ngIf="f.timeCare.errors.max">{{ 'editService.helptime' | translate }}</div>
               </div>
             </div>
           </div>

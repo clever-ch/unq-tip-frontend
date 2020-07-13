@@ -50,14 +50,9 @@
       </div>
     </ul>
   </div>
-  <div class="dropdown dropleft">
-    <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown">
-      {{ 'navbar.language' | translate }}
-    </button>
-    <div class="dropdown-menu ">
-      <button class="dropdown-item btn-secondary" [ngClass]="{'active': activeLang == 'es'}" (click)="useLanguage('es')">{{ 'navbar.spanish' | translate }}</button>
-      <button class="dropdown-item btn-secondary" [ngClass]="{'active': activeLang == 'en'}" (click)="useLanguage('en')" >{{ 'navbar.english' | translate }}</button>
-    </div>
+  <div class="btn-group">
+      <button type="button" class="btn btn-secondary" [ngClass]="{'active': activeLang == 'es'}" (click)="useLanguage('es')">{{ 'navbar.spanish' | translate }}</button>
+      <button type="button" class="btn btn-secondary" [ngClass]="{'active': activeLang == 'en'}" (click)="useLanguage('en')" >{{ 'navbar.english' | translate }}</button>
   </div>
 </nav>
 
