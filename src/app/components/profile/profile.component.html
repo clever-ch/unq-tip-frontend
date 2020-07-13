@@ -1,123 +1,139 @@
 <div class="style backg">
   <div class="container p-3 my-3 text-black table-responsive">
     <div class="row ">
-      <div class="col-md-6 mx-auto mt-5 card backgForm">
+      <div class="col-md-8 mx-auto mt-5 card backgForm">
         <br>
-          <div class="row">
-            <div class="col">
-              <div class="profile-head">
-                <h2>
-                  {{userDTO.UserName}}
-                </h2>
-                <h6>
-                  SOS Pets User
-                </h6>
-                <button type="button" class="btn btn-primary"
-                  (click)="redirectMyPublications()">{{ 'profile.myPubli' | translate}}</button>
-                <button type="button" class="btn btn-success"
-                  (click)="redirectMyServices()">{{ 'profile.myServ' | translate}}</button>
-                <br>
-                <br>
-                <button type="button" class="btn btn-outline-primary" (click)="redirectCreatePublication()"><i
-                    class="fa fa-plus"></i> <strong> {{ 'profile.createPubli' | translate}} </strong>
-                </button>
-                <button type="button" class="btn btn-outline-success" (click)="redirectCreateService()"><i
-                  class="fa fa-plus"></i> <strong> {{ 'profile.createServ' | translate}} </strong>
-                </button>
-                <br>
-                <br>
+        <div class="row">
+          <div class="col">
+            <div class="profile-head text-center">
+              <h1>
+                {{userDTO.UserName}} <i class='fas fa-user-circle'></i>
+              </h1>
+              <div class="col">
+                <button type="submit" class="profile-edit-btn" name="btnAddMore" (click)="redirectEditProfile()"> <i
+                    class="fa fa-edit"></i> {{ 'profile.edit' | translate}} </button>
               </div>
-            </div>
-            <div class="col-md-4">
-              <button type="submit" class="profile-edit-btn" name="btnAddMore" (click)="redirectEditProfile()"> <i class="fa fa-edit"></i> {{ 'profile.edit' | translate}} </button>
-              <button type="submit" class="profile-edit-btn btn-dark text-white" name="btnAddMore" (click)="logout()"><i class='fas fa-sign-out-alt'></i>
-                {{ 'profile.logout' | translate}}</button>
+              <h5>
+                SOS Pets User <i class='fas fa-cat'></i> <i class='fas fa-dog'></i><i class='fas fa-crow'></i>
+              </h5>
+              <br>
+              <div class="row">
+                <div class="col-md-6">
+                  <button type="button" class="btn btn-primary float-right" (click)="redirectMyPublications()"><i
+                      class='fas fa-columns'></i> {{ 'profile.myPubli' | translate}}</button>
+                </div>
+                <div class="col-md-6">
+                  <button type="button" class="btn btn-success float-left" (click)="redirectMyServices()"><i
+                      class='fas fa-info-circle'></i> {{ 'profile.myServ' | translate}}</button>
+                </div>
+              </div>
+              <br>
+              <div class="row">
+                <div class="col-md-6">
+                  <button type="button" class="btn btn-outline-primary float-right"
+                    (click)="redirectCreatePublication()"><i class="fa fa-plus"></i> <strong>
+                      {{ 'profile.createPubli' | translate}} </strong>
+                  </button>
+                </div>
+                <div class="col-md-6">
+                  <button type="button" class="btn btn-outline-success float-left" (click)="redirectCreateService()"><i
+                      class="fa fa-plus"></i> <strong> {{ 'profile.createServ' | translate}} </strong>
+                  </button>
+                </div>
+              </div>
+              <br>
             </div>
           </div>
-          <div class="row">
-            <div class="col-md-10">
-              <ul class="nav nav-tabs" id="myTab" role="tablist">
-                <li class="nav-item">
-                  <a class="nav-link active " id="home-tab" data-toggle="tab" href="#pers" role="tab"
-                    aria-controls="home" aria-selected="true">{{ 'profile.infoPer' | translate}}</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" id="profile-tab" data-toggle="tab" href="#user" role="tab"
-                    aria-controls="profile" aria-selected="false">{{ 'profile.infoUser' | translate}}</a>
-                </li>
-              </ul>
-              <div class="tab-content profile-tab" id="myTabContent">
-                <div class="tab-pane fade show active" id="pers" role="tabpanel" aria-labelledby="home-tab">
-                  <div class="row">
-                    <div class="col-md-6">
-                      <label>{{ 'profile.name' | translate}}</label>
-                    </div>
-                    <div class="col-md-6">
-                      <p>{{userDTO.PersonDTO.Name}}</p>
-                    </div>
+          <div class="col-md-4">
+            <button type="submit" class="profile-close-btn btn-dark text-white" name="btnAddMore" (click)="logout()"><i
+                class='fas fa-sign-out-alt'></i>
+              {{ 'profile.logout' | translate}}</button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-10">
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+              <li class="nav-item">
+                <a class="nav-link active " id="home-tab" data-toggle="tab" href="#pers" role="tab" aria-controls="home"
+                  aria-selected="true">{{ 'profile.infoPer' | translate}}</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#user" role="tab" aria-controls="profile"
+                  aria-selected="false">{{ 'profile.infoUser' | translate}}</a>
+              </li>
+            </ul>
+            <div class="tab-content profile-tab" id="myTabContent">
+              <div class="tab-pane fade show active" id="pers" role="tabpanel" aria-labelledby="home-tab">
+                <div class="row">
+                  <div class="col-md-6">
+                    <label>{{ 'profile.name' | translate}}</label>
                   </div>
-                  <div class="row">
-                    <div class="col-md-6">
-                      <label>{{ 'profile.surname' | translate}}</label>
-                    </div>
-                    <div class="col-md-6">
-                      <p>{{userDTO.PersonDTO.SurName}}</p>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-md-6">
-                      <label>{{ 'profile.phone' | translate}}</label>
-                    </div>
-                    <div class="col-md-6">
-                      <p>{{userDTO.PersonDTO.Telephone}}</p>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-md-6">
-                      <label>{{ 'profile.address' | translate}}</label>
-                    </div>
-                    <div class="col-md-6">
-                      <p>{{userDTO.PersonDTO.Address}}</p>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-md-6">
-                      <label>{{ 'profile.location' | translate}}</label>
-                    </div>
-                    <div class="col-md-6">
-                      <p>{{userDTO.PersonDTO.Location}}</p>
-                    </div>
+                  <div class="col-md-6">
+                    <p>{{userDTO.PersonDTO.Name}}</p>
                   </div>
                 </div>
-                <div class="tab-pane fade" id="user" role="tabpanel" aria-labelledby="profile-tab">
-                  <div class="row">
-                    <div class="col-md-6">
-                      <label>{{ 'profile.username' | translate}}</label>
-                    </div>
-                    <div class="col-md-6">
-                      <p>{{userDTO.UserName}}</p>
-                    </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <label>{{ 'profile.surname' | translate}}</label>
                   </div>
-                  <div class="row">
-                    <div class="col-md-6">
-                      <label>{{ 'profile.email' | translate}}</label>
-                    </div>
-                    <div class="col-md-6">
-                      <p>{{userDTO.Email}}</p>
-                    </div>
+                  <div class="col-md-6">
+                    <p>{{userDTO.PersonDTO.SurName}}</p>
                   </div>
-                  <div class="row">
-                    <div class="col-md-6">
-                      <label>{{ 'profile.pass' | translate}}</label>
-                    </div>
-                    <div class="col-md-6">
-                      <p>***********</p>
-                    </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <label>{{ 'profile.phone' | translate}}</label>
+                  </div>
+                  <div class="col-md-6">
+                    <p>{{userDTO.PersonDTO.Telephone}}</p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <label>{{ 'profile.address' | translate}}</label>
+                  </div>
+                  <div class="col-md-6">
+                    <p>{{userDTO.PersonDTO.Address}}</p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <label>{{ 'profile.location' | translate}}</label>
+                  </div>
+                  <div class="col-md-6">
+                    <p>{{userDTO.PersonDTO.Location}}</p>
                   </div>
                 </div>
               </div>
+              <div class="tab-pane fade" id="user" role="tabpanel" aria-labelledby="profile-tab">
+                <div class="row">
+                  <div class="col-md-6">
+                    <label>{{ 'profile.username' | translate}}</label>
+                  </div>
+                  <div class="col-md-6">
+                    <p>{{userDTO.UserName}}</p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <label>{{ 'profile.email' | translate}}</label>
+                  </div>
+                  <div class="col-md-6">
+                    <p>{{userDTO.Email}}</p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <label>{{ 'profile.pass' | translate}}</label>
+                  </div>
+                  <div class="col-md-6">
+                    <p>***********</p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
+        </div>
       </div>
     </div>
   </div>
