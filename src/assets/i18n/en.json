@@ -160,13 +160,19 @@
         "desActive" : "Change state",
         "edit" : "Edit",
         "status" : "Status",
-        "thisServ" : "These are your services"
+        "thisServ" : "These are your services",
+        "emptyTransit" : "Apparently you don't have any transit service",
+        "emptyCare" : "Apparently you don't have any care service",
+        "emptyTransport" : "Apparently you don't have any transport service"
     },
 
     "editService" : {
         "title" : "Edit Service",
         "type" : "Type",
         "error" : "This field can not be blank",
+        "min50" : "This field must contain at least 50 characters",
+        "max200" : "The maximum number of characters to write is 200 characters and the minimum is 50.",
+        "helptime" : "This field must be between 1 and 31, as appropriate 'Unit of time'",
         "acepted" : "Accept",
         "cancel" : "Cancel",
         "fail" : "Review the form",
@@ -175,11 +181,21 @@
     },
 
     "userPubli" : {
+        "welcome" : "Welcome",
         "title" : "These are your posts",
         "subtile1" : "Lost pet posts",
         "subtile2" : "Pet posts found",
         "oup" : "Oups!",
         "emptyLost" : "Apparently you don't have any lost pet posts",
         "emptyFound" : "Apparently you don't have any pet posts found"
+    },
+
+    "createServ" : {
+        "title" : "Create Service",
+        "typeServ" : "Service type",
+        "time" : "Time",
+        "create" : "Create",
+        "success" : "Service successfully created"
+
     }
 }

@@ -4,80 +4,79 @@
     <div class="row ">
       <div class="col-md-6 mx-auto mt-5 card bg-light">
 
-        <h1> Crear servicio </h1>
+        <h1> {{ 'createServ.title' | translate }} </h1>
 
         <form [formGroup]="createServiceFG">
           <div class="form-group">
-            <label> Tipo de servicio </label>
+            <label> {{ 'createServ.typeServ' | translate }} </label>
             <select [(ngModel)]="service.TypeService" class="form-control" formControlName="typeServiceFCN"
               [ngClass]="{ 'is-invalid': submitted && controls.typeServiceFCN.errors }">
               <option *ngFor="let type of serviceTypes" [ngValue]="type" [selected]="type"> {{type}} </option>
             </select>
             <div *ngIf="submitted && controls.typeServiceFCN.errors" class="invalid-feedback">
-              <div *ngIf="controls.typeServiceFCN.errors.required">Por favor, complete este campo</div>
+              <div *ngIf="controls.typeServiceFCN.errors.required">{{ 'editService.error' | translate}}</div>
             </div>
           </div>
 
           <div class="form-group">
-            <label> Descripción </label>
+            <label> {{ 'serviceList.desp' | translate }} </label>
             <textarea type="text" class="form-control" formControlName="descriptionFCN"
               [(ngModel)]="service.ServiceDescription" maxlength="200"
               [ngClass]="{ 'is-invalid': submitted && controls.descriptionFCN.errors }">
             </textarea>
             <div *ngIf="submitted && controls.descriptionFCN.errors" class="invalid-feedback">
-              <div *ngIf="controls.descriptionFCN.errors.required">Por favor, complete este campo</div>
-              <div *ngIf="controls.descriptionFCN.errors.minlength">Este campo debe contener al menos 50 caracteres
+              <div *ngIf="controls.descriptionFCN.errors.required">{{ 'editService.error' | translate }}</div>
+              <div *ngIf="controls.descriptionFCN.errors.minlength">{{ 'editService.min50' | translate }}
               </div>
             </div>
             <small id="descHelpBlock" class="form-text text-muted">
-              El maximo de caracteres a escribir es de 200 caracteres y el minimo son 50.
+              {{ 'editService.max200' | translate }}
             </small>
           </div>
 
           <div class="form-group">
-            <label> Unidad de tiempo </label>
+            <label> {{ 'serviceList.unidTime' | translate }} </label>
             <select [(ngModel)]="service.UnidOfTime" class="form-control" formControlName="unidTimeFCN"
               [ngClass]="{ 'is-invalid': submitted && controls.unidTimeFCN.errors }">
               <option *ngFor="let unid of unidTime" [ngValue]="unid" [selected]="unid"> {{unid}} </option>
             </select>
             <div *ngIf="submitted && controls.unidTimeFCN.errors" class="invalid-feedback">
-              <div *ngIf="controls.unidTimeFCN.errors.required">Por favor, complete este campo</div>
+              <div *ngIf="controls.unidTimeFCN.errors.required">{{ 'editService.error' | translate }}</div>
             </div>
           </div>
 
           <div class="form-group">
-            <label> Tiempo </label>
+            <label> {{ 'createServ.time' | translate }} </label>
             <input type='number' step='1' min='1' max='31' placeholder="10 (Ej.)" class="form-control"
               formControlName="timeServiceFCN" [(ngModel)]="service.Time"
               [ngClass]="{ 'is-invalid': submitted && controls.timeServiceFCN.errors }" pattern="[0-9]+" />
             <div *ngIf="submitted && controls.timeServiceFCN.errors" class="invalid-feedback">
-              <div *ngIf="controls.timeServiceFCN.errors.required">Por favor, complete este campo</div>
-              <div *ngIf="controls.timeServiceFCN.errors.max">Este campo debe estar entre 1 y 31, segun corresponda
-                "Unidad de tiempo"</div>
+              <div *ngIf="controls.timeServiceFCN.errors.required">{{ 'editService.error' | translate }}</div>
+              <div *ngIf="controls.timeServiceFCN.errors.max">{{ 'editService.helptime' | translate }}</div>
             </div>
           </div>
 
           <div class="form-group">
             <div class="row">
               <div class="col-md-6">
-                <button (click)="createService()" class="btn btn-primary"> Crear </button>
+                <button (click)="createService()" class="btn btn-primary"> {{ 'createServ.create' | translate }} </button>
               </div>
               <div class="col-md-6">
-                <button (click)="goToProfile()" class="btn btn-danger float-right"> Cancelar </button>
+                <button (click)="goToProfile()" class="btn btn-danger float-right"> {{ 'editService.cancel' | translate }} </button>
               </div>
             </div>
           </div>
 
           <div *ngIf="failCreate">
             <div class="alert alert-danger text-center">
-              <strong>Controle los campos del formulario</strong>
+              <strong>{{ 'editService.fail' | translate }}</strong>
             </div>
           </div>
           <div *ngIf="createSuccess">
             <div class="alert alert-success text-center">
-              <strong>Servicio creado exitosamente!</strong>
+              <strong>{{ 'createServ.success' | translate }}</strong>
               <br>
-              <button (click)="goToProfile()" class="btn btn-success">Perfil</button>
+              <button (click)="goToProfile()" class="btn btn-success">{{ 'createPublication.profile' | translate }}</button>
             </div>
           </div>
         </form>

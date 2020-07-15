@@ -18,6 +18,5 @@ export class AppComponent {
   useLanguage(language: string) {
     this.activeLang = language;
     this.translate.use(language);
-
   }
 }

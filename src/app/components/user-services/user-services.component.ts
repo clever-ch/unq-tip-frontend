@@ -22,6 +22,9 @@ export class UserServicesComponent implements OnInit {
   transitServices: Observable<TransitServiceDTO[]>;
   transportServices: Observable<TransportServiceDTO[]>;
   careServices: Observable<CareServiceDTO[]>;
+  isEmptyListTransit = false;
+  isEmptyListTransport = false;
+  isEmptyListCare = false;
 
   constructor(private authService: AuthService, private prestacionService: PrestacionService, private router: Router) { }
 
@@ -32,17 +35,17 @@ export class UserServicesComponent implements OnInit {
   }
 
   reloadData() {
-    this.prestacionService.getAllCareServicesByIdUser(this.userDTO.Id).subscribe(data => this.careServices = data);
-    this.prestacionService.getAllTransitServicesByIdUser(this.userDTO.Id).subscribe(data => this.transitServices = data);
-    this.prestacionService.getAllTransportServicesByIdUser(this.userDTO.Id).subscribe(data => this.transportServices = data);
+    this.prestacionService.getAllCareServicesByIdUser(this.userDTO.Id).subscribe(data => this.careServices = data, error => this.isEmptyListCare = true);
+    this.prestacionService.getAllTransitServicesByIdUser(this.userDTO.Id).subscribe(data => this.transitServices = data, error => this.isEmptyListTransit = true);
+    this.prestacionService.getAllTransportServicesByIdUser(this.userDTO.Id).subscribe(data => this.transportServices = data, error => this.isEmptyListTransport = true);
   }
 
   private GetUserLoggedInByGuid(userGuid: string) {
     this.authService.getUserByGuid(userGuid).subscribe(data => {
       this.userDTO = data;
-      this.prestacionService.getAllCareServicesByIdUser(this.userDTO.Id).subscribe(data => this.careServices = data);
-      this.prestacionService.getAllTransitServicesByIdUser(this.userDTO.Id).subscribe(data => this.transitServices = data);
-      this.prestacionService.getAllTransportServicesByIdUser(this.userDTO.Id).subscribe(data => this.transportServices = data);
+      this.prestacionService.getAllCareServicesByIdUser(this.userDTO.Id).subscribe(data => this.careServices = data, error => this.isEmptyListCare = true);
+      this.prestacionService.getAllTransitServicesByIdUser(this.userDTO.Id).subscribe(data => this.transitServices = data, error => this.isEmptyListTransit = true);
+      this.prestacionService.getAllTransportServicesByIdUser(this.userDTO.Id).subscribe(data => this.transportServices = data, error => this.isEmptyListTransport = true);
     })
   }
 

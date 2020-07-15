@@ -12,19 +12,30 @@
     background-size: cover;
 }
 
-.profile-head h2{
+.profile-head h1{
     color: #333;
 }
-.profile-head h6{
+.profile-head h5{
     color: #0062cc;
+    padding: 2%;
 }
-.profile-edit-btn{
+.profile-close-btn{
     border: none;
     border-radius: 1.5rem;
     width: 100%;
     padding: 2%;
     font-weight: 600;
-    color: #6c757d;
+    color: #666;
+    cursor: pointer;
+}
+
+.profile-edit-btn{
+    border: none;
+    border-radius: 1.5rem;
+    width: 60%;
+    height: 35px;
+    font-weight: 600;
+    color: #666;
     cursor: pointer;
 }
 
@@ -32,7 +43,7 @@
     margin-bottom:5%;
 }
 .nav-tabs .nav-link{
-    font-weight:600;
+    font-weight:700;
     border: none;
 }
 

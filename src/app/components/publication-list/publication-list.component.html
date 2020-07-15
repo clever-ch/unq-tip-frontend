@@ -1,6 +1,6 @@
 <div class="style backg">
   <div class="container p-3 my-3 text-black">
-    <div class="panel-heading text-center">
+    <div class="panel-heading text-center text-black">
       <h1 class="t-stroke-shadow">{{ 'navbar.lostPets' | translate }}</h1>
     </div>
     <div class="album text-center bg-transparent">
@@ -19,12 +19,11 @@
                 </div>
               </ng-template>
             </ngb-carousel>
-            <h4 class="card-title">{{publication.AnimalDTO.AnimalDescription}}</h4>
+            <h4 class="card-title">{{publication.AnimalDTO.Breed}} - {{publication.AnimalDTO.AnimalAge}}</h4>
             <p class="card-text">
-              {{publication.AnimalDTO.AnimalAge}} -
-              {{publication.AnimalDTO.AnimalSize}} -
-              {{publication.PublicationAddress}} -
               {{publication.PublicationDescription}}
+              <br>
+              {{publication.PublicationAddress}}
             </p>
             <button type="button" class="btn btn-info"
               (click)="openDialog(publication)"><i class='fas fa-eye'></i> {{ 'petsList.viewDetails' | translate }}</button>
